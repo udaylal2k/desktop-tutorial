@@ -1,0 +1,84 @@
+/* ==========================================================================
+   MAR - SKETCHBOOK
+   Loose pages on a desk rather than a grid of results.
+   ========================================================================== */
+
+.sketchbook__head {
+  display: grid;
+  gap: var(--s-4);
+  padding-block-end: var(--s-8);
+}
+
+.sketchbook__title {
+  max-width: 10ch;
+}
+
+.sketchbook__standfirst {
+  max-width: 38ch;
+}
+
+.sketchbook__pages {
+  display: grid;
+  gap: var(--s-8) var(--gutter);
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+}
+
+.sketchbook__page {
+  /* Each page sits at a slightly different height and angle, the way loose
+     sheets do. The variation is worked out from the position in the list,
+     so it is the same on every visit. */
+  transform: rotate(calc((mod(var(--i), 3) - 1) * 0.7deg));
+  margin-block-start: calc(mod(var(--i), 2) * var(--s-6));
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+@supports not (width: mod(3, 2)) {
+  .sketchbook__page {
+    transform: none;
+    margin-block-start: 0;
+  }
+}
+
+.sketchbook__page:hover {
+  transform: rotate(0deg) translateY(-4px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .sketchbook__page,
+  .sketchbook__page:hover {
+    transform: none;
+    transition: none;
+  }
+}
+
+.sketchbook__link {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.sketchbook__link .figure__frame {
+  box-shadow: var(--shadow-lift);
+}
+
+.sketchbook__note {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.sketchbook__note-title {
+  font-family: var(--font-display);
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.sketchbook__link:hover .sketchbook__note-title {
+  color: var(--olive);
+}
+
+.sketchbook__note-body {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.45;
+}

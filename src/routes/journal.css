@@ -1,0 +1,175 @@
+/* ==========================================================================
+   MAR - JOURNAL
+   ========================================================================== */
+
+.journal__head {
+  display: grid;
+  gap: var(--s-4);
+  padding-block-end: var(--s-7);
+}
+
+.journal__title {
+  max-width: 12ch;
+}
+
+.journal__standfirst {
+  max-width: 34ch;
+}
+
+/* --------------------------------------------------------------- REGISTERS */
+
+.journal__registers {
+  display: grid;
+  gap: var(--rule-w);
+  grid-template-columns: minmax(0, 1fr);
+  background: var(--rule);
+  border-block: var(--rule-w) solid var(--rule);
+  margin-block-end: var(--s-7);
+}
+
+@media (min-width: 700px) {
+  .journal__registers {
+    grid-template-columns: 0.6fr repeat(3, minmax(0, 1fr));
+  }
+}
+
+.journal__register {
+  display: grid;
+  gap: var(--s-2);
+  align-content: start;
+  padding: var(--s-5) var(--s-4);
+  background: var(--mar-paper);
+  transition: background-color var(--dur-quick) var(--ease-move);
+}
+
+.journal__register:hover {
+  background: var(--paper-raised);
+}
+
+.journal__register[aria-pressed='true'] {
+  background: var(--olive-wash);
+}
+
+.journal__register-name {
+  font-family: var(--font-display);
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+  color: var(--ink);
+}
+
+.journal__register[aria-pressed='true'] .journal__register-name {
+  color: var(--olive-deep);
+}
+
+.journal__register-count {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+.journal__register-note {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+  line-height: 1.45;
+}
+
+@media (max-width: 699px) {
+  .journal__register-note {
+    display: none;
+  }
+}
+
+.journal__demo {
+  margin-block-end: var(--s-7);
+  max-width: 52rem;
+}
+
+/* ------------------------------------------------------------------- INDEX */
+
+.journal__list {
+  display: grid;
+}
+
+.journal__item + .journal__item {
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.journal__row {
+  display: grid;
+  gap: var(--s-4) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--s-6);
+  align-items: start;
+}
+
+@media (min-width: 768px) {
+  .journal__row {
+    /* The index number sits out in the margin, the way a footnote number
+       does. The cover is small and last. */
+    grid-template-columns: 3rem minmax(0, 1fr) 11rem;
+  }
+}
+
+.journal__row-index {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+.journal__row-text {
+  display: grid;
+  gap: var(--s-2);
+  align-content: start;
+}
+
+.journal__row-meta {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.journal__row-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.35rem, 1rem + 1.3vw, 2rem);
+  font-weight: 700;
+  line-height: 1.08;
+  letter-spacing: var(--track-display);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.journal__row:hover .journal__row-title {
+  color: var(--olive);
+}
+
+.journal__row-body {
+  color: var(--ink-soft);
+  font-size: var(--t-small);
+  max-width: 52ch;
+  line-height: 1.5;
+}
+
+.journal__row-tags {
+  margin-block-start: var(--s-2);
+}
+
+.journal__row-cover {
+  display: block;
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+@media (max-width: 767px) {
+  .journal__row-cover {
+    max-width: 12rem;
+  }
+}
+
+.journal__row:hover .journal__row-cover {
+  opacity: 0.82;
+}

@@ -1,0 +1,165 @@
+/* ==========================================================================
+   MAR - INTERESTS
+   ========================================================================== */
+
+.interests__head {
+  display: grid;
+  gap: var(--s-6) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  padding-block-end: var(--s-7);
+}
+
+@media (min-width: 900px) {
+  .interests__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.interests__head-text {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.interests__title {
+  max-width: 10ch;
+}
+
+.interests__standfirst {
+  max-width: 38ch;
+}
+
+.interests__demo {
+  max-width: 52rem;
+  margin-block-end: var(--s-7);
+}
+
+.interests__network-off {
+  color: var(--ink-soft);
+  max-width: var(--measure);
+  padding-block-end: var(--s-6);
+}
+
+.interests__formal {
+  display: grid;
+  gap: var(--s-9);
+}
+
+/* --------------------------------------------------------------- CATALOGUE */
+
+.catalogue {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.catalogue__title {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  padding-block-end: var(--s-3);
+  border-block-end: var(--rule-w) solid var(--rule);
+}
+
+.catalogue__list {
+  display: grid;
+}
+
+.catalogue__item + .catalogue__item {
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.catalogue__link {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr) auto;
+  gap: var(--s-1) var(--s-4);
+  align-items: baseline;
+  padding-block: var(--s-4);
+}
+
+@media (min-width: 768px) {
+  .catalogue__link {
+    grid-template-columns: 5rem 14rem minmax(0, 1fr) auto;
+  }
+}
+
+.catalogue__code {
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.catalogue__name {
+  font-family: var(--font-display);
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.catalogue__link:hover .catalogue__name {
+  color: var(--olive);
+}
+
+.catalogue__description {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  grid-column: 2 / -1;
+}
+
+@media (min-width: 768px) {
+  .catalogue__description {
+    grid-column: auto;
+  }
+}
+
+.catalogue__count {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--ink-quiet);
+  justify-self: end;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------------------------------------------------------------- INFORMAL */
+
+.interests__informal-note {
+  max-width: 46ch;
+  color: var(--ink-soft);
+  font-size: var(--t-small);
+  padding-block-end: var(--s-7);
+}
+
+.interests__artworks {
+  display: grid;
+  gap: var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 700px) {
+  .interests__artworks {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1200px) {
+  .interests__artworks {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  /* Seven cards into a three column grid leaves a gap at the end, so the
+     first card takes two columns and the last takes the remaining pair.
+     The grid always ends full. */
+  .interests__artworks > *:first-child {
+    grid-column: span 2;
+  }
+
+  .interests__artworks > *:last-child {
+    grid-column: span 2;
+  }
+}

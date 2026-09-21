@@ -1,0 +1,297 @@
+/* ==========================================================================
+   MAR - PROJECTS ENTRANCE
+   ========================================================================== */
+
+.entrance {
+  position: relative;
+}
+
+/* The link out, for anyone who would rather not scroll through a day. It is
+   visible from the keyboard and is never hidden from a screen reader. */
+.entrance__skip {
+  position: absolute;
+  top: var(--s-4);
+  inset-inline-end: var(--margin);
+  z-index: var(--z-sticky);
+  padding: 0.4rem 0.7rem;
+  border: var(--rule-w) solid color-mix(in srgb, var(--mar-ink) 26%, transparent);
+  background: color-mix(in srgb, #f3f0e8 78%, transparent);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: #171717;
+  transition:
+    background-color var(--dur-quick) var(--ease-move),
+    border-color var(--dur-quick) var(--ease-move);
+}
+
+.entrance__skip:hover,
+.entrance__skip:focus-visible {
+  background: #171717;
+  color: #f3f0e8;
+  border-color: #171717;
+}
+
+/* --------------------------------------------------------------- THE TRACK
+   Height equals scroll distance. The stage inside is stuck to the top of the
+   window for the whole of it. */
+.entrance__track {
+  height: 320vh;
+}
+
+@media (max-width: 767px) {
+  /* Shorter on a phone: the same sequence, fewer thumb strokes. */
+  .entrance__track {
+    height: 240vh;
+  }
+}
+
+.entrance__stage {
+  position: sticky;
+  top: 0;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.entrance__stage--still {
+  position: relative;
+  height: min(78vh, 44rem);
+}
+
+/* ------------------------------------------------------------------ THE SKY */
+
+.entrance__sky {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.entrance__stars {
+  position: absolute;
+  inset: 0 0 40% 0;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.entrance__stars span {
+  position: absolute;
+  display: block;
+  background: #f3f0e8;
+  border-radius: var(--radius-circle);
+}
+
+/* The sun, and then the moon. One element, one colour value. */
+.entrance__body {
+  position: absolute;
+  z-index: 1;
+  width: clamp(4rem, 7.5vw, 6.5rem);
+  aspect-ratio: 1;
+  border-radius: var(--radius-circle);
+  transform: translate(-50%, -50%);
+  isolation: isolate;
+  will-change: transform, top, left;
+}
+
+/* The air around it. The colour comes from the disc itself, so the halo
+   cools with the light. */
+.entrance__body::before {
+  content: '';
+  position: absolute;
+  inset: -110%;
+  z-index: -1;
+  border-radius: var(--radius-circle);
+  background: radial-gradient(circle, currentColor 0%, transparent 58%);
+  opacity: 0.26;
+  pointer-events: none;
+}
+
+/* The shadow that makes a moon a moon: the same disc, offset, in the colour
+   of the night sky. */
+/* The shadow that makes a moon a moon: the same disc, offset, carrying the
+   colour of the sky behind it, so it reads as a bite out of the disc rather
+   than as a second object. */
+.entrance__body-shadow {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  transform: translate(24%, -14%) scale(0.96);
+}
+
+/* The band at the horizon. Warm at dusk, gone by night. */
+.entrance__horizon {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 46%;
+  z-index: 1;
+  /* Fades upward so it reads as light in the air rather than as a stripe. */
+  mask-image: linear-gradient(to top, #000 0%, #000 22%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 22%, transparent 100%);
+}
+
+/* ------------------------------------------------------- THE ARCHITECTURE */
+
+.entrance__architecture {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  transform-origin: 50% 100%;
+  will-change: transform;
+}
+
+/* A supplied photograph is anchored to the foot of the stage in the same
+   way the drawing is. */
+.entrance__architecture .figure {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 78%;
+}
+
+.entrance__architecture .figure__frame {
+  height: 100%;
+  aspect-ratio: auto !important;
+}
+
+.entrance__drawing {
+  width: 100%;
+  height: 100%;
+}
+
+/* The mass takes its colour from the sequence, so the building darkens as
+   the light goes behind it. */
+.entrance__near rect {
+  fill: var(--mass, #526044);
+}
+
+/* The set back element is paler: more air stands in front of it. */
+.entrance__far rect {
+  fill: var(--mass, #526044);
+  fill-opacity: 0.74;
+}
+
+.entrance__ground {
+  fill: var(--mass, #526044);
+}
+
+/* The one drawn line on the building: the ground it stands on. */
+.entrance__datum {
+  stroke: #f3f0e8;
+  stroke-opacity: 0.16;
+  stroke-width: 2;
+  fill: none;
+  vector-effect: non-scaling-stroke;
+}
+
+/* Openings are voids cut in the mass, so they are darker than it is. */
+.entrance__openings rect {
+  fill: #0d100c;
+  fill-opacity: 0.42;
+}
+
+.entrance__openings .entrance__far-void {
+  fill-opacity: 0.3;
+}
+
+/* The colonnade is deeper than a window, so it is darker still. */
+.entrance__colonnade rect {
+  fill: #0d100c;
+  fill-opacity: 0.62;
+}
+
+.entrance__lit {
+  fill: #e8cf9e;
+  fill-opacity: 0.62;
+}
+
+/* The light spilling out of the colonnade is warmer, lower and softer
+   still, because it is falling on the ground rather than coming through
+   a pane. */
+.entrance__lit--low {
+  fill: #dcbd84;
+  fill-opacity: 0.4;
+}
+
+/* ---------------------------------------------------------------- THE WORDS */
+
+.entrance__words {
+  position: absolute;
+  z-index: 3;
+  inset-inline: 0;
+  top: clamp(4.5rem, 12vh, 9rem);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+  display: grid;
+  gap: var(--s-4);
+  will-change: transform, opacity;
+}
+
+.entrance__headline {
+  max-width: 13ch;
+  color: #171717;
+}
+
+.entrance__standfirst {
+  max-width: 34ch;
+  font-size: var(--t-subtitle);
+  color: color-mix(in srgb, #171717 72%, transparent);
+}
+
+.entrance--still .entrance__words {
+  top: auto;
+  bottom: var(--s-7);
+}
+
+.entrance--still .entrance__headline,
+.entrance--still .entrance__standfirst {
+  color: #f3f0e8;
+}
+
+.entrance--still .entrance__standfirst {
+  color: color-mix(in srgb, #f3f0e8 74%, transparent);
+}
+
+/* --------------------------------------------------------------- THE HOURS */
+
+.entrance__hours {
+  position: absolute;
+  z-index: 3;
+  bottom: var(--s-5);
+  inset-inline: 0;
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+  display: flex;
+  gap: var(--gutter);
+}
+
+.entrance__hour {
+  flex: 1;
+  display: grid;
+  gap: var(--s-2);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--hour-ink, #171717);
+}
+
+.entrance__hour-rule {
+  display: block;
+  height: 1px;
+  background: currentColor;
+}
+
+@media (max-width: 599px) {
+  /* Four labels will not fit across a phone. The rules stay, the words go. */
+  .entrance__hour {
+    font-size: 0;
+  }
+
+  .entrance__hour-rule {
+    height: 2px;
+  }
+}

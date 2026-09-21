@@ -1,0 +1,266 @@
+/* ==========================================================================
+   MAR - ARCHIVE
+   ========================================================================== */
+
+.archive__head {
+  display: grid;
+  gap: var(--s-4) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  padding-block-end: var(--s-7);
+}
+
+@media (min-width: 768px) {
+  .archive__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.archive__title {
+  max-width: 10ch;
+}
+
+.archive__standfirst {
+  max-width: 42ch;
+  margin-block-start: var(--s-3);
+}
+
+.archive__count {
+  color: var(--ink-quiet);
+}
+
+.archive__demo {
+  max-width: 52rem;
+  margin-block-end: var(--s-7);
+}
+
+/* ----------------------------------------------------------------- FINDING */
+
+.archive__finding {
+  display: grid;
+  gap: var(--s-5);
+  padding-block-end: var(--s-7);
+  margin-block-end: var(--s-7);
+  border-block-end: var(--rule-w) solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .archive__finding {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: var(--s-5) var(--gutter);
+    align-items: start;
+  }
+
+  .archive__clear {
+    grid-column: 1 / -1;
+  }
+}
+
+.archive__search {
+  max-width: 28rem;
+}
+
+.archive__facet {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.archive__facet-name {
+  padding: 0;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.archive__clear {
+  justify-self: start;
+}
+
+/* ------------------------------------------------------------------- ITEMS
+   A repository, so the items are set close together on a tight grid rather
+   than spaced out like a gallery. */
+
+.archive__grid {
+  display: grid;
+  gap: var(--s-6) var(--gutter);
+  grid-template-columns: repeat(auto-fill, minmax(min(12rem, 100%), 1fr));
+}
+
+.archive__item {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.archive__item .figure__frame {
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+.archive__item:hover .figure__frame {
+  opacity: 0.84;
+}
+
+.archive__item-text {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.archive__item-meta {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.archive__item-title {
+  font-size: var(--t-small);
+  color: var(--ink);
+  line-height: 1.35;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.archive__item:hover .archive__item-title {
+  color: var(--olive);
+}
+
+/* -------------------------------------------------------------- SKETCHBOOK */
+
+.archive__sketchbook {
+  display: grid;
+  gap: var(--s-3);
+  justify-items: start;
+  margin-block-start: var(--s-9);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.archive__sketchbook-note {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+  max-width: 44ch;
+}
+
+/* ======================================================================
+   THE ITEM SHEET
+   ====================================================================== */
+
+.archive-sheet {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-panel);
+}
+
+.archive-sheet__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  border: 0;
+  cursor: pointer;
+  animation: sheet-fade var(--dur-base) var(--ease-enter) both;
+}
+
+@keyframes sheet-fade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.archive-sheet__panel {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  width: min(44rem, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-sheet);
+  outline: none;
+  animation: sheet-slide var(--dur-slow) var(--ease-enter) both;
+}
+
+@keyframes sheet-slide {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .archive-sheet__panel {
+    animation: sheet-fade var(--dur-base) both;
+  }
+}
+
+.archive-sheet__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-5) clamp(1.25rem, 4vw, 2.5rem);
+  border-block-end: var(--rule-w) solid var(--rule);
+  flex: none;
+}
+
+.archive-sheet__close {
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.archive-sheet__close:hover {
+  color: var(--ink);
+}
+
+.archive-sheet__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s-6) clamp(1.25rem, 4vw, 2.5rem) var(--s-9);
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.archive-sheet__text {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.archive-sheet__title {
+  font-size: var(--t-display-3);
+}
+
+.archive-sheet__description {
+  color: var(--ink-soft);
+  max-width: var(--measure);
+}
+
+.archive-sheet__spec {
+  padding-block: var(--s-5);
+  border-block: var(--rule-w) solid var(--rule-hair);
+}
+
+.archive-sheet__link {
+  border-block-end: var(--rule-w) solid var(--olive);
+  padding-block-end: 1px;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.archive-sheet__link:hover {
+  color: var(--olive);
+}

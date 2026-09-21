@@ -1,0 +1,301 @@
+/* ==========================================================================
+   MAR - HEADER
+   ========================================================================== */
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+  background: color-mix(in srgb, var(--mar-paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+/* Where transparency is unavailable or unwanted, the bar stays solid. */
+@supports not (backdrop-filter: blur(10px)) {
+  .header {
+    background: var(--mar-paper);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .header {
+    background: var(--mar-paper);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+.header__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-5);
+  height: var(--header-h);
+  max-width: var(--page-max);
+  margin-inline: auto;
+  padding-inline: var(--margin);
+}
+
+.header__logo {
+  display: flex;
+  align-items: center;
+  flex: none;
+  transition: opacity var(--dur-quick) var(--ease-move);
+}
+
+.header__logo:hover {
+  opacity: 0.68;
+}
+
+/* -------------------------------------------------------------- DESKTOP NAV */
+
+.header__nav {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header__nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(1rem, 2.2vw, 2.25rem);
+    margin-inline-start: auto;
+  }
+}
+
+.header__link {
+  position: relative;
+  display: inline-block;
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-block: 0.4rem;
+  white-space: nowrap;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.header__link::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+.header__link:hover {
+  color: var(--ink);
+}
+
+.header__link:hover::after {
+  transform: scaleX(1);
+}
+
+/* The page you are on is named in olive, with the rule already drawn. */
+.header__link--current {
+  color: var(--olive);
+}
+
+.header__link--current::after {
+  transform: scaleX(1);
+}
+
+/* ------------------------------------------------------------------- TOOLS */
+
+.header__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+  flex: none;
+}
+
+.header__search {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header__search {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--s-3);
+    padding: 0.4rem 0.6rem 0.4rem 0.75rem;
+    border: var(--rule-w) solid var(--rule);
+    font-family: var(--font-technical);
+    font-size: var(--t-micro);
+    letter-spacing: var(--track-technical);
+    text-transform: uppercase;
+    color: var(--ink-quiet);
+    transition:
+      border-color var(--dur-quick) var(--ease-move),
+      color var(--dur-quick) var(--ease-move);
+  }
+
+  .header__search:hover {
+    border-color: var(--ink);
+    color: var(--ink);
+  }
+}
+
+.header__key {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: 0.06em;
+  color: var(--ink-quiet);
+  border: var(--rule-w) solid var(--rule-hair);
+  padding: 0.1rem 0.3rem;
+}
+
+/* The phone toggle: two rules that become a cross. */
+.header__toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  margin-inline-end: -0.5rem;
+}
+
+@media (min-width: 768px) {
+  .header__toggle {
+    display: none;
+  }
+}
+
+.header__toggle-rules {
+  position: relative;
+  display: block;
+  width: 1.25rem;
+  height: 0.6rem;
+}
+
+.header__toggle-rules span {
+  position: absolute;
+  inset-inline: 0;
+  height: var(--rule-w);
+  background: var(--ink);
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+.header__toggle-rules span:first-child {
+  top: 0;
+}
+
+.header__toggle-rules span:last-child {
+  bottom: 0;
+}
+
+.header[data-open='true'] .header__toggle-rules span:first-child {
+  transform: translateY(0.3rem) rotate(20deg);
+}
+
+.header[data-open='true'] .header__toggle-rules span:last-child {
+  transform: translateY(-0.3rem) rotate(-20deg);
+}
+
+/* -------------------------------------------------------------- PHONE SHEET */
+
+.header__sheet {
+  position: fixed;
+  inset: var(--header-h) 0 0;
+  z-index: var(--z-header);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--s-7);
+  padding: var(--s-7) var(--margin) var(--s-8);
+  background: var(--mar-paper);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+  overflow-y: auto;
+  animation: sheet-in var(--dur-base) var(--ease-enter) both;
+}
+
+.header__sheet[hidden] {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .header__sheet {
+    display: none;
+  }
+}
+
+@keyframes sheet-in {
+  from {
+    opacity: 0;
+    transform: translateY(-1.25rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.header__sheet-nav {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.header__sheet-item {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-4);
+  padding-block: var(--s-3);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+  animation: item-in var(--dur-slow) var(--ease-enter) both;
+  animation-delay: calc(var(--i) * 45ms);
+}
+
+@keyframes item-in {
+  from {
+    opacity: 0;
+    transform: translateX(-0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.header__sheet-index {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--ink-quiet);
+  flex: none;
+  width: 1.75rem;
+}
+
+.header__sheet-item .header__link {
+  font-family: var(--font-display);
+  font-size: var(--t-display-3);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+  text-transform: none;
+  color: var(--ink);
+  padding-block: 0;
+}
+
+.header__sheet-item .header__link::after {
+  display: none;
+}
+
+.header__sheet-item .header__link--current {
+  color: var(--olive);
+}
+
+.header__sheet-search {
+  align-self: start;
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  padding-block-end: 2px;
+  border-block-end: var(--rule-w) solid var(--rule-strong);
+}

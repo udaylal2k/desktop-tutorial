@@ -1,0 +1,168 @@
+/* ==========================================================================
+   MAR - ABOUT PANEL
+   ========================================================================== */
+
+.about-panel {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-panel);
+}
+
+.about-panel__scrim {
+  position: absolute;
+  inset: 0;
+  z-index: var(--z-scrim);
+  background: var(--scrim);
+  border: 0;
+  cursor: pointer;
+}
+
+.about-panel__sheet {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-end: 0;
+  z-index: var(--z-panel);
+  width: min(38rem, 100%);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-raised);
+  box-shadow: var(--shadow-sheet);
+  outline: none;
+}
+
+/* On a phone the sheet takes the whole screen. There is no room for a
+   scrim, and a half width panel would leave the text too narrow. */
+@media (max-width: 599px) {
+  .about-panel__sheet {
+    width: 100%;
+  }
+}
+
+.about-panel__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-5) clamp(1.25rem, 4vw, 3rem);
+  border-block-end: var(--rule-w) solid var(--rule);
+  flex: none;
+}
+
+.about-panel__close {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-3);
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.about-panel__close:hover {
+  color: var(--ink);
+}
+
+/* The close mark: two rules crossed, drawn rather than an icon font. */
+.about-panel__close-mark {
+  position: relative;
+  width: 0.85rem;
+  height: 0.85rem;
+}
+
+.about-panel__close-mark::before,
+.about-panel__close-mark::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 50%;
+  height: var(--rule-w);
+  background: currentColor;
+}
+
+.about-panel__close-mark::before {
+  transform: rotate(45deg);
+}
+
+.about-panel__close-mark::after {
+  transform: rotate(-45deg);
+}
+
+.about-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: clamp(1.75rem, 5vw, 3rem) clamp(1.25rem, 4vw, 3rem) var(--s-9);
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.about-panel__title {
+  max-width: 18ch;
+}
+
+.about-panel__standfirst {
+  max-width: 44ch;
+}
+
+.about-panel__section {
+  display: grid;
+  gap: var(--s-3);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.about-panel__section-title {
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  font-weight: 500;
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.about-panel__paragraph {
+  color: var(--ink-soft);
+  max-width: 52ch;
+}
+
+.about-panel__entries {
+  display: grid;
+  gap: var(--s-3);
+  margin: 0;
+}
+
+.about-panel__entry {
+  display: grid;
+  gap: var(--s-1);
+}
+
+@media (min-width: 480px) {
+  .about-panel__entry {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: var(--s-4);
+    align-items: baseline;
+  }
+}
+
+.about-panel__entry-key {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.about-panel__entry-value {
+  margin: 0;
+  color: var(--ink);
+  font-size: var(--t-small);
+}
+
+.about-panel__foot {
+  display: grid;
+  gap: var(--s-4);
+  padding-block-start: var(--s-6);
+}

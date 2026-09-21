@@ -1,0 +1,178 @@
+/* ==========================================================================
+   MAR - PROJECT ARCHIVE
+   ========================================================================== */
+
+.project-index {
+  padding-block: var(--room-y);
+  scroll-margin-top: var(--header-h);
+}
+
+/* ----------------------------------------------------------------- FINDING */
+
+.project-index__finding {
+  display: grid;
+  gap: var(--s-6);
+  padding-block-end: var(--s-7);
+  margin-block-end: var(--s-7);
+  border-block-end: var(--rule-w) solid var(--rule);
+}
+
+.project-index__search {
+  max-width: 28rem;
+}
+
+.project-index__facets {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 700px) {
+  .project-index__facets {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1100px) {
+  .project-index__facets {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.project-index__facet {
+  border: 0;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.project-index__facet-name {
+  padding: 0;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.project-index__clear {
+  justify-self: start;
+}
+
+/* ----------------------------------------------------------------- RESULTS */
+
+.project-index__list {
+  display: grid;
+}
+
+.project-index__item + .project-index__item {
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.project-index__row {
+  display: grid;
+  gap: var(--s-4) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--s-6);
+  align-items: start;
+}
+
+@media (min-width: 700px) {
+  .project-index__row {
+    /* The cover is small and left. The archive is a list of records that
+       happen to have pictures, not a grid of pictures. */
+    grid-template-columns: 9rem minmax(0, 1.7fr) minmax(0, 1fr);
+    gap: var(--gutter);
+  }
+}
+
+@media (min-width: 1100px) {
+  .project-index__row {
+    grid-template-columns: 12rem minmax(0, 1.8fr) minmax(0, 1fr);
+  }
+}
+
+.project-index__cover {
+  display: block;
+  max-width: 14rem;
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+.project-index__row:hover .project-index__cover {
+  opacity: 0.82;
+}
+
+.project-index__text {
+  display: grid;
+  gap: var(--s-2);
+  align-content: start;
+}
+
+.project-index__number {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.project-index__row:hover .project-index__number {
+  color: var(--red-ink);
+}
+
+.project-index__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.4rem, 1rem + 1.5vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.06;
+  letter-spacing: var(--track-display);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.project-index__row:hover .project-index__title {
+  color: var(--olive);
+}
+
+.project-index__description {
+  color: var(--ink-soft);
+  font-size: var(--t-small);
+  max-width: 44ch;
+  line-height: 1.5;
+}
+
+.project-index__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--s-3) var(--s-4);
+  align-content: start;
+}
+
+@media (min-width: 700px) {
+  .project-index__meta {
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--s-3);
+    padding-block-start: 0.25rem;
+  }
+}
+
+.project-index__meta-item {
+  display: grid;
+  gap: 0.1rem;
+  font-size: var(--t-small);
+  color: var(--ink);
+}
+
+.project-index__meta-key {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.project-index__empty {
+  margin-block-start: var(--s-6);
+}

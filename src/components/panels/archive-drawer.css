@@ -1,0 +1,157 @@
+/* ==========================================================================
+   MAR - ARCHIVE TRIGGER AND DRAWER
+   ========================================================================== */
+
+/* The trigger. A mark, not a button that shouts. Red because it is an
+   annotation on the work rather than part of it. */
+.archive-trigger {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s-2);
+  padding: 0.35rem 0.6rem 0.35rem 0.45rem;
+  border: var(--rule-w) solid var(--rule);
+  background: color-mix(in srgb, var(--paper-raised) 80%, transparent);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  transition:
+    border-color var(--dur-quick) var(--ease-move),
+    color var(--dur-quick) var(--ease-move),
+    background-color var(--dur-quick) var(--ease-move);
+}
+
+.archive-trigger:hover {
+  border-color: var(--red);
+  color: var(--ink);
+  background: var(--red-wash);
+}
+
+.archive-trigger__mark {
+  display: inline-grid;
+  place-items: center;
+  width: 1rem;
+  height: 1rem;
+  color: var(--red);
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.archive-trigger__count {
+  color: var(--ink-quiet);
+}
+
+/* ------------------------------------------------------------------ DRAWER */
+
+.archive-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-drawer);
+}
+
+.archive-drawer__scrim {
+  position: absolute;
+  inset: 0;
+  background: var(--scrim);
+  border: 0;
+  cursor: pointer;
+}
+
+.archive-drawer__body {
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  /* Stops short of the top so the page it belongs to stays visible above
+     it. A drawer is pulled out of something; it does not replace it. */
+  height: min(82vh, 56rem);
+  display: flex;
+  flex-direction: column;
+  background: var(--paper-raised);
+  border-block-start: var(--rule-w) solid var(--rule-strong);
+  box-shadow: 0 -24px 60px color-mix(in srgb, var(--mar-ink) 14%, transparent);
+  outline: none;
+}
+
+@media (max-width: 599px) {
+  .archive-drawer__body {
+    height: 92vh;
+  }
+}
+
+.archive-drawer__pull {
+  width: 3.5rem;
+  height: var(--rule-w);
+  background: var(--rule-strong);
+  margin: var(--s-3) auto 0;
+  flex: none;
+}
+
+.archive-drawer__head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding: var(--s-5) clamp(1.25rem, 4vw, 3rem);
+  border-block-end: var(--rule-w) solid var(--rule);
+  flex: none;
+}
+
+.archive-drawer__title {
+  font-size: var(--t-title);
+  margin-block-start: var(--s-1);
+}
+
+.archive-drawer__close {
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+  flex: none;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.archive-drawer__close:hover {
+  color: var(--ink);
+}
+
+.archive-drawer__scroll {
+  flex: 1;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  padding: var(--s-6) clamp(1.25rem, 4vw, 3rem) var(--s-8);
+}
+
+.archive-drawer__items {
+  display: grid;
+  gap: var(--s-6) var(--gutter);
+  grid-template-columns: repeat(auto-fill, minmax(min(15rem, 100%), 1fr));
+}
+
+.archive-drawer__item {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.archive-drawer__item-text {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.archive-drawer__item-title {
+  font-size: var(--t-subtitle);
+}
+
+.archive-drawer__item-note {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.archive-drawer__foot {
+  margin-block-start: var(--s-8);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule);
+}

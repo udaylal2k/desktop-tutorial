@@ -1,0 +1,246 @@
+/* ==========================================================================
+   MAR - INTEREST NETWORK
+   ========================================================================== */
+
+.network {
+  display: grid;
+  gap: var(--s-6) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 1024px) {
+  .network {
+    grid-template-columns: minmax(0, 1fr) 17rem;
+    gap: clamp(2rem, 4vw, 4rem);
+    align-items: start;
+  }
+}
+
+.network__field {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: var(--rule-w) solid var(--rule-hair);
+  background: var(--paper-raised);
+  /* The field is set out on a faint grid, the way a drawing sheet is. */
+  background-image:
+    linear-gradient(to right, var(--rule-hair) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--rule-hair) 1px, transparent 1px);
+  background-size: 8.333% 12.5%;
+}
+
+/* ------------------------------------------------------------------- LINES */
+
+.network__lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.network__line {
+  stroke: var(--ink);
+  stroke-opacity: 0.42;
+  stroke-width: 1;
+  vector-effect: non-scaling-stroke;
+  transition:
+    stroke var(--dur-base) var(--ease-move),
+    stroke-opacity var(--dur-base) var(--ease-move),
+    stroke-width var(--dur-base) var(--ease-move);
+}
+
+.network__line[data-lit='true'] {
+  stroke: var(--olive);
+  stroke-opacity: 1;
+  stroke-width: 1.5;
+}
+
+.network__line[data-dim='true'] {
+  stroke-opacity: 0.1;
+}
+
+/* ------------------------------------------------------------------- NODES */
+
+.network__nodes {
+  position: absolute;
+  inset: 0;
+}
+
+.network__node-slot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
+
+.network__node {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-1);
+  padding: var(--s-3) var(--s-2);
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+/* The mark. Its size comes from how many other interests it touches, so the
+   field shows at a glance which ones are doing the most work. */
+.network__node-mark {
+  display: block;
+  width: calc(0.9rem * var(--weight, 1));
+  height: calc(0.9rem * var(--weight, 1));
+  border-radius: var(--radius-circle);
+  border: 1.5px solid var(--ink);
+  background: var(--paper-raised);
+  transition:
+    transform var(--dur-base) var(--ease-enter),
+    background-color var(--dur-base) var(--ease-move),
+    border-color var(--dur-base) var(--ease-move);
+}
+
+.network__node-code {
+  margin-block-start: var(--s-2);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.network__node-name {
+  font-size: var(--t-small);
+  color: var(--ink);
+  white-space: nowrap;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.network__node[data-active='true'] .network__node-mark {
+  transform: scale(1.6);
+  background: var(--olive);
+  border-color: var(--olive);
+}
+
+.network__node[data-active='true'] .network__node-code {
+  color: var(--olive);
+}
+
+.network__node[data-dim='true'] {
+  opacity: 0.34;
+}
+
+/* ---------------------------------------------------------------- READOUT */
+
+.network__readout {
+  display: grid;
+  gap: var(--s-2);
+  align-content: start;
+  /* The space is held whether or not anything is selected, so nothing on
+     the page moves as the cursor travels across the field. */
+  min-height: 11rem;
+  padding: var(--s-5);
+  border: var(--rule-w) solid var(--rule);
+  background: var(--paper-sunk);
+}
+
+.network__readout-code {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.network__readout-name {
+  font-family: var(--font-display);
+  font-size: var(--t-title);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+}
+
+.network__readout-description {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.network__readout-links {
+  margin-block-start: var(--s-3);
+  padding-block-start: var(--s-3);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+}
+
+.network__readout-key,
+.network-list__links-key {
+  display: block;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  margin-block-end: var(--s-1);
+}
+
+.network__readout-rest {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+  line-height: 1.5;
+}
+
+/* ======================================================================
+   THE PHONE DRAWING
+   The same relationships, printed as a catalogue.
+   ====================================================================== */
+
+.network-list__note {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+  padding-block-end: var(--s-4);
+}
+
+.network-list__item {
+  padding-block: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+  display: grid;
+  gap: var(--s-3);
+}
+
+.network-list__link {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.network-list__code {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.network-list__name {
+  font-family: var(--font-display);
+  font-size: var(--t-title);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+}
+
+.network-list__description {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.network-list__links {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-2);
+}
+
+.network-list__links-key {
+  width: 100%;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}

@@ -1,0 +1,462 @@
+/* ==========================================================================
+   MAR - INTEREST ARTWORKS
+   ========================================================================== */
+
+.artwork {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--s-4);
+  padding: var(--s-5);
+  border: var(--rule-w) solid var(--rule);
+  background: var(--paper-raised);
+  container-type: inline-size;
+}
+
+.artwork__head {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s-3);
+  padding-block-end: var(--s-3);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+.artwork__code {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--olive);
+  flex: none;
+}
+
+.artwork__name {
+  font-family: var(--font-display);
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+}
+
+.artwork__stage {
+  position: relative;
+  min-height: 15rem;
+  display: grid;
+  align-content: center;
+}
+
+.artwork__foot {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3);
+  padding-block-start: var(--s-3);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.artwork__prompt {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  max-width: 34ch;
+  line-height: 1.45;
+}
+
+/* Always there. Nobody has to play to see the content. */
+.artwork__skip {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  padding-block-end: 2px;
+  border-block-end: var(--rule-w) solid var(--rule);
+  flex: none;
+  transition:
+    color var(--dur-quick) var(--ease-move),
+    border-color var(--dur-quick) var(--ease-move);
+}
+
+.artwork__skip:hover {
+  color: var(--ink);
+  border-block-end-color: var(--ink);
+}
+
+/* ---------------------------------------------------------------- REVEALED */
+
+.artwork__revealed {
+  display: grid;
+  gap: var(--s-4);
+  animation: artwork-settle var(--dur-slow) var(--ease-enter) both;
+}
+
+@keyframes artwork-settle {
+  from {
+    opacity: 0;
+    transform: scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.artwork__revealed-text {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+/* ===================================================================
+   DEVELOP
+   =================================================================== */
+
+.develop {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.develop__tray {
+  position: relative;
+  border: var(--rule-w) solid var(--rule);
+  background: var(--paper-sunk);
+  cursor: crosshair;
+  overflow: hidden;
+}
+
+.develop__sheet {
+  transition: opacity 180ms linear;
+}
+
+/* The unexposed sheet: paper with the faintest grain of an emulsion. */
+.develop__blank {
+  position: absolute;
+  inset: 0;
+  background: var(--paper-sunk);
+  background-image: repeating-linear-gradient(
+    135deg,
+    color-mix(in srgb, var(--ink) 5%, transparent) 0 1px,
+    transparent 1px 5px
+  );
+  transition: opacity 180ms linear;
+  pointer-events: none;
+}
+
+.develop__controls {
+  display: flex;
+  align-items: center;
+  gap: var(--s-4);
+}
+
+.develop__reading {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================================================================
+   FILMSTRIP
+   =================================================================== */
+
+.filmstrip {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.filmstrip__window {
+  position: relative;
+  overflow: hidden;
+  border-block: var(--rule-w) solid var(--rule-strong);
+  background: var(--paper-deep);
+}
+
+.filmstrip__track {
+  display: flex;
+  width: 600%;
+  transition: transform var(--dur-slow) var(--ease-enter);
+}
+
+.filmstrip__frame {
+  position: relative;
+  width: calc(100% / 6);
+  flex: none;
+  padding: var(--s-4) var(--s-2);
+  opacity: 0.45;
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+.filmstrip__frame[data-current='true'] {
+  opacity: 1;
+}
+
+.filmstrip__number {
+  position: absolute;
+  top: 0.35rem;
+  left: 0.6rem;
+  z-index: var(--z-raised);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--ink-quiet);
+}
+
+/* The sprocket holes, drawn with a repeating gradient rather than as an
+   image, so they stay crisp at any size. */
+.filmstrip__sprockets {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      to right,
+      var(--paper-raised) 0 8px,
+      transparent 8px 26px
+    ),
+    repeating-linear-gradient(
+      to right,
+      var(--paper-raised) 0 8px,
+      transparent 8px 26px
+    );
+  background-size: 100% 6px, 100% 6px;
+  background-position: 0 0, 0 100%;
+  background-repeat: no-repeat;
+}
+
+.filmstrip__controls {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.filmstrip__label {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.filmstrip__range {
+  width: 100%;
+  accent-color: var(--olive);
+}
+
+/* ===================================================================
+   ASSEMBLE
+   =================================================================== */
+
+.assemble {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.assemble__board {
+  position: relative;
+  aspect-ratio: 3 / 2;
+  background: var(--paper-sunk);
+  border: var(--rule-w) dashed var(--rule);
+}
+
+.assemble__piece {
+  position: absolute;
+  padding: 2px;
+  transition:
+    transform var(--dur-slow) var(--ease-enter),
+    filter var(--dur-base) var(--ease-move);
+  z-index: var(--z-raised);
+}
+
+.assemble__piece[data-placed='true'] {
+  z-index: var(--z-base);
+  padding: 0;
+}
+
+.assemble__piece:hover:not([data-placed='true']) {
+  filter: brightness(1.04);
+}
+
+.assemble__piece-window {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  outline: var(--rule-w) solid var(--rule);
+  outline-offset: -1px;
+}
+
+.assemble__piece[data-placed='true'] .assemble__piece-window {
+  outline-color: transparent;
+}
+
+.assemble__piece-art {
+  position: absolute;
+}
+
+.assemble__piece-art .figure,
+.assemble__piece-art .figure__frame {
+  width: 100%;
+  height: 100%;
+  aspect-ratio: auto !important;
+}
+
+.assemble__reading {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  font-variant-numeric: tabular-nums;
+}
+
+/* ===================================================================
+   POSTCARD
+   =================================================================== */
+
+.postcard {
+  display: grid;
+  justify-items: center;
+}
+
+.postcard__card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  transform-style: preserve-3d;
+  transition: transform var(--dur-room) var(--ease-enter);
+  box-shadow: var(--shadow-lift);
+}
+
+.postcard__card[data-turned='true'] {
+  transform: rotateY(180deg);
+}
+
+.postcard__face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  overflow: hidden;
+}
+
+.postcard__face--front {
+  background: var(--paper-deep);
+}
+
+.postcard__face--front .figure,
+.postcard__face--front .figure__frame {
+  height: 100%;
+  aspect-ratio: auto !important;
+}
+
+/* The stamp: a franked corner, not a decorative sticker. */
+.postcard__stamp {
+  position: absolute;
+  top: 0.6rem;
+  right: 0.6rem;
+  padding: 0.4rem 0.5rem;
+  border: 1.5px dashed var(--rule-strong);
+  background: var(--paper-raised);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--olive);
+}
+
+.postcard__face--back {
+  transform: rotateY(180deg);
+  background: var(--paper-raised);
+  padding: var(--s-5);
+  display: grid;
+  align-content: start;
+  gap: var(--s-3);
+  text-align: left;
+}
+
+/* The dividing rule and the address lines of a real card. */
+.postcard__back-rules {
+  position: absolute;
+  inset-block: var(--s-5);
+  left: 58%;
+  width: var(--rule-w);
+  background: var(--rule);
+}
+
+.postcard__back-text {
+  max-width: 52%;
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.postcard__back-mark {
+  position: absolute;
+  bottom: var(--s-5);
+  right: var(--s-5);
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .postcard__card {
+    transition: none;
+  }
+}
+
+/* ===================================================================
+   EVASIVE
+   =================================================================== */
+
+.evasive {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.evasive__area {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 13rem;
+  padding: var(--s-6);
+  background: var(--paper-sunk);
+  border: var(--rule-w) solid var(--rule-hair);
+  overflow: hidden;
+}
+
+.evasive__target {
+  width: 62%;
+  transition: transform var(--dur-slow) var(--ease-enter);
+  box-shadow: var(--shadow-lift);
+}
+
+.evasive__reading {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+/* ===================================================================
+   NARROW CARDS
+   Below a card width of 360px the play areas lose their side padding so
+   the artwork keeps its size.
+   =================================================================== */
+
+@container (max-width: 360px) {
+  .artwork {
+    padding: var(--s-4);
+  }
+
+  .evasive__area {
+    padding: var(--s-4);
+    min-height: 11rem;
+  }
+
+  .evasive__target {
+    width: 78%;
+  }
+}

@@ -1,0 +1,113 @@
+/* ==========================================================================
+   MAR - FIGURE
+   The image treatment system. One rule per treatment, applied nowhere else.
+   ========================================================================== */
+
+.figure {
+  margin: 0;
+  display: grid;
+  gap: var(--s-3);
+}
+
+.figure__frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background: var(--paper-sunk);
+  /* Lets the plate caption respond to the frame's own width. */
+  container-type: inline-size;
+}
+
+/* A real photograph fades up once it has decoded, so the page never flashes
+   an empty well. The plate needs no such state: it is drawn immediately. */
+.figure__image {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity var(--dur-slow) var(--ease-enter);
+}
+
+.figure__frame[data-loaded='true'] .figure__image {
+  opacity: 1;
+}
+
+/* -------------------------------------------------------------- TREATMENTS */
+
+/* COVER - fills the frame, crops what does not fit. Photographs, renders. */
+.figure--cover .figure__image {
+  object-fit: cover;
+  object-position: center;
+}
+
+/* CONTAIN - nothing is cropped. Measured drawings, scans, diagrams. */
+.figure--contain .figure__frame {
+  background: var(--paper-raised);
+  border: var(--rule-w) solid var(--rule-hair);
+  padding: clamp(0.75rem, 3%, 2rem);
+}
+
+.figure--contain .figure__image {
+  object-fit: contain;
+}
+
+/* FRAMED - sits inside a drawn frame with paper showing around it. Used for
+   working material, scans and anything that reads as a document. */
+.figure--framed .figure__frame {
+  background: var(--paper-raised);
+  border: var(--rule-w) solid var(--rule);
+  padding: clamp(0.6rem, 4%, 1.5rem);
+  box-shadow: var(--shadow-lift);
+}
+
+.figure--framed .figure__image {
+  object-fit: cover;
+}
+
+/* PORTRAIT and PANORAMA - crops. The ratio in the content file does the
+   work; these exist so that a content file can say what it means. */
+.figure--portrait .figure__image,
+.figure--panorama .figure__image {
+  object-fit: cover;
+}
+
+/* BLEED - breaks the page margins and runs edge to edge. */
+.figure--bleed {
+  width: 100vw;
+  max-width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+.figure--bleed .figure__image {
+  object-fit: cover;
+}
+
+.figure--bleed .figure__caption {
+  padding-inline: var(--margin);
+  max-width: var(--page-max);
+  margin-inline: auto;
+}
+
+/* ---------------------------------------------------------------- CAPTIONS */
+
+.figure__caption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-2) var(--s-4);
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  line-height: 1.45;
+}
+
+.figure__caption-label {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  flex: none;
+}
+
+.figure__caption-text {
+  max-width: var(--measure);
+}

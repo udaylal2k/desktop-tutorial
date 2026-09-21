@@ -1,0 +1,103 @@
+/* ==========================================================================
+   MAR - LOGO
+   ========================================================================== */
+
+.mar-logo {
+  display: inline-flex;
+  align-items: baseline;
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 1.5rem;
+  line-height: 0.82;
+  /* The wordmark is set tighter than any other display type on the site.
+     This tracking is part of the identity, not a typographic accident. */
+  letter-spacing: -0.045em;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* The lowercase a sits between two capitals, so it is optically raised a
+   little and set marginally wider to keep the three letters even. */
+.mar-logo__a {
+  letter-spacing: -0.02em;
+  transform: translateY(-0.01em);
+}
+
+.mar-logo__r {
+  letter-spacing: 0;
+}
+
+.mar-logo--ink {
+  color: var(--ink);
+}
+
+.mar-logo--olive {
+  color: var(--olive);
+}
+
+.mar-logo--inverted {
+  color: var(--on-dark);
+}
+
+.mar-logo--current {
+  color: currentColor;
+}
+
+/* A supplied logo file replaces the set wordmark and keeps its height. */
+.mar-logo--supplied {
+  height: 1.5rem;
+  width: auto;
+}
+
+/* --------------------------------------------------------------------------
+   MARK
+   -------------------------------------------------------------------------- */
+.mar-mark {
+  display: block;
+  flex: none;
+}
+
+.mar-mark__ground {
+  fill: transparent;
+}
+
+.mar-mark--ink .mar-mark__wave {
+  stroke: var(--ink);
+}
+
+.mar-mark--olive .mar-mark__ground {
+  fill: var(--olive);
+}
+
+.mar-mark--olive .mar-mark__wave {
+  stroke: var(--mar-paper);
+}
+
+.mar-mark--inverted .mar-mark__wave {
+  stroke: var(--on-dark);
+}
+
+.mar-mark--current .mar-mark__wave {
+  stroke: currentColor;
+}
+
+/* --------------------------------------------------------------------------
+   WAVE
+   The divider motif. Stroked with the rule colour so it reads as drawn
+   linework rather than as an illustration.
+   -------------------------------------------------------------------------- */
+.mar-wave {
+  display: block;
+  width: 100%;
+  height: 1.5rem;
+  stroke: var(--rule-strong);
+  overflow: visible;
+}
+
+.mar-wave--olive {
+  stroke: var(--olive);
+}
+
+.mar-wave--faint {
+  stroke: var(--rule);
+}

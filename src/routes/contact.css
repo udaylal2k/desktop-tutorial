@@ -1,0 +1,116 @@
+/* ==========================================================================
+   MAR - CONTACT
+   ========================================================================== */
+
+.contact__grid {
+  display: grid;
+  gap: var(--s-8) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+  .contact__grid {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: clamp(2rem, 7vw, 7rem);
+    align-items: start;
+  }
+}
+
+.contact__opening {
+  display: grid;
+  gap: var(--s-5);
+}
+
+.contact__headline {
+  max-width: 16ch;
+}
+
+.contact__body {
+  max-width: 42ch;
+}
+
+.contact__links {
+  display: grid;
+  margin: 0;
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.contact__link-row {
+  display: grid;
+  gap: var(--s-1);
+  padding-block: var(--s-5);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+@media (min-width: 480px) {
+  .contact__link-row {
+    grid-template-columns: 7rem minmax(0, 1fr);
+    gap: var(--s-4);
+    align-items: baseline;
+  }
+}
+
+.contact__link-label {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.contact__link-value {
+  margin: 0;
+  font-size: var(--t-subtitle);
+  color: var(--ink);
+  overflow-wrap: anywhere;
+}
+
+.contact__link {
+  border-block-end: var(--rule-w) solid var(--rule-strong);
+  padding-block-end: 2px;
+  transition:
+    color var(--dur-quick) var(--ease-move),
+    border-color var(--dur-quick) var(--ease-move);
+}
+
+.contact__link:hover {
+  color: var(--olive);
+  border-block-end-color: var(--olive);
+}
+
+.contact__demo {
+  margin-block-start: var(--s-8);
+  max-width: 48rem;
+}
+
+/* ------------------------------------------------------------------- CLOSE */
+
+.contact-close {
+  background: var(--ink);
+  color: var(--on-dark);
+  padding-block: var(--room-y-tight);
+  overflow: hidden;
+}
+
+.contact-close .page {
+  display: grid;
+  gap: var(--s-6);
+}
+
+.contact-close__lines {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-6);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule-on-dark);
+}
+
+.contact-close__statement,
+.contact-close__closing {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--on-dark-quiet);
+}

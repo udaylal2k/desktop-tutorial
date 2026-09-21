@@ -1,0 +1,80 @@
+/* ==========================================================================
+   MAR - RELATED
+   A ruled index rather than a row of cards.
+   ========================================================================== */
+
+.related {
+  display: grid;
+  gap: var(--s-5);
+  padding-block-start: var(--s-6);
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.related__title {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.related__list {
+  display: grid;
+}
+
+.related__item + .related__item {
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.related__link {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-1) var(--s-4);
+  align-items: baseline;
+  padding-block: var(--s-4);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+@media (min-width: 640px) {
+  .related__link {
+    grid-template-columns: 7rem minmax(0, 1fr) auto;
+  }
+}
+
+.related__kind {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  grid-row: 1;
+}
+
+@media (max-width: 639px) {
+  .related__kind {
+    grid-column: 1 / -1;
+  }
+}
+
+.related__name {
+  font-family: var(--font-display);
+  font-size: var(--t-subtitle);
+  font-weight: 700;
+  letter-spacing: var(--track-title);
+  color: var(--ink);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.related__label {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  justify-self: end;
+}
+
+.related__link:hover .related__name {
+  color: var(--olive);
+}

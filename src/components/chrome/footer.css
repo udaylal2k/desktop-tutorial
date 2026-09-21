@@ -1,0 +1,157 @@
+/* ==========================================================================
+   MAR - FOOTER
+   ========================================================================== */
+
+.footer {
+  padding-block: var(--room-y-tight) var(--s-7);
+  border-block-start: var(--rule-w) solid var(--rule);
+  background: var(--paper-sunk);
+}
+
+.footer__wave {
+  height: 1.25rem;
+  margin-block-end: var(--s-8);
+  opacity: 0.8;
+}
+
+.footer__rooms {
+  display: grid;
+  gap: var(--s-8) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 640px) {
+  .footer__rooms {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .footer__rooms {
+    /* The wordmark takes the space of two columns, as it does on a title
+       page. The three lists sit against the right edge. */
+    grid-template-columns: minmax(0, 1.6fr) repeat(3, minmax(0, 1fr));
+    gap: var(--s-7) var(--gutter);
+  }
+}
+
+.footer__identity {
+  display: grid;
+  gap: var(--s-3);
+  align-content: start;
+}
+
+.footer__descriptor {
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+}
+
+.footer__motto {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.footer__column {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+}
+
+.footer__column-title {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  padding-block-end: var(--s-3);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+.footer__list {
+  display: grid;
+  gap: var(--s-2);
+}
+
+.footer__link {
+  display: inline-block;
+  font-size: var(--t-small);
+  color: var(--ink-soft);
+  transition: color var(--dur-quick) var(--ease-move);
+  overflow-wrap: anywhere;
+}
+
+.footer__link:hover {
+  color: var(--olive);
+}
+
+.footer__link--flat {
+  cursor: default;
+}
+
+.footer__link--flat:hover {
+  color: var(--ink-soft);
+}
+
+.footer__note {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+  max-width: 30ch;
+  line-height: 1.5;
+}
+
+.footer__contact-link {
+  justify-self: start;
+}
+
+/* ------------------------------------------------------------------ RECORD */
+
+.footer__record {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+  gap: var(--s-5) var(--gutter);
+  margin-block: var(--s-8) var(--s-7);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.footer__record-item {
+  display: grid;
+  gap: var(--s-1);
+}
+
+.footer__record-item dt {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.footer__record-item dd {
+  margin: 0;
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* -------------------------------------------------------------------- BASE */
+
+.footer__base {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-3) var(--s-6);
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.footer__base-note {
+  color: var(--ink-quiet);
+}

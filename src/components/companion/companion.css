@@ -1,0 +1,184 @@
+/* ==========================================================================
+   MAR - COMPANION
+   It lives in the strip of margin at the bottom of the window, takes no
+   pointer events, and never sits over content.
+   ========================================================================== */
+
+.companion {
+  position: fixed;
+  inset-inline: 0;
+  bottom: 0;
+  height: 4.5rem;
+  z-index: var(--z-companion);
+  pointer-events: none;
+}
+
+.companion__figure {
+  position: absolute;
+  bottom: 0.55rem;
+  left: 0;
+  width: 3rem;
+  display: grid;
+  justify-items: center;
+  will-change: transform;
+}
+
+.companion__body {
+  width: 3rem;
+  transform-origin: center bottom;
+  transition: transform var(--dur-base) var(--ease-move);
+}
+
+.companion__drawing {
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.companion__line,
+.companion__ear,
+.companion__tail {
+  stroke: var(--ink-soft);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+.companion__eye {
+  fill: var(--ink-soft);
+}
+
+.companion__photo {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+/* A drawn ground shadow, so it stands on the page rather than floating. */
+.companion__shadow {
+  display: block;
+  width: 2.25rem;
+  height: var(--rule-w);
+  margin-block-start: 0.15rem;
+  background: var(--rule-strong);
+  opacity: 0.55;
+  transition:
+    width var(--dur-base) var(--ease-move),
+    opacity var(--dur-base) var(--ease-move);
+}
+
+/* ------------------------------------------------------------------- POSES */
+
+/* Sitting: settled, tail down, shadow tucked in. */
+.companion__figure[data-pose='sitting'] .companion__tail {
+  transform-origin: 8px 18px;
+  transform: rotate(14deg);
+  transition: transform var(--dur-slow) var(--ease-enter);
+}
+
+.companion__figure[data-pose='sitting'] .companion__shadow {
+  width: 1.75rem;
+}
+
+/* Walking: a small, slow rise and fall. Not a bounce. */
+.companion__figure[data-pose='walking'] .companion__body {
+  animation: companion-walk 900ms var(--ease-move) infinite;
+}
+
+@keyframes companion-walk {
+  0%,
+  100% {
+    transform: translateY(0) scaleX(var(--facing, 1));
+  }
+  50% {
+    transform: translateY(-1.5px) scaleX(var(--facing, 1));
+  }
+}
+
+.companion__figure[data-pose='walking'] .companion__tail {
+  transform-origin: 8px 18px;
+  animation: companion-tail 520ms var(--ease-move) infinite alternate;
+}
+
+@keyframes companion-tail {
+  from {
+    transform: rotate(-6deg);
+  }
+  to {
+    transform: rotate(16deg);
+  }
+}
+
+/* Looking: the ear lifts while the page is moving. */
+.companion__figure[data-pose='looking'] .companion__ear {
+  transform-origin: 38px 14px;
+  transform: rotate(-16deg);
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+/* ----------------------------------------------------------------- CONTROL */
+
+/* The way out. Small, at the very edge, always reachable by keyboard. */
+.companion__off,
+.companion-restore {
+  position: fixed;
+  bottom: 0.65rem;
+  inset-inline-end: 0.75rem;
+  z-index: var(--z-companion);
+  pointer-events: auto;
+  padding: 0.25rem 0.5rem;
+  border: var(--rule-w) solid transparent;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  background: color-mix(in srgb, var(--mar-paper) 70%, transparent);
+  transition:
+    color var(--dur-quick) var(--ease-move),
+    border-color var(--dur-quick) var(--ease-move);
+}
+
+.companion__off:hover,
+.companion__off:focus-visible,
+.companion-restore:hover,
+.companion-restore:focus-visible {
+  color: var(--ink);
+  border-color: var(--rule);
+}
+
+/* --------------------------------------------------------------- RESPONSES */
+
+/* A phone has no cursor and less room. The companion rests in the corner,
+   smaller, and reacts to the page moving rather than to a pointer. */
+@media (max-width: 767px) {
+  .companion {
+    height: 3.25rem;
+  }
+
+  .companion__figure,
+  .companion__body {
+    width: 2.25rem;
+  }
+
+  .companion__off,
+  .companion-restore {
+    bottom: 0.4rem;
+    inset-inline-end: 0.4rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .companion__figure[data-pose] .companion__body,
+  .companion__figure[data-pose] .companion__tail {
+    animation: none;
+  }
+}
+
+/* When the window is short there is no spare strip to stand in. */
+@media (max-height: 480px) {
+  .companion {
+    display: none;
+  }
+}

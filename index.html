@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+
+    <title>MAR</title>
+    <meta
+      name="description"
+      content="MAR. Architecture, design and a personal archive of projects, writing and interests."
+    />
+    <link rel="canonical" href="https://example.com/" />
+
+    <!-- The paper ground, so the browser chrome matches the page on mobile. -->
+    <meta name="theme-color" content="#f3f0e8" />
+    <meta name="color-scheme" content="light" />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
+    <!-- Open Graph and Twitter. The values are kept in sync by PageMeta. -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="MAR" />
+    <meta property="og:title" content="MAR" />
+    <meta
+      property="og:description"
+      content="MAR. Architecture, design and a personal archive of projects, writing and interests."
+    />
+    <meta property="og:image" content="/content/share-card.jpg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MAR" />
+    <meta
+      name="twitter:description"
+      content="MAR. Architecture, design and a personal archive of projects, writing and interests."
+    />
+    <meta name="twitter:image" content="/content/share-card.jpg" />
+
+    <!-- The two typefaces the first view needs, fetched with the document so
+         the wordmark is never set in a fallback face. -->
+    <link
+      rel="preload"
+      href="/fonts/syne-var-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/schibsted-var-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="padding: 2rem; font-family: system-ui, sans-serif">
+        <h1>MAR</h1>
+        <p>
+          This site needs JavaScript to run. Please enable it, or get in touch through the
+          contact details published elsewhere.
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

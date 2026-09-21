@@ -1,0 +1,372 @@
+/* ==========================================================================
+   MAR - HOME
+   ========================================================================== */
+
+/* A section that rises as it enters the view. One rule, used throughout. */
+.reveal {
+  opacity: 0;
+  transform: translateY(1.25rem);
+  transition:
+    opacity var(--dur-slow) var(--ease-enter),
+    transform var(--dur-slow) var(--ease-enter);
+}
+
+.reveal[data-revealed='true'] {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ----------------------------------------------------------------- OPENING */
+
+.home-opening {
+  padding-block: clamp(2.5rem, 4vw, 5rem) var(--room-y);
+}
+
+.home-opening__grid {
+  display: grid;
+  gap: var(--s-7) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+}
+
+@media (min-width: 900px) {
+  .home-opening__grid {
+    /* Asymmetric: the text takes more than half, the portrait less, and the
+       motto sits out in the left margin under both. */
+    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
+    gap: var(--s-8) clamp(2rem, 5vw, 5rem);
+  }
+}
+
+.home-opening__text {
+  display: grid;
+  gap: var(--s-5);
+  align-content: end;
+}
+
+.home-opening__headline {
+  /* Two lines at desktop. The scale is set against the portrait beside it,
+     not against the viewport alone. */
+  font-size: clamp(2.25rem, 1.1rem + 3.4vw, 4rem);
+  max-width: min(26ch, 100%);
+  /* Let the headline break where the words fall, rather than balancing it
+     into an extra line. */
+  text-wrap: pretty;
+}
+
+.home-opening__standfirst {
+  max-width: 42ch;
+}
+
+.home-opening__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-block-start: var(--s-2);
+}
+
+.home-opening__portrait {
+  display: grid;
+  gap: var(--s-3);
+  max-width: 26rem;
+  width: 100%;
+  justify-self: end;
+}
+
+.home-opening__portrait-note {
+  justify-self: end;
+}
+
+.home-opening__motto {
+  grid-column: 1 / -1;
+  padding-block-start: var(--s-6);
+  border-block-start: var(--rule-w) solid var(--rule);
+  color: var(--ink-quiet);
+}
+
+/* ------------------------------------------------------------------ RECORD */
+
+.home-record__grid {
+  display: grid;
+  gap: var(--s-7) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+  .home-record__grid {
+    /* The informal portrait is small and offset, the way a snapshot is
+       pinned beside a typed page. */
+    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.4fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+}
+
+.home-record__informal {
+  display: grid;
+  gap: var(--s-3);
+  max-width: 20rem;
+}
+
+@media (min-width: 900px) {
+  .home-record__informal {
+    margin-block-start: var(--s-7);
+  }
+}
+
+.home-record__facts {
+  display: grid;
+  gap: var(--s-5);
+  align-content: start;
+  justify-items: start;
+}
+
+.home-record__title {
+  max-width: 16ch;
+}
+
+.home-record__body {
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+.home-record__spec {
+  width: 100%;
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.home-record__demo {
+  margin-block-start: var(--s-8);
+  max-width: 48rem;
+}
+
+/* -------------------------------------------------------------------- WORK */
+
+.home-work__list {
+  display: grid;
+}
+
+.home-work__row {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-1) var(--s-4);
+  align-items: baseline;
+  padding-block: var(--s-5);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+@media (min-width: 768px) {
+  .home-work__row {
+    grid-template-columns: 5rem minmax(0, 1fr) auto;
+    padding-block: var(--s-6);
+  }
+}
+
+.home-work__number {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.home-work__title {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 1rem + 2.2vw, 3rem);
+  font-weight: 700;
+  line-height: 1.04;
+  letter-spacing: var(--track-display);
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+.home-work__meta {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  justify-self: end;
+}
+
+/* A rule that draws itself across the row on approach. */
+.home-work__line {
+  position: absolute;
+  inset-inline: 0;
+  bottom: -1px;
+  height: 1px;
+  background: var(--olive);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-slow) var(--ease-enter);
+}
+
+.home-work__row:hover .home-work__line,
+.home-work__row:focus-visible .home-work__line {
+  transform: scaleX(1);
+}
+
+.home-work__row:hover .home-work__number {
+  color: var(--olive);
+}
+
+@media (min-width: 900px) {
+  .home-work__row:hover .home-work__title {
+    transform: translateX(0.75rem);
+  }
+}
+
+/* The cover appears beside the cursor as a small held print. It is decorative
+   and is hidden from assistive technology and from anything without hover. */
+.home-work__preview {
+  display: none;
+}
+
+@media (min-width: 1024px) and (hover: hover) {
+  .home-work__preview {
+    position: absolute;
+    top: 50%;
+    inset-inline-end: 9rem;
+    display: block;
+    width: 11rem;
+    transform: translateY(-50%) scale(0.94);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity var(--dur-base) var(--ease-enter),
+      transform var(--dur-base) var(--ease-enter);
+  }
+
+  .home-work__row:hover .home-work__preview,
+  .home-work__row:focus-visible .home-work__preview {
+    opacity: 1;
+    transform: translateY(-50%) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-work__preview {
+    display: none;
+  }
+}
+
+.home-work__all {
+  margin-block-start: var(--s-7);
+}
+
+/* ----------------------------------------------------------------- JOURNAL */
+
+.home-journal__grid {
+  display: grid;
+  gap: var(--s-7) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+  .home-journal__grid {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    gap: clamp(2rem, 6vw, 6rem);
+  }
+}
+
+.home-journal__intro {
+  display: grid;
+  gap: var(--s-4);
+  align-content: start;
+  justify-items: start;
+}
+
+.home-journal__note {
+  color: var(--ink-soft);
+  max-width: 28ch;
+}
+
+.home-journal__list {
+  display: grid;
+}
+
+.home-journal__item + .home-journal__item {
+  border-block-start: var(--rule-w) solid var(--rule-hair);
+}
+
+.home-journal__link {
+  display: grid;
+  gap: var(--s-2);
+  padding-block: var(--s-5);
+}
+
+.home-journal__item-title {
+  font-size: var(--t-title);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.home-journal__link:hover .home-journal__item-title {
+  color: var(--olive);
+}
+
+.home-journal__item-body {
+  color: var(--ink-soft);
+  font-size: var(--t-small);
+  max-width: var(--measure);
+}
+
+/* --------------------------------------------------------------- INTERESTS */
+
+.home-interests__title {
+  max-width: 12ch;
+}
+
+.home-interests__body {
+  margin-block-start: var(--s-4);
+  max-width: 34ch;
+}
+
+.home-interests__codes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--s-3);
+  margin-block-start: var(--s-7);
+}
+
+.home-interests__code {
+  display: inline-flex;
+  align-items: baseline;
+  gap: var(--s-2);
+  padding: 0.55rem 0.85rem;
+  border: var(--rule-w) solid var(--rule);
+  background: var(--paper-raised);
+  transition:
+    border-color var(--dur-quick) var(--ease-move),
+    background-color var(--dur-quick) var(--ease-move);
+}
+
+.home-interests__code:hover {
+  border-color: var(--olive);
+  background: var(--olive-wash);
+}
+
+.home-interests__code-mark {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  color: var(--olive);
+}
+
+.home-interests__code-name {
+  font-size: var(--t-small);
+  color: var(--ink);
+}
+
+.home-interests__wave {
+  margin-block-start: var(--s-8);
+  height: 1rem;
+}

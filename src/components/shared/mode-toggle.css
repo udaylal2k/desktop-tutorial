@@ -1,0 +1,103 @@
+/* ==========================================================================
+   MAR - MODE TOGGLE
+   ========================================================================== */
+
+.mode-toggle {
+  display: inline-flex;
+}
+
+.mode-toggle__track {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: var(--rule-w) solid var(--rule-strong);
+  background: var(--paper-raised);
+  isolation: isolate;
+}
+
+/* The marker slides between the two halves. It is the only element that
+   moves, which is what makes the switch read as one mechanism rather than
+   two buttons. */
+.mode-toggle__marker {
+  position: absolute;
+  inset-block: 0;
+  inset-inline-start: 0;
+  z-index: -1;
+  width: 50%;
+  display: grid;
+  align-items: end;
+  justify-items: center;
+  background: var(--olive-wash);
+  border-inline-end: var(--rule-w) solid var(--olive);
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+.mode-toggle__track[data-mode='informal'] .mode-toggle__marker {
+  transform: translateX(100%);
+  border-inline: var(--rule-w) solid var(--olive);
+  border-inline-end-width: 0;
+}
+
+/* The companion sits at the foot of the marker, facing the way it travels. */
+.mode-toggle__companion {
+  width: 1.5rem;
+  height: 1rem;
+  margin-block-end: 0.3rem;
+  stroke: var(--olive);
+  opacity: 0.85;
+  transition: transform var(--dur-base) var(--ease-enter);
+}
+
+.mode-toggle__track[data-mode='informal'] .mode-toggle__companion {
+  transform: scaleX(-1);
+}
+
+.mode-toggle__option {
+  display: grid;
+  gap: 0.15rem;
+  padding: 0.7rem 1.1rem 1.6rem;
+  text-align: left;
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.mode-toggle__name {
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.mode-toggle__hint {
+  font-size: var(--t-micro);
+  color: var(--ink-quiet);
+  letter-spacing: 0;
+  text-transform: none;
+  font-family: var(--font-editorial);
+}
+
+.mode-toggle__option[aria-pressed='true'] .mode-toggle__name {
+  color: var(--olive-deep);
+}
+
+.mode-toggle__option[aria-pressed='true'] .mode-toggle__hint {
+  color: var(--ink-soft);
+}
+
+.mode-toggle__option:hover .mode-toggle__name {
+  color: var(--ink);
+}
+
+/* On a phone the switch runs the full width of the column so both halves
+   stay large enough to hit accurately. */
+@media (max-width: 599px) {
+  .mode-toggle,
+  .mode-toggle__track {
+    width: 100%;
+  }
+
+  .mode-toggle__option {
+    padding: 0.7rem 0.8rem 1.5rem;
+  }
+}

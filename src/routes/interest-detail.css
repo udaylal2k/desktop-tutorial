@@ -1,0 +1,161 @@
+/* ==========================================================================
+   MAR - INTEREST
+   ========================================================================== */
+
+.interest__head {
+  display: grid;
+  gap: var(--s-6) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  align-items: end;
+  padding-block-end: var(--s-7);
+  border-block-end: var(--rule-w) solid var(--rule);
+}
+
+@media (min-width: 900px) {
+  .interest__head {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+}
+
+.interest__head-text {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.interest__code {
+  color: var(--olive);
+}
+
+.interest__name {
+  max-width: 12ch;
+}
+
+.interest__description {
+  max-width: 40ch;
+}
+
+/* -------------------------------------------------------------------- BODY */
+
+.interest__body {
+  display: grid;
+  gap: var(--s-7) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+  padding-block: var(--s-8);
+}
+
+@media (min-width: 900px) {
+  .interest__body {
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: start;
+  }
+}
+
+.interest__text p {
+  font-size: var(--t-subtitle);
+  line-height: 1.6;
+}
+
+.interest__aside {
+  display: grid;
+  gap: var(--s-6);
+  align-content: start;
+}
+
+.interest__connections {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.interest__connections-title {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  padding-block-end: var(--s-2);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+}
+
+.interest__connections-list {
+  display: grid;
+}
+
+.interest__connection {
+  display: grid;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: var(--s-3);
+  align-items: baseline;
+  padding-block: var(--s-3);
+  font-size: var(--t-small);
+  border-block-end: var(--rule-w) solid var(--rule-hair);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.interest__connection:hover {
+  color: var(--olive);
+}
+
+.interest__connection-code {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+/* -------------------------------------------------------------------- PLAY */
+
+.interest__play {
+  max-width: 34rem;
+  padding-block-end: var(--s-8);
+}
+
+/* ---------------------------------------------------------------- MATERIAL */
+
+.interest__material {
+  display: grid;
+  gap: var(--s-5);
+  padding-block: var(--s-7);
+  border-block-start: var(--rule-w) solid var(--rule);
+}
+
+.interest__material-title {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.interest__material-list {
+  display: grid;
+  gap: var(--s-5) var(--gutter);
+  grid-template-columns: repeat(auto-fill, minmax(min(13rem, 100%), 1fr));
+}
+
+.interest__material-link {
+  display: grid;
+  gap: var(--s-3);
+}
+
+.interest__material-text {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.interest__material-name {
+  font-size: var(--t-small);
+  color: var(--ink);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.interest__material-link:hover .interest__material-name {
+  color: var(--olive);
+}
+
+.interest__close {
+  padding-block-start: var(--s-7);
+}

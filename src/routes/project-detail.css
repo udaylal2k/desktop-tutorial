@@ -1,0 +1,157 @@
+/* ==========================================================================
+   MAR - PROJECT
+   ========================================================================== */
+
+.project-head {
+  padding-block: var(--s-6) var(--s-8);
+}
+
+.project-head__grid {
+  display: grid;
+  gap: var(--s-7) var(--gutter);
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (min-width: 900px) {
+  .project-head__grid {
+    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    gap: clamp(2rem, 6vw, 6rem);
+    align-items: end;
+  }
+}
+
+.project-head__title-block {
+  display: grid;
+  gap: var(--s-4);
+}
+
+.project-head__number {
+  color: var(--red-ink);
+}
+
+.project-head__title {
+  max-width: 14ch;
+}
+
+.project-head__description {
+  max-width: 46ch;
+}
+
+.project-head__spec {
+  padding-block-start: var(--s-5);
+  border-block-start: var(--rule-w) solid var(--rule);
+  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
+}
+
+.project-head__tools {
+  grid-column: 1 / -1;
+}
+
+/* ------------------------------------------------------------------- COVER */
+
+.project-cover__frame {
+  position: relative;
+}
+
+/* The archive trigger sits inside the lower corner of the imagery, held off
+   the edge, so it reads as a mark on the drawing. */
+.project-cover__archive {
+  position: absolute;
+  bottom: var(--s-4);
+  inset-inline-end: var(--s-4);
+}
+
+/* -------------------------------------------------------------------- MODE */
+
+.project-mode {
+  position: sticky;
+  top: var(--header-h);
+  z-index: var(--z-sticky);
+  padding-block: var(--s-4);
+  margin-block-start: var(--s-7);
+  background: color-mix(in srgb, var(--mar-paper) 92%, transparent);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-block: var(--rule-w) solid var(--rule-hair);
+}
+
+@supports not (backdrop-filter: blur(8px)) {
+  .project-mode {
+    background: var(--mar-paper);
+  }
+}
+
+@media (prefers-reduced-transparency: reduce) {
+  .project-mode {
+    background: var(--mar-paper);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+}
+
+.project-mode__inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--s-4) var(--s-6);
+}
+
+.project-mode__note {
+  font-size: var(--t-small);
+  color: var(--ink-quiet);
+}
+
+@media (max-width: 599px) {
+  .project-mode__note {
+    display: none;
+  }
+}
+
+/* ------------------------------------------------------------------- CLOSE */
+
+.project-close {
+  padding-block: var(--s-8) var(--room-y);
+  display: grid;
+  gap: var(--s-8);
+}
+
+.project-next {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: var(--s-2) var(--s-4);
+  align-items: baseline;
+  padding-block: var(--s-6);
+  border-block: var(--rule-w) solid var(--rule);
+}
+
+.project-next__label {
+  grid-column: 1 / -1;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.project-next__title {
+  font-family: var(--font-display);
+  font-size: var(--t-display-3);
+  font-weight: 700;
+  letter-spacing: var(--track-display);
+  transition:
+    color var(--dur-quick) var(--ease-move),
+    transform var(--dur-base) var(--ease-enter);
+}
+
+.project-next:hover .project-next__title {
+  color: var(--olive);
+  transform: translateX(0.5rem);
+}
+
+.project-next__number {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}

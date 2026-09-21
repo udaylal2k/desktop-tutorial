@@ -1,0 +1,68 @@
+/* ==========================================================================
+   MAR - CURTAIN
+   ========================================================================== */
+
+.curtain {
+  position: fixed;
+  inset: 0;
+  z-index: var(--z-curtain);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  gap: var(--s-7);
+  background: var(--mar-paper);
+  pointer-events: none;
+}
+
+.curtain__inner {
+  display: grid;
+  justify-items: center;
+  gap: var(--s-4);
+  animation: curtain-set 560ms var(--ease-enter) both;
+}
+
+@keyframes curtain-set {
+  from {
+    opacity: 0;
+    transform: translateY(0.75rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.curtain__statement {
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical-wide);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+  text-align: center;
+}
+
+/* Three rules drawing themselves, one after another: the site being set out
+   before it is built. */
+.curtain__rules {
+  display: grid;
+  gap: var(--s-2);
+  width: min(18rem, 60vw);
+}
+
+.curtain__rules span {
+  display: block;
+  height: var(--rule-w);
+  background: var(--rule-strong);
+  transform-origin: left;
+  animation: curtain-rule 620ms var(--ease-enter) both;
+  animation-delay: var(--d);
+}
+
+@keyframes curtain-rule {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}

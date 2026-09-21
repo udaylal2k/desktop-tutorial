@@ -1,0 +1,40 @@
+.breadcrumb {
+  padding-block: var(--s-5) var(--s-4);
+}
+
+.breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0;
+  font-family: var(--font-technical);
+  font-size: var(--t-micro);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--ink-quiet);
+}
+
+.breadcrumb__item {
+  display: inline-flex;
+  align-items: baseline;
+}
+
+.breadcrumb__divider {
+  padding-inline: 0.55em;
+  color: var(--ink-quiet);
+}
+
+.breadcrumb__link {
+  color: var(--ink-quiet);
+  transition: color var(--dur-quick) var(--ease-move);
+}
+
+.breadcrumb__link:hover {
+  color: var(--olive);
+}
+
+/* The current location carries the annotation colour. It is the only place
+   in the chrome where red appears. */
+.breadcrumb__current {
+  color: var(--red-ink);
+}
