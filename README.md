@@ -44,13 +44,16 @@ Node 20 or newer.
 ### GitHub Pages (set up in this repository)
 
 A workflow at `.github/workflows/deploy.yml` builds and publishes the site on
-every push. **One switch has to be flipped by hand, once:**
+every push, and turns Pages on by itself the first time it runs.
 
-> Repository -> **Settings** -> **Pages** -> **Build and deployment** ->
-> **Source** -> choose **GitHub Actions**
+**Pages has to be available for the repository first.** It is free for public
+repositories. For a private one it needs GitHub Pro or above. If this
+repository is private and the account is on the free plan the workflow will
+fail at the "Configure Pages" step, and the options are: make the repository
+public, upgrade the plan, or use one of the hosts below instead.
 
-After that the site is live at
-`https://<username>.github.io/<repository-name>/`, and every push republishes
+Once it can run, the site is live at
+`https://<username>.github.io/<repository-name>/` and every push republishes
 it. Adding a project or a photograph and pushing is the whole deploy process.
 
 The workflow runs the typecheck and the lint before it builds, so a change
@@ -69,6 +72,10 @@ repository is renamed.
 
 `npm run build` writes a static site to `dist/`. It needs no server and no
 database. Netlify, Vercel, Cloudflare Pages or a plain web server all work.
+
+Netlify and Vercel publish from a **private** repository on their free plans,
+which GitHub Pages does not, and both connect to a GitHub repository in a few
+clicks and rebuild on every push exactly as the workflow here does.
 
 Those hosts *can* rewrite, which is tidier than the `404.html` route, so give
 them the rule:
