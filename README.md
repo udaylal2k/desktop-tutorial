@@ -3,6 +3,8 @@
 An architecture portfolio, an editorial publication and a digital archive,
 built as one connected environment.
 
+**Live at https://udaylal2k.github.io/desktop-tutorial/**
+
 **If you own this website and want to put your work into it, you do not
 need this file. Read [CONTENT-GUIDE.md](./CONTENT-GUIDE.md) instead.** This
 one is for whoever maintains or deploys it.
@@ -41,20 +43,22 @@ Node 20 or newer.
 
 ## Deploying
 
-### GitHub Pages (set up in this repository)
+### GitHub Pages (how this repository is published)
 
-A workflow at `.github/workflows/deploy.yml` builds and publishes the site on
-every push, and turns Pages on by itself the first time it runs.
+A workflow at `.github/workflows/deploy.yml` typechecks, lints, builds and
+publishes the site on every push, and turned Pages on by itself the first
+time it ran. There is nothing to configure and nothing to click.
 
-**Pages has to be available for the repository first.** It is free for public
-repositories. For a private one it needs GitHub Pro or above. If this
-repository is private and the account is on the free plan the workflow will
-fail at the "Configure Pages" step, and the options are: make the repository
-public, upgrade the plan, or use one of the hosts below instead.
+The site is at **https://udaylal2k.github.io/desktop-tutorial/**. Adding a
+project or a photograph and pushing it is the whole deploy process. If a
+content file has a mistake the build fails and the published site simply
+does not change, so a bad push cannot take the site down.
 
-Once it can run, the site is live at
-`https://<username>.github.io/<repository-name>/` and every push republishes
-it. Adding a project or a photograph and pushing is the whole deploy process.
+**A note if you fork this or move it.** Pages is free for public
+repositories. For a private one it needs GitHub Pro or above, and the
+workflow will otherwise fail at the "Configure Pages" step. The options then
+are to make the repository public, upgrade the plan, or use one of the hosts
+below.
 
 The workflow runs the typecheck and the lint before it builds, so a change
 that breaks the site is caught before it is published rather than after.

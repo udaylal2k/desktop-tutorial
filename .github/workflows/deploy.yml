@@ -1,18 +1,17 @@
 # Publishes the site to GitHub Pages on every push.
 #
-# BEFORE THIS CAN WORK, Pages has to be available for this repository:
+# There is nothing to set up. The `enablement` setting below turns Pages on
+# by itself, so no switch has to be found in the repository settings.
 #
-#   GitHub Pages is free for PUBLIC repositories. For a PRIVATE repository it
-#   needs a paid plan (GitHub Pro or above). So either make the repository
-#   public, or upgrade the plan, or host the site somewhere else. Netlify and
-#   Vercel both publish from a private repository for free, and both can
-#   rewrite addresses properly, which is tidier than the 404.html this build
-#   writes for Pages.
+# Adding a project or a photograph and pushing it is the whole deploy
+# process. The typecheck and the lint run before the build, so a mistake in
+# a content file fails here and the published site is left as it was.
 #
-# Once Pages is available this workflow turns it on by itself, through the
-# `enablement` setting below, so there is nothing to click in the settings.
-# Every push then rebuilds and republishes the site. Adding a project or a
-# photograph and pushing it is the whole deploy process.
+# ONE THING TO KNOW IF THIS REPOSITORY IS EVER MADE PRIVATE:
+#   Pages is free for public repositories, but a private one needs GitHub Pro
+#   or above, and this workflow will fail at "Configure Pages". Netlify and
+#   Vercel both publish from a private repository for free, and both rewrite
+#   addresses properly, which is tidier than the 404.html this build writes.
 
 name: Deploy to GitHub Pages
 
