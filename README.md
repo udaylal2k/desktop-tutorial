@@ -46,8 +46,13 @@ Node 20 or newer.
 ### GitHub Pages (how this repository is published)
 
 A workflow at `.github/workflows/deploy.yml` typechecks, lints, builds and
-publishes the site on every push, and turned Pages on by itself the first
-time it ran. There is nothing to configure and nothing to click.
+publishes the site on every push.
+
+**Pages is switched on once, by hand:** Repository -> **Settings** ->
+**Pages** -> **Build and deployment** -> **Source** -> **GitHub Actions**.
+This cannot be done from the workflow, because the token it runs with is not
+allowed to create a Pages site. Once the site exists the workflow only reads
+its configuration and publishes to it, and nothing needs touching again.
 
 The site is at **https://udaylal2k.github.io/desktop-tutorial/**. Adding a
 project or a photograph and pushing it is the whole deploy process. If a

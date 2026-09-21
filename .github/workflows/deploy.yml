@@ -1,11 +1,18 @@
 # Publishes the site to GitHub Pages on every push.
 #
-# There is nothing to set up. The `enablement` setting below turns Pages on
-# by itself, so no switch has to be found in the repository settings.
+# SWITCHED ON ONCE, BY HAND:
+#   Repository -> Settings -> Pages -> Build and deployment -> Source
+#   Set it to "GitHub Actions".
 #
-# Adding a project or a photograph and pushing it is the whole deploy
-# process. The typecheck and the lint run before the build, so a mistake in
-# a content file fails here and the published site is left as it was.
+# That has to be done in the settings because the token this workflow runs
+# with is not allowed to create a Pages site itself. Once the site exists,
+# this workflow only reads its configuration and publishes to it, which it
+# is allowed to do, and nothing else needs touching again.
+#
+# After that, adding a project or a photograph and pushing it is the whole
+# deploy process. The typecheck and the lint run before the build, so a
+# mistake in a content file fails here and the published site is left as it
+# was.
 #
 # ONE THING TO KNOW IF THIS REPOSITORY IS EVER MADE PRIVATE:
 #   Pages is free for public repositories, but a private one needs GitHub Pro
@@ -64,11 +71,12 @@ jobs:
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
-        with:
-          # Turns Pages on for this repository if it is not on already, so
-          # nothing has to be switched on by hand. It still needs Pages to be
-          # available for the repository: see the note at the top of the file.
-          enablement: true
+        # `enablement: true` would turn Pages on from here, but the token this
+        # workflow runs with is not allowed to create a Pages site on this
+        # repository, so it fails with "Resource not accessible by
+        # integration". Pages is switched on once by hand instead; see the
+        # note at the top of this file. After that this step only reads the
+        # configuration, which it is allowed to do.
 
       - name: Upload the built site
         uses: actions/upload-pages-artifact@v3
