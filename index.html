@@ -53,6 +53,24 @@
     />
   </head>
   <body>
+    <script>
+      // A deep link on a host with no rewrite rules arrives here as
+      // /?/projects/courtyard-dwelling, put there by 404.html. Turn it back
+      // into a real address before the app reads it. Does nothing anywhere
+      // else, including on hosts that rewrite properly.
+      (function (l) {
+        if (l.search[1] === '/') {
+          var decoded = l.search
+            .slice(1)
+            .split('&')
+            .map(function (part) {
+              return part.replace(/~and~/g, '&');
+            })
+            .join('?');
+          window.history.replaceState(null, '', l.pathname.slice(0, -1) + decoded + l.hash);
+        }
+      })(window.location);
+    </script>
     <div id="root"></div>
     <noscript>
       <div style="padding: 2rem; font-family: system-ui, sans-serif">

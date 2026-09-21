@@ -41,23 +41,59 @@ Node 20 or newer.
 
 ## Deploying
 
+### GitHub Pages (set up in this repository)
+
+A workflow at `.github/workflows/deploy.yml` builds and publishes the site on
+every push. **One switch has to be flipped by hand, once:**
+
+> Repository -> **Settings** -> **Pages** -> **Build and deployment** ->
+> **Source** -> choose **GitHub Actions**
+
+After that the site is live at
+`https://<username>.github.io/<repository-name>/`, and every push republishes
+it. Adding a project or a photograph and pushing is the whole deploy process.
+
+The workflow runs the typecheck and the lint before it builds, so a change
+that breaks the site is caught before it is published rather than after.
+
+**Why there is a `404.html`.** GitHub Pages cannot rewrite unknown paths to
+`index.html`, so a visitor opening `/projects/courtyard-dwelling` directly
+would get a dead end. The build writes a `404.html` that hands the requested
+address to the app through the query string; a short script in `index.html`
+unpacks it and restores the real address before React starts. Deep links,
+reloads and shared links all work, and the address bar stays clean. The
+build works this out from `base`, so nothing needs changing if the
+repository is renamed.
+
+### Any other host
+
 `npm run build` writes a static site to `dist/`. It needs no server and no
-database. Any static host will do: Netlify, Vercel, Cloudflare Pages, GitHub
-Pages, or a plain web server.
+database. Netlify, Vercel, Cloudflare Pages or a plain web server all work.
 
-**One piece of configuration is required.** The site uses real URLs
-(`/projects/courtyard-dwelling`) rather than hash URLs, so the host must
-serve `index.html` for any path it does not recognise. Without this, a
-visitor who reloads on a project page gets a 404 from the host.
+Those hosts *can* rewrite, which is tidier than the `404.html` route, so give
+them the rule:
 
-- **Netlify**: add a file `public/_redirects` containing `/* /index.html 200`
-- **Vercel**: it detects a Vite single page app and does this by itself
-- **Cloudflare Pages**: add `public/_redirects` as above
+- **Netlify** and **Cloudflare Pages**: `public/_redirects` is already in the
+  repository and contains what is needed.
+- **Vercel**: detects a Vite single page app and does this by itself.
 - **Apache**: a `.htaccess` with `FallbackResource /index.html`
 - **nginx**: `try_files $uri $uri/ /index.html;`
 
-Before going live, set `meta.url` in `src/content/site.ts` to the real
-address. It is used for canonical links.
+### Serving from a sub-path
+
+The build reads `VITE_BASE`. It defaults to `/`, which is right for a normal
+host and for a custom domain. The Pages workflow sets it to
+`/<repository-name>/` because a project site is served from a sub-path. The
+router and every asset path follow it automatically.
+
+```
+VITE_BASE=/some/sub/path/ npm run build
+```
+
+### Before going live
+
+Set `meta.url` in `src/content/site.ts` to the real address. It is used for
+canonical links.
 
 ---
 

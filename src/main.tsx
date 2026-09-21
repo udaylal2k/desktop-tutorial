@@ -12,9 +12,13 @@ import './styles/layout.css';
 
 import { App } from './App';
 
+/* On GitHub Pages the site lives under /<repository-name>/, so the router is
+   told where it starts. Everywhere else BASE_URL is '/' and this is a no-op. */
+const basename = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={basename}>
       <App />
     </BrowserRouter>
   </StrictMode>,

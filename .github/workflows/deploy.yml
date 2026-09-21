@@ -1,0 +1,77 @@
+# Publishes the site to GitHub Pages on every push.
+#
+# ONE THING HAS TO BE SWITCHED ON BY HAND, ONCE:
+#   Repository -> Settings -> Pages -> Build and deployment -> Source
+#   Set it to "GitHub Actions".
+#
+# After that, every push rebuilds and republishes the site by itself. Adding a
+# project or a photograph and pushing it is all that is needed; there is no
+# separate deploy step to remember.
+
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+      - 'claude/**'
+  workflow_dispatch:
+
+# The permissions the Pages deployment needs, and nothing else.
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# One deployment at a time. A newer push cancels a run still in progress.
+concurrency:
+  group: github-pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      - name: Check types
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Build
+        # A project site is served from /<repository-name>/, so the build is
+        # told where it will live. The router and every asset path follow.
+        run: npm run build
+        env:
+          VITE_BASE: /${{ github.event.repository.name }}/
+
+      - name: Configure Pages
+        uses: actions/configure-pages@v5
+
+      - name: Upload the built site
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Publish
+        id: deployment
+        uses: actions/deploy-pages@v4

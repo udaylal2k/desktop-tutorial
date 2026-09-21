@@ -665,6 +665,31 @@ are not, ask whoever set this up for you.
 
 ---
 
+## Putting your changes on the web
+
+The website publishes itself. Once you have saved your changes, send them to
+GitHub and the live site updates on its own a couple of minutes later.
+
+If you are using GitHub Desktop, which is probably how this got onto your
+computer:
+
+1. Open GitHub Desktop. Your changed files are listed down the left.
+2. Type a short line in the **Summary** box saying what you changed, for
+   example `Add the courtyard project photographs`.
+3. Click **Commit to main**.
+4. Click **Push origin** at the top.
+
+That is it. Wait two or three minutes and reload the live site.
+
+**To check it worked**, go to your repository on github.com and click the
+**Actions** tab. A green tick means it published. A red cross means
+something in the content files has a typo, and clicking into it will say
+which file and which line. Fix it, commit, and push again; nothing is
+broken in the meantime, because the live site only changes when a build
+succeeds.
+
+---
+
 ## A sensible order to work in
 
 1. `src/content/site.ts` - the name and the description.

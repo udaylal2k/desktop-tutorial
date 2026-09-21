@@ -31,8 +31,9 @@ export const site = {
     /** Shown in search results and when a link is shared. Under 160 characters. */
     description:
       'MAR. Architecture, design and a personal archive of projects, writing and interests.',
-    /** The address the site will live at. Used for canonical links. */
-    url: 'https://example.com',
+    /** The address the site lives at. Used for canonical links.
+     *  Change this if you move to your own domain. */
+    url: 'https://udaylal2k.github.io/desktop-tutorial',
     /** The colour of the browser chrome on mobile. Matches the paper ground. */
     themeColor: '#f3f0e8',
     /** Picture used when a link is shared. Put a 1200x630 image at this path. */
