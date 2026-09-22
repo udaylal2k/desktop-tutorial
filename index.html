@@ -35,18 +35,13 @@
     />
     <meta name="twitter:image" content="/content/share-card.jpg" />
 
-    <!-- The two typefaces the first view needs, fetched with the document so
-         the wordmark is never set in a fallback face. -->
+    <!-- The one file the first view needs, fetched with the document so the
+         wordmark and hero title are never set in a fallback face. Display
+         and editorial are the same variable family (see fonts.css), so a
+         single preload covers both voices. -->
     <link
       rel="preload"
-      href="/fonts/syne-var-latin.woff2"
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-    <link
-      rel="preload"
-      href="/fonts/schibsted-var-latin.woff2"
+      href="/fonts/cabinet-grotesk-variable.woff2"
       as="font"
       type="font/woff2"
       crossorigin

@@ -24,6 +24,7 @@ import { ModeToggle } from '../components/shared/ModeToggle';
 import { Related } from '../components/shared/Related';
 import { ProjectSequence } from '../components/projects/ProjectSequence';
 import { ArchiveDrawer, ArchiveTrigger } from '../components/panels/ArchiveDrawer';
+import { SoftwareBar } from '../components/projects/SoftwareBar';
 import { allProjects } from '../content';
 import './project-detail.css';
 
@@ -35,6 +36,7 @@ const statusNames: Record<string, string> = {
   proposal: 'Proposal',
   academic: 'Academic',
   competition: 'Competition',
+  unspecified: 'To be confirmed',
 };
 
 export default function ProjectDetail() {
@@ -114,20 +116,28 @@ export default function ProjectDetail() {
                 <dd className="spec__value">{project.year}</dd>
               </div>
               <div className="spec__item">
-                <dt className="spec__key">Location</dt>
+                <dt className="spec__key">Site location</dt>
                 <dd className="spec__value">{project.location}</dd>
               </div>
               <div className="spec__item">
-                <dt className="spec__key">Type</dt>
-                <dd className="spec__value">{project.type}</dd>
+                <dt className="spec__key">Site size</dt>
+                <dd className="spec__value">{project.siteSize}</dd>
               </div>
               <div className="spec__item">
                 <dt className="spec__key">Status</dt>
                 <dd className="spec__value">{statusNames[project.status] ?? project.status}</dd>
               </div>
-              <div className="spec__item project-head__tools">
-                <dt className="spec__key">Tools</dt>
-                <dd className="spec__value">{project.tools.join(', ')}</dd>
+              <div className="spec__item">
+                <dt className="spec__key">Program</dt>
+                <dd className="spec__value">{project.program}</dd>
+              </div>
+              <div className="spec__item">
+                <dt className="spec__key">Focus</dt>
+                <dd className="spec__value">{project.focus}</dd>
+              </div>
+              <div className="spec__item">
+                <dt className="spec__key">Role</dt>
+                <dd className="spec__value">{project.role}</dd>
               </div>
             </dl>
           </div>
@@ -158,6 +168,8 @@ export default function ProjectDetail() {
               </div>
             )}
           </div>
+
+          <SoftwareBar tools={project.tools} />
         </div>
       </div>
 

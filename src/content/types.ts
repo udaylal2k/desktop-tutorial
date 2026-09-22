@@ -155,7 +155,22 @@ export type ProjectSection =
 /* --------------------------------------------------------------------------
    PROJECT
    -------------------------------------------------------------------------- */
-export type ProjectStatus = 'completed' | 'in-progress' | 'proposal' | 'academic' | 'competition';
+export type ProjectStatus =
+  | 'completed'
+  | 'in-progress'
+  | 'proposal'
+  | 'academic'
+  | 'competition'
+  /** The status genuinely is not known yet. Prints as "To be confirmed"
+   *  rather than guessing at one of the other five. */
+  | 'unspecified';
+
+/** The standardised software list. A project's `tools` only ever contains
+ *  values from this list, so the software bar can print a real badge for
+ *  each one rather than a generic label. Add a tool actually used on a
+ *  project to that project's `tools` array; leave the array empty if none
+ *  of these apply yet. */
+export type ProjectTool = 'AutoCAD' | 'SketchUp' | 'Revit' | 'Rhino 3D' | 'Photoshop' | 'Affinity';
 
 export interface Project {
   /** Used in the web address, for example '/projects/threshold-house'. */
@@ -163,21 +178,42 @@ export interface Project {
   /** Archive number, for example 'P.001'. */
   number: string;
   title: string;
+  /** A fact. Use '[Add year]' until it is known. */
   year: string;
+  /** Displayed as "Site location". A fact. Use '[Add site location]' until
+   *  it is known. Also powers the location filter in the project archive. */
   location: string;
-  /** For example 'Residential', 'Public', 'Adaptive reuse'. */
+  /** Not shown as a labelled fact on the project page - used only to group
+   *  and filter the project archive. A short category is fine here even
+   *  before every other fact is confirmed, for example 'Residential'. */
   type: string;
+  /** Displayed as "Site size". A fact. Use '[Add site size]' until known. */
+  siteSize: string;
+  /** Displayed as "Program": what the project contains or accommodates.
+   *  A fact. Use '[Add program]' until it is known. */
+  program: string;
+  /** Displayed as "Focus": the central idea the project investigates. This
+   *  can be a considered editorial line drawn from the project's own
+   *  description - it is not the kind of fact that needs a source. */
+  focus: string;
+  /** Displayed as "Role": Individual, Collaboration, Design, Documentation,
+   *  and so on. A fact about involvement. Use '[Add role]' until known. */
+  role: string;
   status: ProjectStatus;
   /** One line. Printed in the project index. */
   shortDescription: string;
   /** A short paragraph. Printed at the top of the project page. */
   description: string;
-  /** Software and methods used. Printed as project metadata. */
-  tools: string[];
+  /** Software actually used on this project, drawn from ProjectTool.
+   *  Leave empty until it is known - never guess. */
+  tools: ProjectTool[];
   coverImage: MarImage;
   /** The ordered sequence that makes up the project page. */
   sections: ProjectSection[];
-  /** Material behind the project, opened from the archive trigger. */
+  /** Material behind the project, opened from the archive trigger. Keep
+   *  this in sync with which archive items have this project's id in
+   *  their own `project` field in archive.ts - that field is what the
+   *  archive drawer actually reads. */
   archive: string[];
   /** Ids of related journal entries, interests and other projects. */
   related: RelatedRef[];

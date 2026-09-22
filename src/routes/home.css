@@ -23,127 +23,233 @@
   }
 }
 
-/* ----------------------------------------------------------------- OPENING */
+/* ---------------------------------------------------------------- HERO
+   Photo-led. The photograph runs full-bleed; the dominant title drops
+   from its lower edge onto the page beneath it, so the image and the
+   type read as one composed opening rather than two stacked blocks. */
 
-.home-opening {
-  padding-block: clamp(2.5rem, 4vw, 5rem) var(--room-y);
+.hero {
+  position: relative;
 }
 
-.home-opening__grid {
+.hero__frame {
+  position: relative;
+  width: 100vw;
+  margin-inline: calc(50% - 50vw);
+}
+
+.hero__image-clip {
+  position: relative;
+  overflow: hidden;
+}
+
+/* A wash at the top of the photograph, so the eyebrow and the statement
+   stay legible against whatever picture eventually fills this frame.
+
+   This has to hold a real, measured WCAG contrast ratio against text that
+   sits at a fixed pixel position while the wash is a percentage of a
+   variable-height frame - a gradient that merely LOOKS dark at a glance is
+   not enough; it has to still be dark by the time it reaches the last line
+   of the statement. So the wash is flat (not fading) for most of its own
+   height, and only tapers to transparent right at its own lower edge,
+   which keeps it fully strong for as long as there is text in front of it. */
+.hero__image-clip::before {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 40%;
+  z-index: 2;
+  background: linear-gradient(
+    to bottom,
+    color-mix(in srgb, var(--mar-ink) 76%, transparent) 0%,
+    color-mix(in srgb, var(--mar-ink) 76%, transparent) 70%,
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+/* The photograph fades into the page colour at its foot. The title's own
+   top edge sits inside this fade, which is what lets it read as though it
+   is emerging from the photograph while staying fully legible in solid
+   ink the moment it reaches the page - no blend mode, no colour that
+   depends on knowing the photograph in advance. */
+.hero__image-clip::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 42%;
+  z-index: 2;
+  background: linear-gradient(to bottom, transparent, var(--mar-paper) 94%);
+  pointer-events: none;
+}
+
+.hero__image-clip .figure {
+  margin: 0;
+}
+
+.hero__image-clip .figure__frame {
+  max-height: 88dvh;
+}
+
+.hero__overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--s-6);
+  padding: clamp(1.5rem, 4vw, 3rem) var(--margin) 0;
+  pointer-events: none;
+}
+
+.hero__eyebrow {
   display: grid;
-  gap: var(--s-7) var(--gutter);
-  grid-template-columns: minmax(0, 1fr);
-  align-items: end;
+  gap: 0.15rem;
+  font-family: var(--font-technical);
+  font-size: var(--t-meta);
+  letter-spacing: var(--track-technical);
+  text-transform: uppercase;
+  color: var(--on-dark);
 }
 
-@media (min-width: 900px) {
-  .home-opening__grid {
-    /* Asymmetric: the text takes more than half, the portrait less, and the
-       motto sits out in the left margin under both. */
-    grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr);
-    gap: var(--s-8) clamp(2rem, 5vw, 5rem);
+.hero__statement {
+  max-width: 24rem;
+  text-align: right;
+  font-size: var(--t-small);
+  line-height: 1.5;
+  /* Full on-dark, not the softened variant: this text floats over a
+     photograph rather than a guaranteed-solid dark surface, so it needs
+     all the contrast headroom it can get. */
+  color: var(--on-dark);
+}
+
+/* The dominant typographic statement. Pulled up into the photograph's
+   faded foot, so its first line grazes the image and the rest settles
+   onto the page in full, unambiguous contrast. */
+.hero__title {
+  position: relative;
+  z-index: 4;
+  margin: 0;
+  margin-inline: var(--margin);
+  margin-top: clamp(-4.5rem, -9vw, -2rem);
+  display: grid;
+}
+
+.hero__title-line {
+  display: block;
+  font-family: var(--font-display);
+  font-size: var(--t-hero);
+  font-weight: var(--weight-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--track-hero);
+  color: var(--ink);
+}
+
+/* The lone "+" reads as a mark between two words, not as a third word -
+   set smaller and closer to its neighbours than the two title lines. */
+.hero__title-line:nth-child(2) {
+  font-size: clamp(1.75rem, 0.6rem + 4.6vw, 4rem);
+  padding-block: 0.08em;
+}
+
+@media (max-width: 599px) {
+  .hero__overlay {
+    flex-direction: column;
+    /* Without this, space-between (inherited from the row layout above)
+       pushes the statement all the way to the foot of the frame instead
+       of stacking it just under the eyebrow. */
+    justify-content: flex-start;
+    gap: var(--s-4);
+  }
+
+  .hero__statement {
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .hero__title {
+    margin-top: -2.5rem;
+  }
+
+  /* The eyebrow and the statement stack on a phone, which needs a taller
+     dark zone to stay legible: two blocks of text now occupy roughly two
+     thirds of a much shorter frame, not the top third of a tall one. Flat
+     through 80% of its own height for the same reason as the desktop
+     wash: it has to still be dark by the last line of the statement. */
+  .hero__image-clip::before {
+    height: 78%;
+    background: linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--mar-ink) 76%, transparent) 0%,
+      color-mix(in srgb, var(--mar-ink) 76%, transparent) 80%,
+      transparent 100%
+    );
   }
 }
 
-.home-opening__text {
-  display: grid;
-  gap: var(--s-5);
-  align-content: end;
-}
+/* -------------------------------------------------------------- ABOUT-INTRO
+   The editorial "02 (About Us)" room immediately after the hero. */
 
-.home-opening__headline {
-  /* Two lines at desktop. The scale is set against the portrait beside it,
-     not against the viewport alone. */
-  font-size: clamp(2.25rem, 1.1rem + 3.4vw, 4rem);
-  max-width: min(26ch, 100%);
-  /* Let the headline break where the words fall, rather than balancing it
-     into an extra line. */
-  text-wrap: pretty;
-}
-
-.home-opening__standfirst {
-  max-width: 42ch;
-}
-
-.home-opening__actions {
+.about-intro__marks {
   display: flex;
-  flex-wrap: wrap;
-  gap: var(--s-3);
-  margin-block-start: var(--s-2);
+  align-items: baseline;
+  justify-content: space-between;
+  gap: var(--s-4);
+  padding-block-end: var(--s-6);
+  border-block-end: var(--rule-w) solid var(--rule);
+  margin-block-end: var(--s-7);
 }
 
-.home-opening__portrait {
-  display: grid;
-  gap: var(--s-3);
-  max-width: 26rem;
-  width: 100%;
-  justify-self: end;
-}
-
-.home-opening__portrait-note {
-  justify-self: end;
-}
-
-.home-opening__motto {
-  grid-column: 1 / -1;
-  padding-block-start: var(--s-6);
-  border-block-start: var(--rule-w) solid var(--rule);
+.about-intro__label {
   color: var(--ink-quiet);
 }
 
-/* ------------------------------------------------------------------ RECORD */
+.about-intro__headline {
+  max-width: 20ch;
+  margin-block-end: var(--s-8);
+}
 
-.home-record__grid {
+.about-intro__grid {
   display: grid;
   gap: var(--s-7) var(--gutter);
   grid-template-columns: minmax(0, 1fr);
 }
 
 @media (min-width: 900px) {
-  .home-record__grid {
-    /* The informal portrait is small and offset, the way a snapshot is
-       pinned beside a typed page. */
-    grid-template-columns: minmax(0, 0.75fr) minmax(0, 1.4fr);
-    gap: clamp(2rem, 6vw, 6rem);
+  .about-intro__grid {
+    /* The informal portrait sits small and offset in the left margin, the
+       introduction and the philosophy run as two columns beside it. */
+    grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(1.5rem, 4vw, 4rem);
     align-items: start;
   }
 }
 
-.home-record__informal {
+.about-intro__portrait {
   display: grid;
   gap: var(--s-3);
-  max-width: 20rem;
+  max-width: 18rem;
 }
 
-@media (min-width: 900px) {
-  .home-record__informal {
-    margin-block-start: var(--s-7);
-  }
-}
-
-.home-record__facts {
+.about-intro__text {
   display: grid;
-  gap: var(--s-5);
-  align-content: start;
-  justify-items: start;
 }
 
-.home-record__title {
-  max-width: 16ch;
-}
-
-.home-record__body {
+.about-intro__paragraph {
+  font-size: var(--t-lead);
+  line-height: var(--lh-lead);
   color: var(--ink-soft);
-  max-width: 46ch;
+  max-width: 34ch;
 }
 
-.home-record__spec {
-  width: 100%;
-  padding-block-start: var(--s-5);
-  border-block-start: var(--rule-w) solid var(--rule);
+.about-intro__more {
+  margin-block-start: var(--s-8);
 }
 
-.home-record__demo {
+.about-intro__demo {
   margin-block-start: var(--s-8);
   max-width: 48rem;
 }

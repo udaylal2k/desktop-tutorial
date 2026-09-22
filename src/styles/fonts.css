@@ -1,66 +1,91 @@
 /* ==========================================================================
    MAR - Typeface loading
+   --------------------------------------------------------------------------
    Fonts are SELF-HOSTED in /public/fonts. Nothing is fetched from a third
-   party at runtime, so the site renders identically offline and in any region.
+   party at runtime, so the site renders identically offline and in any
+   region.
+
+   PLACEHOLDER NOTICE - READ BEFORE TOUCHING THIS FILE
+   Maya's brief specifies two exact typefaces (a primary display/sans and a
+   secondary editorial serif) but did not supply their names or files. The
+   two families below were chosen to match the weight, proportion and
+   character of her reference screenshot as closely as a real, legitimately
+   licensed, self-hostable typeface can:
+
+     Cabinet Grotesk  - a confident geometric grotesk with a true variable
+                         weight axis from Thin to Black, close in spirit to
+                         the reference image's headline and body type.
+     Newsreader       - an editorial serif with genuine italics, used only
+                         as the accent voice (pull quotes, reflective
+                         writing), never as the everyday reading face.
+
+   THIS IS A STAND-IN, NOT A GUESS PRESENTED AS FINAL. When Maya's own font
+   files or exact type names arrive, replace the files in /public/fonts and
+   the @font-face blocks below - nothing else in the site touches a font
+   name directly, every component reads --font-display / --font-editorial /
+   --font-serif-accent / --font-technical from tokens.css. See
+   CONTENT-GUIDE.md, "How to install Maya's real fonts".
    ========================================================================== */
 
-/* DISPLAY - Syne. Contemporary, architectural, slightly playful.
-   Variable weight axis 400-800. */
+/* DISPLAY + EDITORIAL - Cabinet Grotesk.
+   One variable family carries both voices: very heavy (800-900) for the
+   hero title and section headings, regular-to-medium (400-500) for reading
+   copy, navigation and labels. A single true variable file, weight axis
+   100-900, so there is only one file to load for the whole sans register. */
 @font-face {
-  font-family: 'Syne';
+  font-family: 'Cabinet Grotesk';
   font-style: normal;
-  font-weight: 400 800;
+  font-weight: 100 900;
   font-display: swap;
-  src: url('/fonts/syne-var-latin.woff2') format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
-    U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
-    U+2212, U+2215, U+FEFF, U+FFFD;
-}
-@font-face {
-  font-family: 'Syne';
-  font-style: normal;
-  font-weight: 400 800;
-  font-display: swap;
-  src: url('/fonts/syne-var-latin-ext.woff2') format('woff2');
-  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
-    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
-    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  src: url('/fonts/cabinet-grotesk-variable.woff2') format('woff2');
 }
 
-/* EDITORIAL - Schibsted Grotesk. Drawn for newspaper reading.
-   Variable weight axis 400-900. */
+/* SERIF ACCENT - Newsreader. Used sparingly: pull quotes, reflective
+   writing, selected journal moments. Never the everyday reading face. */
 @font-face {
-  font-family: 'Schibsted Grotesk';
+  font-family: 'Newsreader';
   font-style: normal;
-  font-weight: 400 900;
+  font-weight: 400 500;
   font-display: swap;
-  src: url('/fonts/schibsted-var-latin.woff2') format('woff2');
+  src: url('/fonts/newsreader-roman-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
-  font-family: 'Schibsted Grotesk';
+  font-family: 'Newsreader';
   font-style: normal;
-  font-weight: 400 900;
+  font-weight: 400 500;
   font-display: swap;
-  src: url('/fonts/schibsted-var-latin-ext.woff2') format('woff2');
+  src: url('/fonts/newsreader-roman-latin-ext.woff2') format('woff2');
   unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
     U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
     U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
 }
 @font-face {
-  font-family: 'Schibsted Grotesk';
+  font-family: 'Newsreader';
   font-style: italic;
-  font-weight: 400 900;
+  font-weight: 400 500;
   font-display: swap;
-  src: url('/fonts/schibsted-italic-var-latin.woff2') format('woff2');
+  src: url('/fonts/newsreader-italic-latin.woff2') format('woff2');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
     U+2212, U+2215, U+FEFF, U+FFFD;
 }
+@font-face {
+  font-family: 'Newsreader';
+  font-style: italic;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('/fonts/newsreader-italic-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF,
+    U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+    U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
 
-/* TECHNICAL - IBM Plex Mono. The drafting register: numbers, codes, metadata. */
+/* TECHNICAL - IBM Plex Mono. The drafting register: numbers, codes, metadata.
+   Unchanged - this was never part of the client's visual reference and
+   already matches the brief's "restrained monospace/technical face". */
 @font-face {
   font-family: 'IBM Plex Mono';
   font-style: normal;

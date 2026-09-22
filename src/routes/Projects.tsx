@@ -32,7 +32,7 @@ export default function Projects() {
           <div className="demo-note" style={{ marginBlockStart: 'var(--s-7)' }}>
             <span className="demo-note__mark">Demo</span>
             <span>
-              Four demonstration projects. Replace them in src/content/projects.ts.
+              Demonstration projects. Replace them in src/content/projects.ts.
             </span>
           </div>
         </div>

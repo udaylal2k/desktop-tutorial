@@ -29,6 +29,10 @@ interface FigureProps {
   className?: string;
   /** Used to seed the placeholder drawing when the image has no label. */
   seed?: string;
+  /** Hides the placeholder plate's own small corner caption. Used where the
+   *  frame already carries its own typographic system (the home hero), so
+   *  the plate's technical label does not compete with it. */
+  bare?: boolean;
 }
 
 export function Figure({
@@ -38,6 +42,7 @@ export function Figure({
   ratio,
   className,
   seed,
+  bare = false,
 }: FigureProps) {
   const [failed, setFailed] = useState(false);
   const [loaded, setLoaded] = useState(false);
@@ -56,7 +61,7 @@ export function Figure({
         data-loaded={usePlate || loaded ? 'true' : 'false'}
       >
         {usePlate ? (
-          <Plate register={image.register} ratio={effectiveRatio} label={label} />
+          <Plate register={image.register} ratio={effectiveRatio} label={label} bare={bare} />
         ) : (
           <img
             className="figure__image"

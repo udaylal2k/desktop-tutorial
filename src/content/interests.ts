@@ -53,7 +53,7 @@ export const interests: Interest[] = [
       },
     },
     related: [
-      { kind: 'project', id: 'foundry-conversion' },
+      { kind: 'project', id: 'campus-design' },
       { kind: 'journal', id: 'light-as-a-material' },
       { kind: 'archive', id: 'a-007' },
     ],
@@ -84,7 +84,7 @@ export const interests: Interest[] = [
       },
     },
     related: [
-      { kind: 'project', id: 'line-of-shelters' },
+      { kind: 'project', id: 'multi-module-transport-hub' },
       { kind: 'interest', id: 'film' },
     ],
   },
@@ -114,7 +114,7 @@ export const interests: Interest[] = [
     },
     related: [
       { kind: 'journal', id: 'drawing-before-software' },
-      { kind: 'project', id: 'reading-rooms' },
+      { kind: 'project', id: 'library-that-tells-time' },
     ],
   },
   {

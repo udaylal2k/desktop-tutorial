@@ -78,14 +78,38 @@
 
   /* ----------------------------------------------------------------------
      2. TYPOGRAPHY
-     Three voices. Display speaks, editorial reads, technical records.
+     Four voices. Display speaks, editorial reads, the serif accent turns a
+     phrase, technical records.
+
+     PLACEHOLDER NOTICE: --font-display and --font-editorial both point at
+     Cabinet Grotesk, a stand-in for Maya's own typeface until its name or
+     files are supplied. See src/styles/fonts.css for the full explanation.
+     Nothing outside this file names a font directly, so replacing the real
+     family later is a two-line edit: swap the @font-face src and swap the
+     name here. --font-serif-accent (Newsreader) is a genuine fourth voice
+     from the brief, not a placeholder - it stays even once the real sans
+     arrives, unless Maya asks otherwise.
      ---------------------------------------------------------------------- */
-  --font-display: 'Syne', 'Schibsted Grotesk', system-ui, sans-serif;
-  --font-editorial: 'Schibsted Grotesk', system-ui, -apple-system, sans-serif;
+  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
+  --font-editorial: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
+  --font-serif-accent: 'Newsreader', Georgia, 'Times New Roman', serif;
   --font-technical: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
 
+  /* The display voice runs heavy: Cabinet Grotesk's weight axis reaches
+     Black, and the brief calls for type with real confidence and presence,
+     not merely bold. --weight-hero is reserved for the single largest
+     typographic statement on the site (the home hero title). */
+  --weight-hero: 900;
+  --weight-display: 800;
+  --weight-editorial: 400;
+  --weight-editorial-strong: 600;
+
   /* Fluid display scale. Set against the viewport so headlines hold their
-     proportion to the page rather than to a fixed pixel size. */
+     proportion to the page rather than to a fixed pixel size.
+     --t-hero is wider-reaching than --t-display-1: it exists for the one
+     moment on the site (the home hero title) that has to compete with a
+     full-bleed photograph and win. */
+  --t-hero: clamp(3.25rem, 0.9rem + 8.4vw, 8.5rem);
   --t-display-1: clamp(2.6rem, 1rem + 5.4vw, 6rem);
   --t-display-2: clamp(2.1rem, 1.1rem + 3.6vw, 4rem);
   --t-display-3: clamp(1.6rem, 1.15rem + 1.9vw, 2.5rem);
@@ -97,16 +121,24 @@
   --t-meta: 0.75rem;
   --t-micro: 0.6875rem;
 
-  --lh-display: 0.94;
-  --lh-title: 1.14;
+  /* The serif accent's own scale. It never inherits the sans sizes: it is
+     a deliberately different register, sized to read as a quotation. */
+  --t-accent-lead: clamp(1.35rem, 1.05rem + 1.35vw, 2.1rem);
+  --t-accent-body: clamp(1.05rem, 0.98rem + 0.4vw, 1.25rem);
+
+  --lh-hero: 0.9;
+  --lh-display: 0.96;
+  --lh-title: 1.16;
   --lh-lead: 1.42;
-  --lh-body: 1.62;
+  --lh-body: 1.6;
   --lh-meta: 1.5;
+  --lh-accent: 1.32;
 
   /* Technical labels are always tracked out. Editorial text never is. */
-  --track-display: -0.025em;
-  --track-title: -0.015em;
-  --track-body: -0.004em;
+  --track-hero: -0.03em;
+  --track-display: -0.022em;
+  --track-title: -0.014em;
+  --track-body: -0.006em;
   --track-technical: 0.14em;
   --track-technical-wide: 0.26em;
 

@@ -40,11 +40,7 @@
 .project-head__spec {
   padding-block-start: var(--s-5);
   border-block-start: var(--rule-w) solid var(--rule);
-  grid-template-columns: repeat(auto-fit, minmax(7rem, 1fr));
-}
-
-.project-head__tools {
-  grid-column: 1 / -1;
+  grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr));
 }
 
 /* ------------------------------------------------------------------- COVER */

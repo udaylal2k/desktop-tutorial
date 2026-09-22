@@ -26,6 +26,7 @@ import type {
 export * from './types';
 export { site } from './site';
 export { about } from './about';
+export { home } from './home';
 export { contact } from './contact';
 export { journalCategories, journalIsDemoContent } from './journal';
 export { archiveKinds, archiveIsDemoContent } from './archive';

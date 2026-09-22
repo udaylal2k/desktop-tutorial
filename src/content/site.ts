@@ -12,14 +12,16 @@ export const site = {
   /** The line printed under the name in the footer and on the home page. */
   descriptor: 'A personal identity',
 
-  /** The identity line. Five words, one idea. */
-  motto: ['ideas', 'people', 'places', 'in motion'],
+  /** The identity line, printed in the footer under the wordmark. Kept in
+   *  sync with the hero disciplines in home.ts - both are Maya's own
+   *  supplied words, just printed in two different rooms of the site. */
+  motto: ['Visual Design', 'Photography', 'Narrative Direction'],
 
   /** The identity statement. Printed in the footer and on the about panel. */
   statement: 'Same letters. A deeper language.',
 
   /** The disciplines listed beside the logo. */
-  disciplines: ['architecture', 'design', 'ideas', 'people', 'places'],
+  disciplines: ['visual design', 'photography', 'narrative direction'],
 
   /* ------------------------------------------------------------------------
      SEARCH ENGINE AND SOCIAL SHARING
@@ -30,7 +32,7 @@ export const site = {
     titleSuffix: 'MAR',
     /** Shown in search results and when a link is shared. Under 160 characters. */
     description:
-      'MAR. Architecture, design and a personal archive of projects, writing and interests.',
+      'MAR. Visual design, photography and narrative direction, in a personal archive of projects, writing and interests.',
     /** The address the site lives at. Used for canonical links.
      *  Change this if you move to your own domain. */
     url: 'https://udaylal2k.github.io/desktop-tutorial',

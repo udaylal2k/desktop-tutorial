@@ -1,224 +1,57 @@
 /* ==========================================================================
    MAR - PROJECTS
    --------------------------------------------------------------------------
-   Four complete demonstration projects. They exist so that you can see the
-   whole system working before any of your own work is in it.
+   Maya's five projects, in the exact order and under the exact names she
+   supplied. Do not rename them, do not add to them, and do not make the
+   titles read more "architectural" than she gave them.
 
-   Every one of them is marked as demonstration content on the website.
-   Nothing here is presented as your work, and no client, award, employer or
-   qualification has been invented.
+     P.001  Campus Design
+     P.002  Library That Tells Time
+     P.003  Residence — Working Drawing
+     P.004  Multi-Module Transport Hub
+     P.005  High Rise Building
 
-   To add your own project, copy one of these blocks, change the values, and
-   put it at the top of the list. CONTENT-GUIDE.md walks through it step by
-   step, in plain language.
+   The short/long descriptions below are the client's own supplied draft
+   copy for the project index - editorial drafts based only on the project
+   names she gave, not confirmed facts. Everything else that would need a
+   real fact (year, site location, site size, program, role, tools, the
+   drawings and photographs themselves) is left as a bracketed placeholder
+   or an empty array until Maya supplies it. Nothing has been invented.
+
+   `focus` is the one field allowed to be a considered editorial line
+   rather than a raw fact - each one below is drawn directly from that
+   project's own supplied description.
    ========================================================================== */
 
 import type { Project } from './types';
 
-/** Set to false once your own projects have replaced these four. */
-export const projectsAreDemoContent = true;
+/** These are Maya's real five projects, not demonstration content. */
+export const projectsAreDemoContent = false;
 
 export const projects: Project[] = [
   /* ======================================================================
-     P.001
+     P.001 — CAMPUS DESIGN
      ====================================================================== */
   {
-    id: 'courtyard-dwelling',
+    id: 'campus-design',
     number: 'P.001',
-    title: 'Courtyard Dwelling',
-    year: '2024',
-    location: 'Inland site',
-    type: 'Residential',
-    status: 'academic',
+    title: 'Campus Design',
+    year: '[Add year]',
+    location: '[Add site location]',
+    type: 'Campus',
+    siteSize: '[Add site size]',
+    program: '[Add program]',
+    focus: 'Movement, gathering and the smaller thresholds that make a place feel familiar.',
+    role: '[Add role]',
+    status: 'unspecified',
     shortDescription:
-      'A small house arranged around one open room with no roof over it.',
+      'A study of how a campus can hold movement, gathering and quieter moments at the same time.',
     description:
-      'A demonstration project. The house is organised so that every inhabited room borrows light and air from a single open court, and so that crossing the house always means crossing that court. Replace this text with the description of your own project.',
-    tools: ['Rhino', 'AutoCAD', 'Illustrator', 'Physical model'],
+      'A study of how a campus can hold movement, gathering and quieter moments at the same time. The project looks at the relationship between shared spaces and the smaller thresholds that make a place feel familiar.',
+    tools: [],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for the courtyard dwelling project.',
-      ratio: 3 / 2,
-      treatment: 'cover',
-      register: 'photograph',
-      label: 'Cover',
-    },
-    sections: [
-      {
-        id: 'intro',
-        kind: 'text',
-        label: 'Introduction',
-        body: [
-          'This is demonstration text. It stands in for the opening of a project description so that you can see how a paragraph sits on the page, how wide the column is, and how it reads against the drawings underneath.',
-          'Replace it with the account of your own project. Two or three paragraphs is usually enough at the top of a page. The rest of the argument can be carried by the drawings.',
-        ],
-      },
-      {
-        id: 'site-plan',
-        kind: 'plate',
-        label: 'Site',
-        image: {
-          src: '',
-          alt: 'Demonstration site plan showing the house set within its plot.',
-          ratio: 16 / 10,
-          treatment: 'contain',
-          register: 'plan',
-          caption: 'Site plan. Replace with your own drawing.',
-          label: 'Drawing 01',
-        },
-      },
-      {
-        id: 'plans',
-        kind: 'series',
-        title: 'Plans',
-        label: 'Drawings',
-        images: [
-          {
-            src: '',
-            alt: 'Demonstration ground floor plan.',
-            ratio: 3 / 4,
-            treatment: 'contain',
-            register: 'plan',
-            caption: 'Ground floor',
-            label: 'Drawing 02',
-          },
-          {
-            src: '',
-            alt: 'Demonstration first floor plan.',
-            ratio: 3 / 4,
-            treatment: 'contain',
-            register: 'plan',
-            caption: 'First floor',
-            label: 'Drawing 03',
-          },
-        ],
-      },
-      {
-        id: 'court',
-        kind: 'aside',
-        title: 'The court',
-        imageSide: 'right',
-        image: {
-          src: '',
-          alt: 'Demonstration photograph looking into the open court.',
-          ratio: 4 / 5,
-          treatment: 'cover',
-          register: 'photograph',
-          label: 'View 01',
-        },
-        body: [
-          'Demonstration text beside an image. This arrangement is useful when a single picture needs an argument next to it rather than a caption under it.',
-          'Replace with your own writing. The image can sit on either side; the setting is one line in the content file.',
-        ],
-      },
-      {
-        id: 'statement',
-        kind: 'statement',
-        body: 'A demonstration statement. Use this section when one sentence should stop the page.',
-      },
-      {
-        id: 'section-drawing',
-        kind: 'plate',
-        label: 'Section',
-        image: {
-          src: '',
-          alt: 'Demonstration long section cut through the court.',
-          ratio: 2 / 1,
-          treatment: 'contain',
-          register: 'section',
-          caption: 'Long section. Replace with your own drawing.',
-          label: 'Drawing 04',
-        },
-      },
-      {
-        id: 'schedule',
-        kind: 'schedule',
-        title: 'Particulars',
-        items: [
-          { key: 'Area', value: 'Replace with area' },
-          { key: 'Structure', value: 'Replace with structure' },
-          { key: 'Cladding', value: 'Replace with material' },
-          { key: 'Stage', value: 'Replace with stage' },
-        ],
-      },
-      /* ---- The informal reading. Only shown when INFORMAL is selected. ---- */
-      {
-        id: 'informal-start',
-        kind: 'text',
-        mode: 'informal',
-        label: 'How it started',
-        title: 'Where this came from',
-        body: [
-          'Demonstration text for the informal reading. This is the place for how the project actually happened rather than how it is presented: the thing that started it, the part that took three attempts, the decision that turned out to be the whole project.',
-          'Nothing written here has to be resolved. That is the point of the second reading.',
-        ],
-      },
-      {
-        id: 'informal-sketches',
-        kind: 'series',
-        mode: 'informal',
-        title: 'First attempts',
-        images: [
-          {
-            src: '',
-            alt: 'Demonstration early sketch of the plan.',
-            ratio: 1,
-            treatment: 'framed',
-            register: 'sketch',
-            caption: 'First plan. Wrong, but useful.',
-          },
-          {
-            src: '',
-            alt: 'Demonstration early sketch of the section.',
-            ratio: 1,
-            treatment: 'framed',
-            register: 'sketch',
-            caption: 'Second attempt.',
-          },
-          {
-            src: '',
-            alt: 'Demonstration study model photographed on a desk.',
-            ratio: 1,
-            treatment: 'framed',
-            register: 'model',
-            caption: 'The model that settled it.',
-          },
-        ],
-      },
-      {
-        id: 'informal-doubt',
-        kind: 'statement',
-        mode: 'informal',
-        body: 'A demonstration note. The informal reading is allowed to admit what the formal one cannot.',
-      },
-    ],
-    archive: ['a-001', 'a-002', 'a-003', 'a-010'],
-    related: [
-      { kind: 'interest', id: 'photography' },
-      { kind: 'journal', id: 'threshold-and-passage' },
-      { kind: 'project', id: 'reading-rooms' },
-    ],
-  },
-
-  /* ======================================================================
-     P.002
-     ====================================================================== */
-  {
-    id: 'reading-rooms',
-    number: 'P.002',
-    title: 'Reading Rooms',
-    year: '2025',
-    location: 'City edge',
-    type: 'Public',
-    status: 'competition',
-    shortDescription:
-      'A small library of separate rooms rather than one large hall.',
-    description:
-      'A demonstration project. Instead of a single reading hall the building is broken into rooms of different sizes and different light, so that a visitor chooses the room that suits how they want to read. Replace this text with your own.',
-    tools: ['Rhino', 'Enscape', 'Illustrator', 'InDesign'],
-    coverImage: {
-      src: '',
-      alt: 'Demonstration cover image for the reading rooms project.',
+      alt: 'Placeholder for the cover image of Campus Design.',
       ratio: 3 / 2,
       treatment: 'cover',
       register: 'render',
@@ -226,261 +59,118 @@ export const projects: Project[] = [
     },
     sections: [
       {
-        id: 'intro',
-        kind: 'text',
-        label: 'Introduction',
-        body: [
-          'Demonstration text. A competition entry usually needs its argument stated quickly, because the reader has thirty others to look at. One short paragraph, then the drawings.',
-          'Replace this with your own opening.',
-        ],
-      },
-      {
-        id: 'elevation',
+        id: 'concept',
         kind: 'plate',
-        label: 'Elevation',
+        label: '02 — Concept',
         image: {
           src: '',
-          alt: 'Demonstration street elevation of the library.',
-          ratio: 21 / 9,
-          treatment: 'bleed',
-          register: 'elevation',
-          caption: 'Street elevation. Replace with your own drawing.',
-          label: 'Drawing 01',
-        },
-      },
-      {
-        id: 'rooms',
-        kind: 'aside',
-        title: 'Seven rooms',
-        imageSide: 'left',
-        image: {
-          src: '',
-          alt: 'Demonstration axonometric drawing of the seven rooms.',
-          ratio: 4 / 5,
+          alt: 'Placeholder for the concept diagram for Campus Design.',
+          ratio: 16 / 10,
           treatment: 'contain',
-          register: 'axonometric',
-          label: 'Drawing 02',
-        },
-        body: [
-          'Demonstration text. An axonometric with writing beside it is the clearest way to explain an arrangement of parts.',
-          'Replace with your own description of how the pieces are put together.',
-        ],
-      },
-      {
-        id: 'views',
-        kind: 'series',
-        title: 'Interiors',
-        images: [
-          {
-            src: '',
-            alt: 'Demonstration interior render of the tall reading room.',
-            ratio: 3 / 2,
-            treatment: 'cover',
-            register: 'render',
-            caption: 'The tall room',
-          },
-          {
-            src: '',
-            alt: 'Demonstration interior render of the low reading room.',
-            ratio: 3 / 2,
-            treatment: 'cover',
-            register: 'render',
-            caption: 'The low room',
-          },
-        ],
-      },
-      {
-        id: 'schedule',
-        kind: 'schedule',
-        title: 'Particulars',
-        items: [
-          { key: 'Brief', value: 'Replace with brief' },
-          { key: 'Area', value: 'Replace with area' },
-          { key: 'Structure', value: 'Replace with structure' },
-          { key: 'Outcome', value: 'Replace with outcome' },
-        ],
-      },
-      {
-        id: 'informal-pace',
-        kind: 'text',
-        mode: 'informal',
-        label: 'Working notes',
-        title: 'Three weeks',
-        body: [
-          'Demonstration text for the informal reading. Competitions are short, and the interesting part is usually what got cut on the last weekend.',
-          'Replace with your own account.',
-        ],
-      },
-      {
-        id: 'informal-cuts',
-        kind: 'series',
-        mode: 'informal',
-        title: 'Cut from the entry',
-        images: [
-          {
-            src: '',
-            alt: 'Demonstration discarded plan option.',
-            ratio: 4 / 3,
-            treatment: 'framed',
-            register: 'sketch',
-            caption: 'Option that did not survive.',
-          },
-          {
-            src: '',
-            alt: 'Demonstration discarded facade study.',
-            ratio: 4 / 3,
-            treatment: 'framed',
-            register: 'diagram',
-            caption: 'Facade study, abandoned.',
-          },
-        ],
-      },
-    ],
-    archive: ['a-004', 'a-005', 'a-011'],
-    related: [
-      { kind: 'journal', id: 'light-as-a-material' },
-      { kind: 'interest', id: 'graphic-design' },
-      { kind: 'project', id: 'foundry-conversion' },
-    ],
-  },
-
-  /* ======================================================================
-     P.003
-     ====================================================================== */
-  {
-    id: 'foundry-conversion',
-    number: 'P.003',
-    title: 'Foundry Conversion',
-    year: '2026',
-    location: 'Riverside',
-    type: 'Adaptive reuse',
-    status: 'in-progress',
-    shortDescription:
-      'An industrial shed kept as it is, with new rooms set inside it.',
-    description:
-      'A demonstration project. The existing structure is repaired but not corrected. New accommodation is built as free standing rooms within the shed, touching the old fabric as little as possible. Replace this text with your own.',
-    tools: ['Rhino', 'AutoCAD', 'Photoshop', 'Hand drawing'],
-    coverImage: {
-      src: '',
-      alt: 'Demonstration cover image for the foundry conversion project.',
-      ratio: 3 / 2,
-      treatment: 'cover',
-      register: 'photograph',
-      label: 'Cover',
-    },
-    sections: [
-      {
-        id: 'intro',
-        kind: 'text',
-        label: 'Introduction',
-        body: [
-          'Demonstration text. A reuse project usually needs two descriptions: what is already there, and what is being added. Keeping them separate on the page makes the argument easier to follow.',
-          'Replace with your own writing.',
-        ],
-      },
-      {
-        id: 'existing',
-        kind: 'series',
-        title: 'As found',
-        label: 'Survey',
-        images: [
-          {
-            src: '',
-            alt: 'Demonstration survey photograph of the existing shed.',
-            ratio: 4 / 3,
-            treatment: 'cover',
-            register: 'photograph',
-            caption: 'Looking along the shed',
-          },
-          {
-            src: '',
-            alt: 'Demonstration survey photograph of a roof detail.',
-            ratio: 4 / 3,
-            treatment: 'cover',
-            register: 'detail',
-            caption: 'Roof junction',
-          },
-          {
-            src: '',
-            alt: 'Demonstration survey photograph of the river elevation.',
-            ratio: 4 / 3,
-            treatment: 'cover',
-            register: 'photograph',
-            caption: 'River elevation',
-          },
-        ],
-      },
-      {
-        id: 'break-1',
-        kind: 'break',
-      },
-      {
-        id: 'proposed-plan',
-        kind: 'plate',
-        label: 'Proposed',
-        image: {
-          src: '',
-          alt: 'Demonstration proposed plan with new rooms inside the shed.',
-          ratio: 16 / 9,
-          treatment: 'contain',
-          register: 'plan',
-          caption: 'Proposed plan. Replace with your own drawing.',
-          label: 'Drawing 01',
+          register: 'diagram',
+          caption: '[Add concept diagram]',
         },
       },
       {
-        id: 'detail',
+        id: 'context',
         kind: 'aside',
-        title: 'Where old meets new',
+        title: 'Context',
+        label: '03 — Context',
         imageSide: 'right',
         image: {
           src: '',
-          alt: 'Demonstration construction detail at the junction of old and new.',
-          ratio: 1,
-          treatment: 'contain',
-          register: 'detail',
-          label: 'Drawing 02',
+          alt: 'Placeholder for a site context photograph for Campus Design.',
+          ratio: 4 / 5,
+          treatment: 'cover',
+          register: 'photograph',
+          label: 'Site',
         },
-        body: [
-          'Demonstration text. A detail drawing carries more of the argument in a reuse project than any render does.',
-          'Replace with your own description.',
+        body: ['[Add the site and context material for Campus Design.]'],
+      },
+      {
+        id: 'plans',
+        kind: 'series',
+        title: 'Plans',
+        label: '06 — Plans',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for a campus-level plan drawing.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'plan',
+            caption: '[Add plan]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a detailed plan of one shared space.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'plan',
+            caption: '[Add plan]',
+          },
         ],
+      },
+      {
+        id: 'statement',
+        kind: 'statement',
+        body: 'Movement, gathering and the smaller thresholds that make a place feel familiar.',
+      },
+      {
+        id: 'elevations',
+        kind: 'plate',
+        label: '08 — Elevations',
+        image: {
+          src: '',
+          alt: 'Placeholder for an elevation drawing for Campus Design.',
+          ratio: 21 / 9,
+          treatment: 'bleed',
+          register: 'elevation',
+          caption: '[Add elevation]',
+        },
       },
       {
         id: 'schedule',
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Existing', value: 'Replace with description' },
-          { key: 'Proposed', value: 'Replace with description' },
-          { key: 'Structure', value: 'Replace with structure' },
-          { key: 'Stage', value: 'Replace with stage' },
+          { key: 'Structure', value: '[Add structure]' },
+          { key: 'Material', value: '[Add material]' },
+          { key: 'Stage', value: '[Add stage]' },
         ],
       },
+      /* ---- The informal reading. Only shown when INFORMAL is selected. ---- */
       {
-        id: 'informal-survey',
+        id: 'informal-process',
         kind: 'text',
         mode: 'informal',
-        label: 'On site',
-        title: 'The first visit',
-        body: [
-          'Demonstration text for the informal reading. Survey days are where reuse projects are actually decided, and the notes from them are usually more honest than the drawings that follow.',
-          'Replace with your own account.',
-        ],
+        label: 'Process',
+        title: 'Behind Campus Design',
+        body: ['[Add the sketches, false starts and working notes behind Campus Design.]'],
       },
       {
-        id: 'informal-notebook',
-        kind: 'plate',
+        id: 'informal-sketches',
+        kind: 'series',
         mode: 'informal',
-        title: 'Notebook',
-        image: {
-          src: '',
-          alt: 'Demonstration scan of a notebook page from the site visit.',
-          ratio: 3 / 4,
-          treatment: 'framed',
-          register: 'document',
-          caption: 'Site notebook. Replace with your own scan.',
-        },
+        title: 'Working sketches',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for an early working sketch for Campus Design.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'sketch',
+            caption: '[Add sketch]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a study model for Campus Design.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'model',
+            caption: '[Add model]',
+          },
+        ],
       },
     ],
     archive: ['a-006', 'a-007', 'a-012'],
@@ -492,24 +182,178 @@ export const projects: Project[] = [
   },
 
   /* ======================================================================
-     P.004
+     P.002 — LIBRARY THAT TELLS TIME
      ====================================================================== */
   {
-    id: 'line-of-shelters',
-    number: 'P.004',
-    title: 'Line of Shelters',
-    year: '2026',
-    location: 'Upland',
-    type: 'Landscape',
-    status: 'proposal',
-    shortDescription:
-      'Five small structures along a walking route, each built the same way.',
+    id: 'library-that-tells-time',
+    number: 'P.002',
+    title: 'Library That Tells Time',
+    year: '[Add year]',
+    location: '[Add site location]',
+    type: 'Civic',
+    siteSize: '[Add site size]',
+    program: '[Add program]',
+    focus: 'Light, movement and changing patterns of occupation, registering the day.',
+    role: '[Add role]',
+    status: 'unspecified',
+    shortDescription: 'A library imagined through time rather than simply around it.',
     description:
-      'A demonstration project. One construction is repeated five times along a path, and only the orientation changes. What the shelters frame is different each time. Replace this text with your own.',
-    tools: ['Rhino', 'QGIS', 'Illustrator', 'Physical model'],
+      'A library imagined through time rather than simply around it. Light, movement and changing patterns of occupation become part of the architectural experience, allowing the building to register the day as much as the people inside it.',
+    tools: [],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for the line of shelters project.',
+      alt: 'Placeholder for the cover image of Library That Tells Time.',
+      ratio: 3 / 2,
+      treatment: 'cover',
+      register: 'render',
+      label: 'Cover',
+    },
+    sections: [
+      {
+        id: 'concept',
+        kind: 'plate',
+        label: '02 — Concept',
+        image: {
+          src: '',
+          alt: 'Placeholder for the concept diagram for Library That Tells Time.',
+          ratio: 16 / 10,
+          treatment: 'contain',
+          register: 'diagram',
+          caption: '[Add concept diagram]',
+        },
+      },
+      {
+        id: 'context',
+        kind: 'aside',
+        title: 'Context',
+        label: '03 — Context',
+        imageSide: 'left',
+        image: {
+          src: '',
+          alt: 'Placeholder for a site context photograph for Library That Tells Time.',
+          ratio: 4 / 5,
+          treatment: 'cover',
+          register: 'photograph',
+          label: 'Site',
+        },
+        body: ['[Add the site and context material for Library That Tells Time.]'],
+      },
+      {
+        id: 'sections',
+        kind: 'series',
+        title: 'Sections',
+        label: '07 — Sections',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for a long section through the reading rooms.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'section',
+            caption: '[Add section]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a cross section showing changing light.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'section',
+            caption: '[Add section]',
+          },
+        ],
+      },
+      {
+        id: 'statement',
+        kind: 'statement',
+        body: 'Light, movement and changing patterns of occupation, registering the day.',
+      },
+      {
+        id: 'visualisations',
+        kind: 'plate',
+        label: '09 — Visualisations',
+        image: {
+          src: '',
+          alt: 'Placeholder for an interior visualisation for Library That Tells Time.',
+          ratio: 16 / 9,
+          treatment: 'cover',
+          register: 'render',
+          caption: '[Add visualisation]',
+        },
+      },
+      { id: 'break-1', kind: 'break' },
+      {
+        id: 'schedule',
+        kind: 'schedule',
+        title: 'Particulars',
+        items: [
+          { key: 'Structure', value: '[Add structure]' },
+          { key: 'Material', value: '[Add material]' },
+          { key: 'Stage', value: '[Add stage]' },
+        ],
+      },
+      {
+        id: 'informal-process',
+        kind: 'text',
+        mode: 'informal',
+        label: 'Process',
+        title: 'Behind Library That Tells Time',
+        body: ['[Add the sketches, false starts and working notes behind Library That Tells Time.]'],
+      },
+      {
+        id: 'informal-sketches',
+        kind: 'series',
+        mode: 'informal',
+        title: 'Working sketches',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for an early working sketch for Library That Tells Time.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'sketch',
+            caption: '[Add sketch]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a light study for Library That Tells Time.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'diagram',
+            caption: '[Add light study]',
+          },
+        ],
+      },
+    ],
+    archive: ['a-004', 'a-005', 'a-011'],
+    related: [
+      { kind: 'journal', id: 'light-as-a-material' },
+      { kind: 'interest', id: 'graphic-design' },
+      { kind: 'project', id: 'campus-design' },
+    ],
+  },
+
+  /* ======================================================================
+     P.003 — RESIDENCE — WORKING DRAWING
+     ====================================================================== */
+  {
+    id: 'residence-working-drawing',
+    number: 'P.003',
+    title: 'Residence — Working Drawing',
+    year: '[Add year]',
+    location: '[Add site location]',
+    type: 'Residential',
+    siteSize: '[Add site size]',
+    program: '[Add program]',
+    focus: 'Construction, material and the small details that determine how a space comes together.',
+    role: '[Add role]',
+    status: 'unspecified',
+    shortDescription: 'A residence examined through the precision of working drawings.',
+    description:
+      'A residence examined through the precision of working drawings. Here, architecture moves from an idea into decisions about construction, material, junctions and the small details that determine how a space actually comes together.',
+    tools: [],
+    coverImage: {
+      src: '',
+      alt: 'Placeholder for the cover image of Residence — Working Drawing.',
       ratio: 3 / 2,
       treatment: 'cover',
       register: 'photograph',
@@ -517,135 +361,267 @@ export const projects: Project[] = [
     },
     sections: [
       {
-        id: 'intro',
-        kind: 'text',
-        label: 'Introduction',
-        body: [
-          'Demonstration text. When a project is a repeated element, the page works best if the element is explained once and then the variations are simply shown.',
-          'Replace with your own writing.',
-        ],
-      },
-      {
-        id: 'route',
+        id: 'concept',
         kind: 'plate',
-        label: 'Route',
+        label: '02 — Concept',
         image: {
           src: '',
-          alt: 'Demonstration mapping drawing of the walking route and the five positions.',
-          ratio: 21 / 9,
-          treatment: 'bleed',
+          alt: 'Placeholder for the concept diagram for Residence — Working Drawing.',
+          ratio: 16 / 10,
+          treatment: 'contain',
           register: 'diagram',
-          caption: 'The route and the five positions.',
-          label: 'Drawing 01',
+          caption: '[Add concept diagram]',
         },
       },
       {
-        id: 'the-five',
+        id: 'drawings',
         kind: 'series',
-        title: 'The five',
+        title: 'Working drawings',
+        label: '05 — Drawings',
         images: [
           {
             src: '',
-            alt: 'Demonstration elevation of the first shelter.',
+            alt: 'Placeholder for a ground floor working drawing.',
             ratio: 3 / 4,
             treatment: 'contain',
-            register: 'elevation',
-            caption: 'One',
+            register: 'plan',
+            caption: '[Add working drawing]',
           },
           {
             src: '',
-            alt: 'Demonstration elevation of the second shelter.',
+            alt: 'Placeholder for a construction junction drawing.',
             ratio: 3 / 4,
             treatment: 'contain',
-            register: 'elevation',
-            caption: 'Two',
+            register: 'detail',
+            caption: '[Add junction drawing]',
           },
           {
             src: '',
-            alt: 'Demonstration elevation of the third shelter.',
+            alt: 'Placeholder for a material schedule drawing.',
             ratio: 3 / 4,
             treatment: 'contain',
-            register: 'elevation',
-            caption: 'Three',
+            register: 'detail',
+            caption: '[Add detail drawing]',
           },
         ],
+      },
+      {
+        id: 'context',
+        kind: 'aside',
+        title: 'Context',
+        label: '03 — Context',
+        imageSide: 'right',
+        image: {
+          src: '',
+          alt: 'Placeholder for a site context photograph for Residence — Working Drawing.',
+          ratio: 4 / 5,
+          treatment: 'cover',
+          register: 'photograph',
+          label: 'Site',
+        },
+        body: ['[Add the site and context material for Residence — Working Drawing.]'],
       },
       {
         id: 'statement',
         kind: 'statement',
-        body: 'Demonstration statement. The same structure, turned five times, is five different rooms.',
-      },
-      {
-        id: 'construction',
-        kind: 'aside',
-        title: 'One construction',
-        imageSide: 'left',
-        image: {
-          src: '',
-          alt: 'Demonstration exploded axonometric of the shelter construction.',
-          ratio: 4 / 5,
-          treatment: 'contain',
-          register: 'axonometric',
-          label: 'Drawing 02',
-        },
-        body: [
-          'Demonstration text. Replace with your own description of how the thing is actually built.',
-        ],
+        body: 'Construction, material and the small details that determine how a space comes together.',
       },
       {
         id: 'schedule',
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Number', value: 'Five' },
-          { key: 'Material', value: 'Replace with material' },
-          { key: 'Foundation', value: 'Replace with foundation' },
-          { key: 'Stage', value: 'Replace with stage' },
+          { key: 'Structure', value: '[Add structure]' },
+          { key: 'Material', value: '[Add material]' },
+          { key: 'Junction detail', value: '[Add junction detail]' },
+          { key: 'Stage', value: '[Add stage]' },
         ],
       },
       {
-        id: 'informal-walk',
+        id: 'informal-process',
         kind: 'text',
         mode: 'informal',
-        label: 'Walking',
-        title: 'Finding the positions',
+        label: 'Process',
+        title: 'Behind Residence — Working Drawing',
         body: [
-          'Demonstration text for the informal reading. The positions were found by walking, not by drawing, and the photographs from those walks are the real drawings of this project.',
-          'Replace with your own account.',
+          '[Add the sketches, false starts and working notes behind Residence — Working Drawing.]',
         ],
       },
       {
-        id: 'informal-walk-photos',
+        id: 'informal-sketches',
         kind: 'series',
         mode: 'informal',
+        title: 'Working sketches',
         images: [
           {
             src: '',
-            alt: 'Demonstration walking photograph looking back along the path.',
+            alt: 'Placeholder for an early working sketch for Residence — Working Drawing.',
             ratio: 1,
-            treatment: 'cover',
-            register: 'photograph',
+            treatment: 'framed',
+            register: 'sketch',
+            caption: '[Add sketch]',
           },
           {
             src: '',
-            alt: 'Demonstration walking photograph of the ground.',
+            alt: 'Placeholder for a construction detail study.',
             ratio: 1,
-            treatment: 'cover',
-            register: 'photograph',
+            treatment: 'framed',
+            register: 'detail',
+            caption: '[Add detail study]',
+          },
+        ],
+      },
+    ],
+    archive: ['a-001', 'a-002', 'a-003', 'a-010'],
+    related: [
+      { kind: 'interest', id: 'photography' },
+      { kind: 'journal', id: 'threshold-and-passage' },
+      { kind: 'project', id: 'library-that-tells-time' },
+    ],
+  },
+
+  /* ======================================================================
+     P.004 — MULTI-MODULE TRANSPORT HUB
+     ====================================================================== */
+  {
+    id: 'multi-module-transport-hub',
+    number: 'P.004',
+    title: 'Multi-Module Transport Hub',
+    year: '[Add year]',
+    location: '[Add site location]',
+    type: 'Transport',
+    siteSize: '[Add site size]',
+    program: '[Add program]',
+    focus: 'Repetition as a way of organising movement, waiting and connection.',
+    role: '[Add role]',
+    status: 'unspecified',
+    shortDescription:
+      'A transport hub developed through a modular system, where repetition becomes a way of organising movement, waiting and connection.',
+    description:
+      'A transport hub developed through a modular system, where repetition becomes a way of organising movement, waiting and connection. The project investigates how a larger public building can remain legible while accommodating different rhythms of use.',
+    tools: [],
+    coverImage: {
+      src: '',
+      alt: 'Placeholder for the cover image of Multi-Module Transport Hub.',
+      ratio: 3 / 2,
+      treatment: 'cover',
+      register: 'render',
+      label: 'Cover',
+    },
+    sections: [
+      {
+        id: 'concept',
+        kind: 'plate',
+        label: '02 — Concept',
+        image: {
+          src: '',
+          alt: 'Placeholder for the concept diagram for Multi-Module Transport Hub.',
+          ratio: 16 / 10,
+          treatment: 'contain',
+          register: 'diagram',
+          caption: '[Add concept diagram]',
+        },
+      },
+      {
+        id: 'context',
+        kind: 'aside',
+        title: 'Context',
+        label: '03 — Context',
+        imageSide: 'left',
+        image: {
+          src: '',
+          alt: 'Placeholder for a site context photograph for Multi-Module Transport Hub.',
+          ratio: 4 / 5,
+          treatment: 'cover',
+          register: 'photograph',
+          label: 'Site',
+        },
+        body: ['[Add the site and context material for Multi-Module Transport Hub.]'],
+      },
+      {
+        id: 'plans',
+        kind: 'series',
+        title: 'Plans',
+        label: '06 — Plans',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for a module plan drawing.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'plan',
+            caption: '[Add plan]',
           },
           {
             src: '',
-            alt: 'Demonstration walking photograph of the ridge.',
+            alt: 'Placeholder for a combined hub plan drawing.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'plan',
+            caption: '[Add plan]',
+          },
+        ],
+      },
+      {
+        id: 'statement',
+        kind: 'statement',
+        body: 'Repetition as a way of organising movement, waiting and connection.',
+      },
+      {
+        id: 'elevations',
+        kind: 'plate',
+        label: '08 — Elevations',
+        image: {
+          src: '',
+          alt: 'Placeholder for an elevation drawing for Multi-Module Transport Hub.',
+          ratio: 21 / 9,
+          treatment: 'bleed',
+          register: 'elevation',
+          caption: '[Add elevation]',
+        },
+      },
+      { id: 'break-1', kind: 'break' },
+      {
+        id: 'schedule',
+        kind: 'schedule',
+        title: 'Particulars',
+        items: [
+          { key: 'Modules', value: '[Add number of modules]' },
+          { key: 'Structure', value: '[Add structure]' },
+          { key: 'Stage', value: '[Add stage]' },
+        ],
+      },
+      {
+        id: 'informal-process',
+        kind: 'text',
+        mode: 'informal',
+        label: 'Process',
+        title: 'Behind Multi-Module Transport Hub',
+        body: [
+          '[Add the sketches, false starts and working notes behind Multi-Module Transport Hub.]',
+        ],
+      },
+      {
+        id: 'informal-sketches',
+        kind: 'series',
+        mode: 'informal',
+        title: 'Working sketches',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for an early working sketch for Multi-Module Transport Hub.',
             ratio: 1,
-            treatment: 'cover',
-            register: 'photograph',
+            treatment: 'framed',
+            register: 'sketch',
+            caption: '[Add sketch]',
           },
           {
             src: '',
-            alt: 'Demonstration walking photograph at dusk.',
+            alt: 'Placeholder for a module study model.',
             ratio: 1,
-            treatment: 'cover',
-            register: 'photograph',
+            treatment: 'framed',
+            register: 'model',
+            caption: '[Add model]',
           },
         ],
       },
@@ -654,7 +630,153 @@ export const projects: Project[] = [
     related: [
       { kind: 'interest', id: 'videography' },
       { kind: 'journal', id: 'walking-as-survey' },
-      { kind: 'project', id: 'courtyard-dwelling' },
+      { kind: 'project', id: 'residence-working-drawing' },
     ],
+  },
+
+  /* ======================================================================
+     P.005 — HIGH RISE BUILDING
+     ====================================================================== */
+  {
+    id: 'high-rise-building',
+    number: 'P.005',
+    title: 'High Rise Building',
+    year: '[Add year]',
+    location: '[Add site location]',
+    type: 'High-rise',
+    siteSize: '[Add site size]',
+    program: '[Add program]',
+    focus: 'How people move through, meet within and experience the building at different scales.',
+    role: '[Add role]',
+    status: 'unspecified',
+    shortDescription: 'A vertical study of density, structure and movement.',
+    description:
+      'A vertical study of density, structure and movement. The project looks at how a high-rise can create more than stacked floor plates by considering how people move through, meet within and experience the building at different scales.',
+    tools: [],
+    coverImage: {
+      src: '',
+      alt: 'Placeholder for the cover image of High Rise Building.',
+      ratio: 3 / 2,
+      treatment: 'cover',
+      register: 'photograph',
+      label: 'Cover',
+    },
+    sections: [
+      {
+        id: 'concept',
+        kind: 'plate',
+        label: '02 — Concept',
+        image: {
+          src: '',
+          alt: 'Placeholder for the concept diagram for High Rise Building.',
+          ratio: 16 / 10,
+          treatment: 'contain',
+          register: 'diagram',
+          caption: '[Add concept diagram]',
+        },
+      },
+      {
+        id: 'context',
+        kind: 'aside',
+        title: 'Context',
+        label: '03 — Context',
+        imageSide: 'right',
+        image: {
+          src: '',
+          alt: 'Placeholder for a site context photograph for High Rise Building.',
+          ratio: 4 / 5,
+          treatment: 'cover',
+          register: 'photograph',
+          label: 'Site',
+        },
+        body: ['[Add the site and context material for High Rise Building.]'],
+      },
+      {
+        id: 'sections',
+        kind: 'series',
+        title: 'Sections',
+        label: '07 — Sections',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for a full-height section through the tower.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'section',
+            caption: '[Add section]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a section through a shared floor.',
+            ratio: 3 / 4,
+            treatment: 'contain',
+            register: 'section',
+            caption: '[Add section]',
+          },
+        ],
+      },
+      {
+        id: 'statement',
+        kind: 'statement',
+        body: 'How people move through, meet within and experience the building at different scales.',
+      },
+      {
+        id: 'visualisations',
+        kind: 'plate',
+        label: '09 — Visualisations',
+        image: {
+          src: '',
+          alt: 'Placeholder for a skyline visualisation for High Rise Building.',
+          ratio: 16 / 9,
+          treatment: 'cover',
+          register: 'render',
+          caption: '[Add visualisation]',
+        },
+      },
+      {
+        id: 'schedule',
+        kind: 'schedule',
+        title: 'Particulars',
+        items: [
+          { key: 'Floors', value: '[Add number of floors]' },
+          { key: 'Structure', value: '[Add structure]' },
+          { key: 'Stage', value: '[Add stage]' },
+        ],
+      },
+      {
+        id: 'informal-process',
+        kind: 'text',
+        mode: 'informal',
+        label: 'Process',
+        title: 'Behind High Rise Building',
+        body: ['[Add the sketches, false starts and working notes behind High Rise Building.]'],
+      },
+      {
+        id: 'informal-sketches',
+        kind: 'series',
+        mode: 'informal',
+        title: 'Working sketches',
+        images: [
+          {
+            src: '',
+            alt: 'Placeholder for an early working sketch for High Rise Building.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'sketch',
+            caption: '[Add sketch]',
+          },
+          {
+            src: '',
+            alt: 'Placeholder for a massing study model.',
+            ratio: 1,
+            treatment: 'framed',
+            register: 'model',
+            caption: '[Add model]',
+          },
+        ],
+      },
+    ],
+    archive: [],
+    related: [{ kind: 'project', id: 'multi-module-transport-hub' }],
   },
 ];

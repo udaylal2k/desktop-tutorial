@@ -25,7 +25,7 @@ export const archive: ArchiveItem[] = [
     title: 'First plan, discarded',
     kind: 'sketch',
     date: '2024-02-11',
-    project: 'courtyard-dwelling',
+    project: 'residence-working-drawing',
     description:
       'Demonstration item. The plan the project started from, before the court was opened.',
     image: {
@@ -37,14 +37,14 @@ export const archive: ArchiveItem[] = [
     },
     tags: ['plan', 'discarded'],
     sketchbook: true,
-    related: [{ kind: 'project', id: 'courtyard-dwelling' }],
+    related: [{ kind: 'project', id: 'residence-working-drawing' }],
   },
   {
     id: 'a-002',
     title: 'Study model, cut in half',
     kind: 'model',
     date: '2024-03-04',
-    project: 'courtyard-dwelling',
+    project: 'residence-working-drawing',
     description: 'Demonstration item. A model cut through to check the section.',
     image: {
       src: '',
@@ -54,14 +54,14 @@ export const archive: ArchiveItem[] = [
       register: 'model',
     },
     tags: ['model', 'section'],
-    related: [{ kind: 'project', id: 'courtyard-dwelling' }],
+    related: [{ kind: 'project', id: 'residence-working-drawing' }],
   },
   {
     id: 'a-003',
     title: 'Court, measured',
     kind: 'drawing',
     date: '2024-03-22',
-    project: 'courtyard-dwelling',
+    project: 'residence-working-drawing',
     description: 'Demonstration item. A dimensioned drawing of the open room.',
     image: {
       src: '',
@@ -71,14 +71,14 @@ export const archive: ArchiveItem[] = [
       register: 'plan',
     },
     tags: ['drawing', 'dimension'],
-    related: [{ kind: 'project', id: 'courtyard-dwelling' }],
+    related: [{ kind: 'project', id: 'residence-working-drawing' }],
   },
   {
     id: 'a-004',
     title: 'Room sizes, tested',
     kind: 'experiment',
     date: '2025-01-19',
-    project: 'reading-rooms',
+    project: 'library-that-tells-time',
     description:
       'Demonstration item. Seven rooms drawn at seven sizes on the same sheet.',
     image: {
@@ -89,14 +89,14 @@ export const archive: ArchiveItem[] = [
       register: 'diagram',
     },
     tags: ['test', 'plan'],
-    related: [{ kind: 'project', id: 'reading-rooms' }],
+    related: [{ kind: 'project', id: 'library-that-tells-time' }],
   },
   {
     id: 'a-005',
     title: 'Reference, unattributed',
     kind: 'reference',
     date: '2025-01-28',
-    project: 'reading-rooms',
+    project: 'library-that-tells-time',
     description:
       'Demonstration item. Replace references with your own, and credit them properly.',
     image: {
@@ -107,14 +107,14 @@ export const archive: ArchiveItem[] = [
       register: 'document',
     },
     tags: ['reference'],
-    related: [{ kind: 'project', id: 'reading-rooms' }],
+    related: [{ kind: 'project', id: 'library-that-tells-time' }],
   },
   {
     id: 'a-006',
     title: 'Shed, as found',
     kind: 'photo',
     date: '2026-01-08',
-    project: 'foundry-conversion',
+    project: 'campus-design',
     description: 'Demonstration item. Survey photograph from the first visit.',
     image: {
       src: '',
@@ -125,7 +125,7 @@ export const archive: ArchiveItem[] = [
     },
     tags: ['survey', 'existing'],
     related: [
-      { kind: 'project', id: 'foundry-conversion' },
+      { kind: 'project', id: 'campus-design' },
       { kind: 'journal', id: 'what-a-building-remembers' },
     ],
   },
@@ -134,7 +134,7 @@ export const archive: ArchiveItem[] = [
     title: 'Roof light, midday',
     kind: 'photo',
     date: '2026-01-08',
-    project: 'foundry-conversion',
+    project: 'campus-design',
     interest: 'photography',
     description: 'Demonstration item. The reason the roof was kept.',
     image: {
@@ -152,7 +152,7 @@ export const archive: ArchiveItem[] = [
     title: 'Route, walked twice',
     kind: 'note',
     date: '2026-04-30',
-    project: 'line-of-shelters',
+    project: 'multi-module-transport-hub',
     description: 'Demonstration item. A notebook page from the second walk.',
     image: {
       src: '',
@@ -170,7 +170,7 @@ export const archive: ArchiveItem[] = [
     title: 'Joint, five versions',
     kind: 'process',
     date: '2026-05-14',
-    project: 'line-of-shelters',
+    project: 'multi-module-transport-hub',
     description:
       'Demonstration item. The same connection drawn five ways on one sheet.',
     image: {
@@ -181,14 +181,14 @@ export const archive: ArchiveItem[] = [
       register: 'detail',
     },
     tags: ['detail', 'process'],
-    related: [{ kind: 'project', id: 'line-of-shelters' }],
+    related: [{ kind: 'project', id: 'multi-module-transport-hub' }],
   },
   {
     id: 'a-010',
     title: 'Margin drawings',
     kind: 'sketch',
     date: '2024-02-27',
-    project: 'courtyard-dwelling',
+    project: 'residence-working-drawing',
     description:
       'Demonstration item. Drawings made in the margin of something else.',
     image: {
@@ -207,7 +207,7 @@ export const archive: ArchiveItem[] = [
     title: 'Board layout, rejected',
     kind: 'screenshot',
     date: '2025-02-02',
-    project: 'reading-rooms',
+    project: 'library-that-tells-time',
     interest: 'graphic-design',
     description: 'Demonstration item. A competition board layout that was abandoned.',
     image: {
@@ -225,7 +225,7 @@ export const archive: ArchiveItem[] = [
     title: 'Colour, sampled on site',
     kind: 'process',
     date: '2026-01-09',
-    project: 'foundry-conversion',
+    project: 'campus-design',
     description: 'Demonstration item. Paint samples held against the existing wall.',
     image: {
       src: '',
@@ -242,7 +242,7 @@ export const archive: ArchiveItem[] = [
     title: 'Dusk, from position three',
     kind: 'photo',
     date: '2026-05-01',
-    project: 'line-of-shelters',
+    project: 'multi-module-transport-hub',
     interest: 'photography',
     description: 'Demonstration item. The view the third shelter was turned towards.',
     image: {

@@ -48,7 +48,7 @@ export const journal: JournalEntry[] = [
     },
     tags: ['threshold', 'circulation', 'plan'],
     related: [
-      { kind: 'project', id: 'courtyard-dwelling' },
+      { kind: 'project', id: 'residence-working-drawing' },
       { kind: 'interest', id: 'photography' },
     ],
   },
@@ -77,7 +77,7 @@ export const journal: JournalEntry[] = [
     },
     tags: ['repair', 'reuse', 'material'],
     related: [
-      { kind: 'project', id: 'foundry-conversion' },
+      { kind: 'project', id: 'campus-design' },
       { kind: 'archive', id: 'a-006' },
     ],
   },
@@ -107,7 +107,7 @@ export const journal: JournalEntry[] = [
     },
     tags: ['light', 'writing', 'public'],
     related: [
-      { kind: 'project', id: 'reading-rooms' },
+      { kind: 'project', id: 'library-that-tells-time' },
       { kind: 'interest', id: 'photography' },
     ],
   },
@@ -136,7 +136,7 @@ export const journal: JournalEntry[] = [
     tags: ['drawing', 'tools', 'process'],
     related: [
       { kind: 'interest', id: 'graphic-design' },
-      { kind: 'project', id: 'line-of-shelters' },
+      { kind: 'project', id: 'multi-module-transport-hub' },
     ],
   },
 
@@ -160,7 +160,7 @@ export const journal: JournalEntry[] = [
       label: 'Note',
     },
     tags: ['site', 'walking', 'method'],
-    related: [{ kind: 'project', id: 'line-of-shelters' }],
+    related: [{ kind: 'project', id: 'multi-module-transport-hub' }],
   },
   {
     id: 'on-keeping-an-archive',

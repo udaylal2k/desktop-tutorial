@@ -19,7 +19,7 @@ type FacetName = 'year' | 'type' | 'location' | 'status';
 const facetLabels: Record<FacetName, string> = {
   year: 'Year',
   type: 'Type',
-  location: 'Location',
+  location: 'Site location',
   status: 'Status',
 };
 
@@ -29,6 +29,7 @@ const statusNames: Record<Project['status'], string> = {
   proposal: 'Proposal',
   academic: 'Academic',
   competition: 'Competition',
+  unspecified: 'To be confirmed',
 };
 
 export function ProjectIndex({ projects }: { projects: Project[] }) {

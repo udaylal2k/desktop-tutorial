@@ -61,12 +61,15 @@ export function AboutPanel() {
               <h2 id="about-panel-title" className="about-panel__title display-3">
                 {about.headline}
               </h2>
-              <p className="lead about-panel__standfirst">{about.standfirst}</p>
+              <p className="lead about-panel__standfirst">{about.introduction}</p>
+              <p className="lead about-panel__standfirst">{about.philosophy}</p>
 
               <div className="demo-note">
                 <span className="demo-note__mark">Demo</span>
                 <span>
-                  Every line in this panel is placeholder text. Edit src/content/about.ts.
+                  The statement above is Maya's own. Everything below it (education,
+                  qualifications, currently, approach) is placeholder text. Edit
+                  src/content/about.ts.
                 </span>
               </div>
 

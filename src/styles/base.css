@@ -96,7 +96,7 @@ h3,
 .display-2,
 .display-3 {
   font-family: var(--font-display);
-  font-weight: 700;
+  font-weight: var(--weight-display);
   line-height: var(--lh-display);
   letter-spacing: var(--track-display);
   text-wrap: balance;
@@ -104,7 +104,6 @@ h3,
 
 .display-1 {
   font-size: var(--t-display-1);
-  font-weight: 800;
 }
 
 .display-2 {
@@ -115,6 +114,19 @@ h3,
   font-size: var(--t-display-3);
   line-height: var(--lh-title);
   letter-spacing: var(--track-title);
+}
+
+/* HERO - the single largest typographic statement on the site. Reserved
+   for the home hero title ("ART DIRECTOR + DESIGNER"). Nothing else on the
+   site should reach for this class; it is sized and weighted to compete
+   with a full-bleed photograph, not to sit inside a normal room. */
+.hero-title {
+  font-family: var(--font-display);
+  font-size: var(--t-hero);
+  font-weight: var(--weight-hero);
+  line-height: var(--lh-hero);
+  letter-spacing: var(--track-hero);
+  text-wrap: balance;
 }
 
 h4,
@@ -181,9 +193,35 @@ h6,
 .prose blockquote {
   border-left: var(--rule-w) solid var(--olive);
   padding-left: var(--s-5);
-  font-size: var(--t-subtitle);
-  line-height: 1.45;
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-size: var(--t-accent-lead);
+  line-height: var(--lh-accent);
   color: var(--ink);
+}
+
+/* 2B. SERIF ACCENT - editorial warmth, used selectively: pull quotes,
+   reflective writing, project introductions, personal statements. This is
+   NOT the reading voice - .prose paragraphs stay in the sans. Reach for
+   these classes only for the moments the brief calls "contrast". */
+.accent-lead {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-size: var(--t-accent-lead);
+  font-weight: 400;
+  line-height: var(--lh-accent);
+  color: var(--ink);
+  text-wrap: pretty;
+}
+
+.accent-body {
+  font-family: var(--font-serif-accent);
+  font-style: italic;
+  font-size: var(--t-accent-body);
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 /* 3. TECHNICAL - small, precise, archival, coded. */

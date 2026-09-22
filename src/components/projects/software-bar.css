@@ -1,0 +1,44 @@
+/* ==========================================================================
+   MAR - SOFTWARE BAR
+   ========================================================================== */
+
+.software-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--s-3) var(--s-5);
+  margin-block-start: var(--s-5);
+  padding-block: var(--s-3);
+  border-block: var(--rule-w) solid var(--rule);
+}
+
+.software-bar__label {
+  color: var(--ink-quiet);
+  flex: none;
+}
+
+.software-bar__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0;
+  flex: 1;
+}
+
+.software-bar__item {
+  color: var(--ink);
+  padding-inline-end: var(--s-4);
+  margin-inline-end: var(--s-4);
+  border-inline-end: var(--rule-w) solid var(--rule-hair);
+}
+
+.software-bar__item:last-child {
+  padding-inline-end: 0;
+  margin-inline-end: 0;
+  border-inline-end: 0;
+}
+
+/* --ink-faint is reserved for drawn lines, never text (it fails WCAG AA as
+   a text colour) - this placeholder note uses --ink-quiet instead. */
+.software-bar__empty {
+  color: var(--ink-quiet);
+}
