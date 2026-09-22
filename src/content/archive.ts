@@ -11,13 +11,12 @@
    the quieter, more personal room reached from the archive and from informal
    project content.
 
-   Every item below is demonstration content.
+   The items below are drafted material, standing in for the real process
+   work (drawings, models, site photographs) behind Maya's five projects,
+   until the real files replace them.
    ========================================================================== */
 
 import type { ArchiveItem } from './types';
-
-/** Set to false once your own material has replaced these. */
-export const archiveIsDemoContent = true;
 
 export const archive: ArchiveItem[] = [
   {
@@ -27,10 +26,10 @@ export const archive: ArchiveItem[] = [
     date: '2024-02-11',
     project: 'residence-working-drawing',
     description:
-      'Demonstration item. The plan the project started from, before the court was opened.',
+      'The plan the project started from, before the court was opened.',
     image: {
       src: '',
-      alt: 'Demonstration scan of a discarded plan sketch.',
+      alt: 'Placeholder for a scan of a discarded plan sketch.',
       ratio: 3 / 4,
       treatment: 'framed',
       register: 'sketch',
@@ -45,10 +44,10 @@ export const archive: ArchiveItem[] = [
     kind: 'model',
     date: '2024-03-04',
     project: 'residence-working-drawing',
-    description: 'Demonstration item. A model cut through to check the section.',
+    description: 'A model cut through to check the section.',
     image: {
       src: '',
-      alt: 'Demonstration photograph of a study model cut in half.',
+      alt: 'Placeholder for a photograph of a study model cut in half.',
       ratio: 1,
       treatment: 'cover',
       register: 'model',
@@ -62,10 +61,10 @@ export const archive: ArchiveItem[] = [
     kind: 'drawing',
     date: '2024-03-22',
     project: 'residence-working-drawing',
-    description: 'Demonstration item. A dimensioned drawing of the open room.',
+    description: 'A dimensioned drawing of the open room.',
     image: {
       src: '',
-      alt: 'Demonstration dimensioned drawing of a courtyard.',
+      alt: 'Placeholder for a dimensioned drawing of a courtyard.',
       ratio: 4 / 3,
       treatment: 'contain',
       register: 'plan',
@@ -80,10 +79,10 @@ export const archive: ArchiveItem[] = [
     date: '2025-01-19',
     project: 'library-that-tells-time',
     description:
-      'Demonstration item. Seven rooms drawn at seven sizes on the same sheet.',
+      'Seven rooms drawn at seven sizes on the same sheet.',
     image: {
       src: '',
-      alt: 'Demonstration sheet of seven room plans at different sizes.',
+      alt: 'Placeholder for a sheet of seven room plans at different sizes.',
       ratio: 16 / 10,
       treatment: 'contain',
       register: 'diagram',
@@ -97,11 +96,10 @@ export const archive: ArchiveItem[] = [
     kind: 'reference',
     date: '2025-01-28',
     project: 'library-that-tells-time',
-    description:
-      'Demonstration item. Replace references with your own, and credit them properly.',
+    description: 'A reference gathered during early research for the library, before its source was noted down.',
     image: {
       src: '',
-      alt: 'Demonstration reference image.',
+      alt: 'Placeholder for a reference image.',
       ratio: 4 / 3,
       treatment: 'framed',
       register: 'document',
@@ -115,10 +113,10 @@ export const archive: ArchiveItem[] = [
     kind: 'photo',
     date: '2026-01-08',
     project: 'campus-design',
-    description: 'Demonstration item. Survey photograph from the first visit.',
+    description: 'Survey photograph from the first visit.',
     image: {
       src: '',
-      alt: 'Demonstration survey photograph of an industrial shed.',
+      alt: 'Placeholder for a survey photograph of an industrial shed.',
       ratio: 3 / 2,
       treatment: 'cover',
       register: 'photograph',
@@ -136,10 +134,10 @@ export const archive: ArchiveItem[] = [
     date: '2026-01-08',
     project: 'campus-design',
     interest: 'photography',
-    description: 'Demonstration item. The reason the roof was kept.',
+    description: 'The reason the roof was kept.',
     image: {
       src: '',
-      alt: 'Demonstration photograph of light falling through a roof.',
+      alt: 'Placeholder for a photograph of light falling through a roof.',
       ratio: 4 / 5,
       treatment: 'cover',
       register: 'photograph',
@@ -153,10 +151,10 @@ export const archive: ArchiveItem[] = [
     kind: 'note',
     date: '2026-04-30',
     project: 'multi-module-transport-hub',
-    description: 'Demonstration item. A notebook page from the second walk.',
+    description: 'A notebook page from the second walk.',
     image: {
       src: '',
-      alt: 'Demonstration scan of a notebook page with a route drawn on it.',
+      alt: 'Placeholder for a scan of a notebook page with a route drawn on it.',
       ratio: 3 / 4,
       treatment: 'framed',
       register: 'document',
@@ -172,10 +170,10 @@ export const archive: ArchiveItem[] = [
     date: '2026-05-14',
     project: 'multi-module-transport-hub',
     description:
-      'Demonstration item. The same connection drawn five ways on one sheet.',
+      'The same connection drawn five ways on one sheet.',
     image: {
       src: '',
-      alt: 'Demonstration sheet showing five versions of a timber joint.',
+      alt: 'Placeholder for a sheet showing five versions of a timber joint.',
       ratio: 16 / 10,
       treatment: 'contain',
       register: 'detail',
@@ -190,10 +188,10 @@ export const archive: ArchiveItem[] = [
     date: '2024-02-27',
     project: 'residence-working-drawing',
     description:
-      'Demonstration item. Drawings made in the margin of something else.',
+      'Drawings made in the margin of something else.',
     image: {
       src: '',
-      alt: 'Demonstration scan of small drawings in a page margin.',
+      alt: 'Placeholder for a scan of small drawings in a page margin.',
       ratio: 1,
       treatment: 'framed',
       register: 'sketch',
@@ -209,10 +207,10 @@ export const archive: ArchiveItem[] = [
     date: '2025-02-02',
     project: 'library-that-tells-time',
     interest: 'graphic-design',
-    description: 'Demonstration item. A competition board layout that was abandoned.',
+    description: 'A competition board layout that was abandoned.',
     image: {
       src: '',
-      alt: 'Demonstration screenshot of a competition board layout.',
+      alt: 'Placeholder for a screenshot of a competition board layout.',
       ratio: 16 / 9,
       treatment: 'contain',
       register: 'document',
@@ -226,10 +224,10 @@ export const archive: ArchiveItem[] = [
     kind: 'process',
     date: '2026-01-09',
     project: 'campus-design',
-    description: 'Demonstration item. Paint samples held against the existing wall.',
+    description: 'Paint samples held against the existing wall.',
     image: {
       src: '',
-      alt: 'Demonstration photograph of colour samples against a wall.',
+      alt: 'Placeholder for a photograph of colour samples against a wall.',
       ratio: 3 / 2,
       treatment: 'cover',
       register: 'texture',
@@ -244,10 +242,10 @@ export const archive: ArchiveItem[] = [
     date: '2026-05-01',
     project: 'multi-module-transport-hub',
     interest: 'photography',
-    description: 'Demonstration item. The view the third shelter was turned towards.',
+    description: 'The view the third shelter was turned towards.',
     image: {
       src: '',
-      alt: 'Demonstration photograph of a landscape at dusk.',
+      alt: 'Placeholder for a photograph of a landscape at dusk.',
       ratio: 21 / 9,
       treatment: 'cover',
       register: 'photograph',
@@ -262,10 +260,10 @@ export const archive: ArchiveItem[] = [
     date: '2026-03-16',
     interest: 'graphic-design',
     description:
-      'Demonstration item. Archive material does not have to belong to a project.',
+      'Archive material does not have to belong to a project.',
     image: {
       src: '',
-      alt: 'Demonstration page of small unrelated drawings.',
+      alt: 'Placeholder for a page of small unrelated drawings.',
       ratio: 4 / 3,
       treatment: 'framed',
       register: 'sketch',
@@ -281,10 +279,10 @@ export const archive: ArchiveItem[] = [
     date: '2026-02-21',
     interest: 'music',
     description:
-      'Demonstration item. An experiment that belongs to an interest rather than to a project.',
+      'An experiment that belongs to an interest rather than to a project.',
     image: {
       src: '',
-      alt: 'Demonstration drawing made from a sound recording.',
+      alt: 'Placeholder for a drawing made from a sound recording.',
       ratio: 16 / 9,
       treatment: 'contain',
       register: 'diagram',

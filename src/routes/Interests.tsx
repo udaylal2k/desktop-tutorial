@@ -13,7 +13,7 @@
 
 import { useState } from 'react';
 import { Link } from 'react-router';
-import { allInterests, interestsAreDemoContent } from '../content';
+import { allInterests } from '../content';
 import type { ReadingMode } from '../content/types';
 import { siteConfig } from '../config/site.config';
 import { PageMeta } from '../components/chrome/RouteChrome';
@@ -54,16 +54,6 @@ export default function Interests() {
               <ModeToggle mode={mode} onChange={setMode} label="How to read the interests" />
             )}
           </header>
-
-          {interestsAreDemoContent && (
-            <div className="demo-note interests__demo">
-              <span className="demo-note__mark">Demo</span>
-              <span>
-                Seven interests with placeholder writing. The lines between them come from
-                the `connections` lists in src/content/interests.ts.
-              </span>
-            </div>
-          )}
         </div>
 
         {/* ------------------------------------------------------- FORMAL */}

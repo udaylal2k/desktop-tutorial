@@ -28,10 +28,8 @@ export { site } from './site';
 export { about } from './about';
 export { home } from './home';
 export { contact } from './contact';
-export { journalCategories, journalIsDemoContent } from './journal';
-export { archiveKinds, archiveIsDemoContent } from './archive';
-export { projectsAreDemoContent } from './projects';
-export { interestsAreDemoContent } from './interests';
+export { journalCategories } from './journal';
+export { archiveKinds } from './archive';
 
 /* --------------------------------------------------------------------------
    PUBLISHED CONTENT

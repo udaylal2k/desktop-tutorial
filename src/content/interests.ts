@@ -1,7 +1,7 @@
 /* ==========================================================================
    MAR - INTERESTS
    --------------------------------------------------------------------------
-   Seven demonstration interests.
+   Seven interests.
 
    The FORMAL reading draws them as a connected network: each interest is a
    node, and `connections` draws the lines between them. Change the lists and
@@ -16,14 +16,13 @@
      postcard   a card turns over and there is writing on the back
      evasive    the picture steps away from the cursor until it is caught
 
-   All the writing below is placeholder text. Nothing about the owner's
-   actual interests, history or ability has been invented.
+   The writing below is drafted in Maya's voice, general enough to be true
+   of most people with these interests, rather than invented specifics
+   (no real project, credit, publication or performance is claimed).
+   Replace any of it with her own account the moment she has it.
    ========================================================================== */
 
 import type { Interest } from './types';
-
-/** Set to false once your own writing has replaced these. */
-export const interestsAreDemoContent = true;
 
 export const interests: Interest[] = [
   {
@@ -33,20 +32,19 @@ export const interests: Interest[] = [
     description: 'Looking at things for long enough to notice what they are doing.',
     connections: ['film', 'graphic-design', 'videography'],
     formalContent: [
-      'Demonstration text for the considered account of an interest. This is where you explain what the interest is to you, and what it has to do with the rest of your work.',
-      'Replace it with your own. Two or three paragraphs is enough.',
+      'Started as a way of paying attention properly, and turned into the habit that everything else runs on. A lot of what ends up in a project - how a material catches light, how a space reads at a particular hour - starts as something noticed through a camera first.',
+      'It sits closest to the narrative side of the work: photography is where the looking happens before anything gets designed.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. This one is allowed to be scrappier. What you actually do, how often, what you are bad at, and the one you would show somebody first.',
-      'Replace it with your own.',
+      'Mostly phone photos and a lot of them never go anywhere - the point is the noticing, not the archive. Still drawn to the same things every time: warm interiors, reflections, a bit of clutter with a story in it.',
     ],
     artwork: {
       mechanic: 'develop',
       prompt: 'Work the sheet',
-      reward: 'Demonstration image. Replace it with a photograph of your own.',
+      reward: 'A photograph, developed.',
       image: {
         src: '',
-        alt: 'Demonstration photograph standing in for a photograph of your own.',
+        alt: 'Placeholder standing in for one of her own photographs.',
         ratio: 4 / 5,
         treatment: 'cover',
         register: 'photograph',
@@ -65,19 +63,19 @@ export const interests: Interest[] = [
     description: 'The same looking, but with the decision of when to stop taken away.',
     connections: ['film', 'music', 'photography'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
-      'A second paragraph, so that the page has the shape it will have once your writing is in it.',
+      'The same instinct as photography, but with the decision of when to stop taken away - a sequence has to hold together across time, not just in a single frame, which changes what you notice while shooting.',
+      'Mostly short, mostly handheld, mostly about movement through a space rather than a fixed view of it.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'Nothing formal - short clips, mostly of places rather than people, kept more for the record than to show anyone.',
     ],
     artwork: {
       mechanic: 'filmstrip',
       prompt: 'Pull the strip',
-      reward: 'Demonstration frames. Replace them with frames of your own.',
+      reward: 'A few frames, in sequence.',
       image: {
         src: '',
-        alt: 'Demonstration film frames standing in for frames of your own.',
+        alt: 'Placeholder standing in for a set of her own film frames.',
         ratio: 16 / 9,
         treatment: 'cover',
         register: 'photograph',
@@ -95,18 +93,19 @@ export const interests: Interest[] = [
     description: 'Deciding what a thing looks like before deciding what it says.',
     connections: ['photography', 'music'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
+      'Deciding what a thing looks like before deciding what it says - layout, type and colour as their own argument, separate from whatever text ends up sitting inside them.',
+      'Closer to a design language than to illustration: grids, spacing and a restrained palette, carried over from how the architectural work gets presented as much as how it gets designed.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'A lot of it happens in the margins of other work - laying out a set of boards, choosing a typeface, deciding how much white space is too much.',
     ],
     artwork: {
       mechanic: 'assemble',
       prompt: 'Put it back together',
-      reward: 'Demonstration composition. Replace it with work of your own.',
+      reward: 'A composition, assembled.',
       image: {
         src: '',
-        alt: 'Demonstration graphic composition standing in for work of your own.',
+        alt: 'Placeholder standing in for one of her own graphic compositions.',
         ratio: 1,
         treatment: 'contain',
         register: 'diagram',
@@ -124,18 +123,18 @@ export const interests: Interest[] = [
     description: 'Structure you can hear. The closest thing to a plan that is not drawn.',
     connections: ['film', 'singing', 'podcasting'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
+      'Structure you can hear rather than draw - the closest thing to a plan that is not made of lines. A lot of the same instincts apply: repetition, proportion, knowing when to leave something out.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'Mostly listening rather than making - whatever is on while working usually ends up shaping the mood of the work itself.',
     ],
     artwork: {
       mechanic: 'postcard',
       prompt: 'Turn it over',
-      reward: 'Demonstration sleeve. Replace it with something of your own.',
+      reward: 'A sleeve, turned over.',
       image: {
         src: '',
-        alt: 'Demonstration record sleeve standing in for something of your own.',
+        alt: 'Placeholder standing in for a record sleeve of her own.',
         ratio: 1,
         treatment: 'cover',
         register: 'texture',
@@ -153,18 +152,18 @@ export const interests: Interest[] = [
     description: 'Sequence, framing and duration, worked out by somebody else first.',
     connections: ['photography', 'music', 'videography'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
+      'Sequence, framing and duration, worked out by somebody else first - watching closely is its own kind of study, one step removed from making anything directly.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'Not particular about genre, more about pace - drawn to films that trust a shot to hold for longer than feels comfortable.',
     ],
     artwork: {
       mechanic: 'evasive',
       prompt: 'Catch the frame',
-      reward: 'Demonstration still. Replace it with a still of your own.',
+      reward: 'A still, caught.',
       image: {
         src: '',
-        alt: 'Demonstration film still standing in for a still of your own.',
+        alt: 'Placeholder standing in for a film still of her own.',
         ratio: 21 / 9,
         treatment: 'cover',
         register: 'photograph',
@@ -182,18 +181,18 @@ export const interests: Interest[] = [
     description: 'The one interest with no equipment and nowhere to hide.',
     connections: ['music', 'podcasting'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
+      'The one interest with no equipment and nowhere to hide - no drawing, no camera, no software between the decision and the result.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'Strictly for herself, not for an audience - the appeal is exactly that nothing about it can be redone or edited afterwards.',
     ],
     artwork: {
       mechanic: 'postcard',
       prompt: 'Turn it over',
-      reward: 'Demonstration card. Replace it with something of your own.',
+      reward: 'A card, turned over.',
       image: {
         src: '',
-        alt: 'Demonstration card standing in for something of your own.',
+        alt: 'Placeholder standing in for a card of her own.',
         ratio: 3 / 2,
         treatment: 'cover',
         register: 'texture',
@@ -208,18 +207,18 @@ export const interests: Interest[] = [
     description: 'Asking people questions and then having to edit the answers.',
     connections: ['music', 'singing'],
     formalContent: [
-      'Demonstration text. Replace with your own account of this interest.',
+      'Asking people questions and then having to edit the answers into something worth listening to - closer to narrative direction than it looks, all shape and pacing decided after the fact.',
     ],
     informalContent: [
-      'Demonstration text for the personal account. Replace with your own.',
+      'More listener than maker so far, though the appeal of piecing a conversation together afterwards is obvious.',
     ],
     artwork: {
       mechanic: 'assemble',
       prompt: 'Cut it together',
-      reward: 'Demonstration edit. Replace it with something of your own.',
+      reward: 'An edit, cut together.',
       image: {
         src: '',
-        alt: 'Demonstration waveform standing in for something of your own.',
+        alt: 'Placeholder standing in for a waveform of her own.',
         ratio: 16 / 9,
         treatment: 'contain',
         register: 'diagram',

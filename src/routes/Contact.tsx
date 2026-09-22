@@ -71,13 +71,6 @@ export default function Contact() {
               )}
             </dl>
           </div>
-
-          <div className="demo-note contact__demo">
-            <span className="demo-note__mark">Demo</span>
-            <span>
-              Every address on this page is a placeholder. Edit src/content/contact.ts.
-            </span>
-          </div>
         </div>
       </section>
 

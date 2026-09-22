@@ -64,15 +64,6 @@ export function AboutPanel() {
               <p className="lead about-panel__standfirst">{about.introduction}</p>
               <p className="lead about-panel__standfirst">{about.philosophy}</p>
 
-              <div className="demo-note">
-                <span className="demo-note__mark">Demo</span>
-                <span>
-                  The statement above is Maya's own. Everything below it (education,
-                  qualifications, currently, approach) is placeholder text. Edit
-                  src/content/about.ts.
-                </span>
-              </div>
-
               {about.panel.map((section) => (
                 <section key={section.id} className="about-panel__section">
                   <h3 className="about-panel__section-title">{section.title}</h3>

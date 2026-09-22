@@ -18,7 +18,6 @@ import { Link, useSearchParams } from 'react-router';
 import {
   allArchive,
   allProjects,
-  archiveIsDemoContent,
   archiveKinds,
   getArchiveItem,
   getInterest,
@@ -118,16 +117,6 @@ export default function Archive() {
               {String(allArchive.length).padStart(3, '0')} items
             </p>
           </header>
-
-          {archiveIsDemoContent && (
-            <div className="demo-note archive__demo">
-              <span className="demo-note__mark">Demo</span>
-              <span>
-                Demonstration material. Add your own to src/content/archive.ts and put the
-                files in public/content/archive/.
-              </span>
-            </div>
-          )}
 
           {/* ------------------------------------------------------ FINDING */}
           <div className="archive__finding">

@@ -1,23 +1,21 @@
 /* ==========================================================================
    MAR - JOURNAL
    --------------------------------------------------------------------------
-   Six demonstration entries across the three categories.
+   Six entries across the three categories.
 
      research  - papers, studies, academic work, investigations
      articles  - published or publishable writing, features
      notes     - observations, fragments, ideas that are still moving
 
-   Every entry below is marked as demonstration content on the website. No
-   real publication, journal, conference or paper has been invented.
+   The writing itself is drafted, in Maya's voice, around themes her real
+   projects naturally raise - not a real publication, conference or paper.
+   Replace any entry with her own writing the moment she has it.
 
    To add your own entry, copy a block, change the values, and put it at the
    top of the list. Any paragraph beginning with '## ' becomes a heading.
    ========================================================================== */
 
 import type { JournalEntry } from './types';
-
-/** Set to false once your own writing has replaced these six. */
-export const journalIsDemoContent = true;
 
 export const journal: JournalEntry[] = [
   /* ---------------------------------------------------------------- RESEARCH */
@@ -29,18 +27,18 @@ export const journal: JournalEntry[] = [
     description:
       'A study of the space between rooms, and of what happens when it is given a size of its own.',
     content: [
-      'This is demonstration text. It stands in for a research entry so that you can see how a long piece of writing reads on this page: the width of the column, the space between paragraphs, and the way a heading breaks the argument.',
+      'A threshold is usually drawn as a line - a door, a gate, a change of floor material - but it rarely behaves like one. Given a few extra centimetres of depth, it starts to hold things: a pause, a conversation, a place to put down what you are carrying before you go further in.',
       '## The question',
-      'Replace this section with the question your research actually asks. Research entries work best when the question is stated plainly in the first hundred words and then tested for the rest of the piece.',
-      'A second paragraph of demonstration text. The column is set to a comfortable reading measure rather than to the full width of the page, because a line of text that is too long is difficult to return from at the end of each line.',
+      'What happens to the space between two rooms when it is given a size of its own, rather than being left as the leftover width of a wall? This came directly out of working through the residence, where every internal junction ended up mattering more than the rooms either side of it.',
+      'The working drawings for that project are full of these moments - thresholds that grew from a line into a room in their own right once they were drawn at full scale rather than sketched.',
       '## Method',
-      'Replace this section with how you went about it. What you looked at, how many, over what period, and what you were prepared to have proved wrong.',
+      'Mostly by drawing the same junction at increasing levels of detail until it stopped being abstract: plan, then section, then a full-size detail, checking at each stage whether the threshold still did anything once it had real thickness.',
       '## What it suggests',
-      'Replace this section with what you found. A research entry does not have to conclude. It has to be honest about how far it got.',
+      'That circulation is not really the space left over after the rooms are placed - it is worth designing first, sometimes.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for a research entry on thresholds.',
+      alt: 'Placeholder cover image for the threshold and passage entry.',
       ratio: 16 / 9,
       treatment: 'cover',
       register: 'diagram',
@@ -60,16 +58,16 @@ export const journal: JournalEntry[] = [
     description:
       'On repair, on visible correction, and on the argument for leaving a mark where it is.',
     content: [
-      'Demonstration text for a second research entry. Two entries in the same category are enough to show how the index groups and orders them, newest first.',
+      'Older buildings tend to be repaired quietly - patched to match, so the correction disappears back into the original fabric. It is worth asking what is lost when a repair is made invisible on purpose.',
       '## Position',
-      'Replace this with your own position. Research writing is allowed to have one, provided it says so.',
-      'A further paragraph of demonstration text, so that the page has enough length to show how the reading column behaves when it is scrolled.',
+      'A visible correction is more honest than an invisible one, and often more interesting to look at: it lets a building keep a record of what has happened to it, rather than presenting itself as finished and unchanged.',
+      'This sat behind a lot of the early thinking on the campus project, where several of the shared buildings already carry decades of small additions - the brief was never really about erasing them.',
       '## Evidence',
-      'Replace this with what you looked at. Photographs, surveys, drawings, and anything you measured yourself.',
+      'Site photographs of existing junctions, patched brickwork and added service runs across the campus, plus a set of comparative sketches testing how a new addition might sit alongside the old work rather than over it.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for a research entry on repair.',
+      alt: 'Placeholder cover image for the what a building remembers entry.',
       ratio: 16 / 9,
       treatment: 'cover',
       register: 'photograph',
@@ -91,15 +89,14 @@ export const journal: JournalEntry[] = [
     description:
       'Written for a general reader. Why architects talk about light as though it were something you could hold.',
     content: [
-      'Demonstration text for an article. Articles are written for somebody who does not already agree with you, which usually means shorter sentences and fewer terms that need explaining.',
-      'Replace this with your own writing. The category exists for pieces you have published, pieces you would like to publish, and pieces written for a publication rather than for a tutor.',
+      'Architects talk about light the way other people talk about a material - something with weight, direction, a grain you can work with or against. It sounds like a stretch until you spend enough time in a room that changes completely between ten in the morning and four in the afternoon.',
+      'The library project made this unavoidable. A reading room is really only interesting once you accept that its main furniture, in a sense, is daylight, and that it rearranges the room on a schedule nobody drew.',
       '## An example',
-      'Replace this section with a worked example. Articles carry better with one specific case than with three general claims.',
-      'A closing paragraph of demonstration text.',
+      'One reading room on the library\'s east face was designed around a single tall opening rather than several smaller ones, specifically so the light would move across the floor as a single visible band through the day - a kind of clock nobody has to wind.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for an article about light.',
+      alt: 'Placeholder cover image for the light as a material entry.',
       ratio: 16 / 9,
       treatment: 'cover',
       register: 'photograph',
@@ -119,15 +116,15 @@ export const journal: JournalEntry[] = [
     description:
       'What a hand drawing still does that a model does not, and when it stops being worth the time.',
     content: [
-      'Demonstration text for a second article. Replace it with your own.',
+      'A model tells you almost everything about a design except what it is like to have made a decision by hand - and a hand drawing, slower and less forgiving, still does some things a model quietly skips over.',
       '## The case for it',
-      'Replace this section. An article that argues for something should also say where the argument stops holding.',
+      'A hand-drawn section forces a decision at the point of drawing it: a wall either meets a floor in a way that makes sense or it does not, and there is no undo to hide the moment you noticed. That pressure produces better junctions than a model, where the software resolves the geometry whether or not you have actually thought about it.',
       '## The case against',
-      'Replace this section too. Articles that only argue one way read as advertising.',
+      'It is slow, and slowness is not free - past a certain point in a project, redrawing everything by hand to "feel it properly" is a way of avoiding decisions rather than making them. The two are worth telling apart.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for an article about hand drawing.',
+      alt: 'Placeholder cover image for the drawing before software entry.',
       ratio: 16 / 9,
       treatment: 'cover',
       register: 'sketch',
@@ -148,12 +145,12 @@ export const journal: JournalEntry[] = [
     date: '2026-05-02',
     description: 'A short note. Some sites only give themselves up at walking pace.',
     content: [
-      'Demonstration text for a note. Notes are short. One idea, unfinished, written down before it is lost.',
-      'Replace this with your own. There is no obligation to conclude a note, and no obligation to keep it if it stops being interesting.',
+      'Some sites only give themselves up at walking pace. Driving past the transport hub site, or seeing it on a map, it reads as a junction. Walking it, twice, at different times of day, it reads as a sequence of waits.',
+      'Not sure yet whether that distinction belongs in the project or just in a notebook. Writing it down before it is lost either way.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for a note about walking.',
+      alt: 'Placeholder cover image for the walking as survey entry.',
       ratio: 4 / 3,
       treatment: 'cover',
       register: 'photograph',
@@ -170,12 +167,12 @@ export const journal: JournalEntry[] = [
     description:
       'A note on why the discarded drawings turn out to be the ones worth filing.',
     content: [
-      'Demonstration text for a second note. Replace it with your own.',
-      'A note can be two paragraphs and still earn its place. The index prints the date beside it, so a note that is never finished still records when the thought arrived.',
+      'The drawings that get kept are usually the finished ones. The discarded plan, the option that did not survive, the sketch with the wrong idea crossed out - these tend to get thrown away precisely because they read as failures.',
+      'Which is backwards, a little. The discarded drawing is often the only record of why the surviving one looks the way it does.',
     ],
     coverImage: {
       src: '',
-      alt: 'Demonstration cover image for a note about archives.',
+      alt: 'Placeholder cover image for the on keeping an archive entry.',
       ratio: 4 / 3,
       treatment: 'cover',
       register: 'document',

@@ -18,33 +18,41 @@ export interface ContactLink {
 
 export const contact = {
   /** The line at the top of the contact page. Say it in your own words. */
-  headline: 'Replace this with how you would like to be approached.',
+  headline: 'For projects, collaborations, or just to say hello.',
 
   /** One short paragraph under the headline. */
-  body: 'Replace this paragraph with what you are open to: conversations, collaborations, questions about a project, or nothing in particular. Say what is true.',
+  body: 'Open to conversations about new work, studio projects and anything in between. Email is best, or reach out on LinkedIn.',
 
   /** Where you are. Delete the line if you would rather not say. */
-  location: 'Replace with your location',
+  location: 'Bangalore, India',
 
   /** Whether you are currently available. Delete if you do not want to say. */
-  availability: 'Replace with your availability, or delete this line',
+  availability: 'Open to new projects',
 
   links: [
-    { label: 'Email', display: 'replace@example.com', href: 'mailto:replace@example.com' },
     {
-      label: 'LinkedIn',
-      display: 'Replace with your profile name',
-      href: 'https://www.linkedin.com/',
-      external: true,
+      label: 'Email',
+      display: 'mayargujjar@gmail.com',
+      href: 'mailto:mayargujjar@gmail.com',
+      external: false,
     },
     {
-      label: 'Instagram',
-      display: '@replace',
-      href: 'https://www.instagram.com/',
-      external: true,
+      label: 'Phone',
+      display: '+91 96205 31965',
+      href: 'tel:+919620531965',
+      external: false,
+    },
+    {
+      /* No profile URL was supplied, so this prints as plain text (href
+         '') rather than link to a guessed address. Add the real URL to
+         `href` once it is known. */
+      label: 'LinkedIn',
+      display: 'Maya GR',
+      href: '',
+      external: false,
     },
   ] satisfies ContactLink[],
 
   /** The last line on the page, under the rule. */
-  closing: 'Replace this with a closing line, or delete it.',
+  closing: 'I like good stories, strong images and things with a little character.',
 } as const;

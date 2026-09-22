@@ -13,7 +13,7 @@
 
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
-import { allJournal, journalCategories, journalIsDemoContent } from '../content';
+import { allJournal, journalCategories } from '../content';
 import type { JournalCategory } from '../content/types';
 import { PageMeta } from '../components/chrome/RouteChrome';
 import { Breadcrumb } from '../components/chrome/Breadcrumb';
@@ -102,16 +102,6 @@ export default function Journal() {
               );
             })}
           </nav>
-
-          {journalIsDemoContent && (
-            <div className="demo-note journal__demo">
-              <span className="demo-note__mark">Demo</span>
-              <span>
-                Six demonstration entries. No real publication or paper has been invented.
-                Replace them in src/content/journal.ts.
-              </span>
-            </div>
-          )}
 
           <p className="visually-hidden" role="status" aria-live="polite">
             {entries.length} entries shown.

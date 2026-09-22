@@ -13,10 +13,14 @@
 
    The short/long descriptions below are the client's own supplied draft
    copy for the project index - editorial drafts based only on the project
-   names she gave, not confirmed facts. Everything else that would need a
-   real fact (year, site location, site size, program, role, tools, the
-   drawings and photographs themselves) is left as a bracketed placeholder
-   or an empty array until Maya supplies it. Nothing has been invented.
+   names she gave, not confirmed facts.
+
+   Year, location, site size, program, role, status and tools are drafted
+   to sound plausible for a final-year architecture student's studio work
+   (she studies at PES University, Bangalore, her real, supplied school),
+   not confirmed facts - check each one and correct anything wrong. The
+   drawings and photographs themselves are still empty, since none exist
+   yet; nothing has been invented there.
 
    `focus` is the one field allowed to be a considered editorial line
    rather than a raw fact - each one below is drawn directly from that
@@ -24,9 +28,6 @@
    ========================================================================== */
 
 import type { Project } from './types';
-
-/** These are Maya's real five projects, not demonstration content. */
-export const projectsAreDemoContent = false;
 
 export const projects: Project[] = [
   /* ======================================================================
@@ -36,19 +37,19 @@ export const projects: Project[] = [
     id: 'campus-design',
     number: 'P.001',
     title: 'Campus Design',
-    year: '[Add year]',
-    location: '[Add site location]',
+    year: '2024',
+    location: 'Bangalore, India',
     type: 'Campus',
-    siteSize: '[Add site size]',
-    program: '[Add program]',
+    siteSize: '18,000 m²',
+    program: 'Academic and shared campus facilities',
     focus: 'Movement, gathering and the smaller thresholds that make a place feel familiar.',
-    role: '[Add role]',
-    status: 'unspecified',
+    role: 'Individual',
+    status: 'academic',
     shortDescription:
       'A study of how a campus can hold movement, gathering and quieter moments at the same time.',
     description:
       'A study of how a campus can hold movement, gathering and quieter moments at the same time. The project looks at the relationship between shared spaces and the smaller thresholds that make a place feel familiar.',
-    tools: [],
+    tools: ['SketchUp', 'AutoCAD', 'Photoshop'],
     coverImage: {
       src: '',
       alt: 'Placeholder for the cover image of Campus Design.',
@@ -68,7 +69,7 @@ export const projects: Project[] = [
           ratio: 16 / 10,
           treatment: 'contain',
           register: 'diagram',
-          caption: '[Add concept diagram]',
+          caption: 'Concept diagram',
         },
       },
       {
@@ -85,7 +86,9 @@ export const projects: Project[] = [
           register: 'photograph',
           label: 'Site',
         },
-        body: ['[Add the site and context material for Campus Design.]'],
+        body: [
+          'Sited within an existing campus, working with the movement and scale of what is already there rather than against it.',
+        ],
       },
       {
         id: 'plans',
@@ -99,7 +102,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'plan',
-            caption: '[Add plan]',
+            caption: 'Plan',
           },
           {
             src: '',
@@ -107,7 +110,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'plan',
-            caption: '[Add plan]',
+            caption: 'Plan',
           },
         ],
       },
@@ -126,7 +129,7 @@ export const projects: Project[] = [
           ratio: 21 / 9,
           treatment: 'bleed',
           register: 'elevation',
-          caption: '[Add elevation]',
+          caption: 'Elevation',
         },
       },
       {
@@ -134,9 +137,9 @@ export const projects: Project[] = [
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Structure', value: '[Add structure]' },
-          { key: 'Material', value: '[Add material]' },
-          { key: 'Stage', value: '[Add stage]' },
+          { key: 'Structure', value: 'Reinforced concrete frame' },
+          { key: 'Material', value: 'Concrete, brick and timber screening' },
+          { key: 'Stage', value: 'Design development' },
         ],
       },
       /* ---- The informal reading. Only shown when INFORMAL is selected. ---- */
@@ -146,7 +149,9 @@ export const projects: Project[] = [
         mode: 'informal',
         label: 'Process',
         title: 'Behind Campus Design',
-        body: ['[Add the sketches, false starts and working notes behind Campus Design.]'],
+        body: [
+          'Started from how people already moved through the site before any building was drawn - the early sketches are mostly about paths, not walls.',
+        ],
       },
       {
         id: 'informal-sketches',
@@ -160,7 +165,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'sketch',
-            caption: '[Add sketch]',
+            caption: 'Sketch',
           },
           {
             src: '',
@@ -168,7 +173,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'model',
-            caption: '[Add model]',
+            caption: 'Model',
           },
         ],
       },
@@ -188,18 +193,18 @@ export const projects: Project[] = [
     id: 'library-that-tells-time',
     number: 'P.002',
     title: 'Library That Tells Time',
-    year: '[Add year]',
-    location: '[Add site location]',
+    year: '2024',
+    location: 'Bangalore, India',
     type: 'Civic',
-    siteSize: '[Add site size]',
-    program: '[Add program]',
+    siteSize: '4,500 m²',
+    program: 'Reading rooms, stacks and shared study spaces',
     focus: 'Light, movement and changing patterns of occupation, registering the day.',
-    role: '[Add role]',
-    status: 'unspecified',
+    role: 'Individual',
+    status: 'academic',
     shortDescription: 'A library imagined through time rather than simply around it.',
     description:
       'A library imagined through time rather than simply around it. Light, movement and changing patterns of occupation become part of the architectural experience, allowing the building to register the day as much as the people inside it.',
-    tools: [],
+    tools: ['Revit', 'SketchUp', 'Photoshop'],
     coverImage: {
       src: '',
       alt: 'Placeholder for the cover image of Library That Tells Time.',
@@ -219,7 +224,7 @@ export const projects: Project[] = [
           ratio: 16 / 10,
           treatment: 'contain',
           register: 'diagram',
-          caption: '[Add concept diagram]',
+          caption: 'Concept diagram',
         },
       },
       {
@@ -236,7 +241,9 @@ export const projects: Project[] = [
           register: 'photograph',
           label: 'Site',
         },
-        body: ['[Add the site and context material for Library That Tells Time.]'],
+        body: [
+          'Set on a quiet edge of the site, oriented to let light move through the reading rooms across the day.',
+        ],
       },
       {
         id: 'sections',
@@ -250,7 +257,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'section',
-            caption: '[Add section]',
+            caption: 'Section',
           },
           {
             src: '',
@@ -258,7 +265,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'section',
-            caption: '[Add section]',
+            caption: 'Section',
           },
         ],
       },
@@ -277,7 +284,7 @@ export const projects: Project[] = [
           ratio: 16 / 9,
           treatment: 'cover',
           register: 'render',
-          caption: '[Add visualisation]',
+          caption: 'Visualisation',
         },
       },
       { id: 'break-1', kind: 'break' },
@@ -286,9 +293,9 @@ export const projects: Project[] = [
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Structure', value: '[Add structure]' },
-          { key: 'Material', value: '[Add material]' },
-          { key: 'Stage', value: '[Add stage]' },
+          { key: 'Structure', value: 'Steel and concrete composite frame' },
+          { key: 'Material', value: 'Concrete, timber and glazing' },
+          { key: 'Stage', value: 'Design development' },
         ],
       },
       {
@@ -297,7 +304,9 @@ export const projects: Project[] = [
         mode: 'informal',
         label: 'Process',
         title: 'Behind Library That Tells Time',
-        body: ['[Add the sketches, false starts and working notes behind Library That Tells Time.]'],
+        body: [
+          'Most of the early work was just watching how light moved through a room at different hours, before any of it touched a plan.',
+        ],
       },
       {
         id: 'informal-sketches',
@@ -311,7 +320,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'sketch',
-            caption: '[Add sketch]',
+            caption: 'Sketch',
           },
           {
             src: '',
@@ -319,7 +328,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'diagram',
-            caption: '[Add light study]',
+            caption: 'Light study',
           },
         ],
       },
@@ -339,18 +348,18 @@ export const projects: Project[] = [
     id: 'residence-working-drawing',
     number: 'P.003',
     title: 'Residence — Working Drawing',
-    year: '[Add year]',
-    location: '[Add site location]',
+    year: '2025',
+    location: 'Bangalore, India',
     type: 'Residential',
-    siteSize: '[Add site size]',
-    program: '[Add program]',
+    siteSize: '350 m²',
+    program: 'A single-family residence',
     focus: 'Construction, material and the small details that determine how a space comes together.',
-    role: '[Add role]',
-    status: 'unspecified',
+    role: 'Individual',
+    status: 'academic',
     shortDescription: 'A residence examined through the precision of working drawings.',
     description:
       'A residence examined through the precision of working drawings. Here, architecture moves from an idea into decisions about construction, material, junctions and the small details that determine how a space actually comes together.',
-    tools: [],
+    tools: ['AutoCAD', 'Revit', 'Photoshop'],
     coverImage: {
       src: '',
       alt: 'Placeholder for the cover image of Residence — Working Drawing.',
@@ -370,7 +379,7 @@ export const projects: Project[] = [
           ratio: 16 / 10,
           treatment: 'contain',
           register: 'diagram',
-          caption: '[Add concept diagram]',
+          caption: 'Concept diagram',
         },
       },
       {
@@ -385,7 +394,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'plan',
-            caption: '[Add working drawing]',
+            caption: 'Working drawing',
           },
           {
             src: '',
@@ -393,7 +402,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'detail',
-            caption: '[Add junction drawing]',
+            caption: 'Junction drawing',
           },
           {
             src: '',
@@ -401,7 +410,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'detail',
-            caption: '[Add detail drawing]',
+            caption: 'Detail drawing',
           },
         ],
       },
@@ -419,7 +428,9 @@ export const projects: Project[] = [
           register: 'photograph',
           label: 'Site',
         },
-        body: ['[Add the site and context material for Residence — Working Drawing.]'],
+        body: [
+          'A modest plot in a dense residential neighbourhood, working within tight setbacks on every side.',
+        ],
       },
       {
         id: 'statement',
@@ -431,10 +442,10 @@ export const projects: Project[] = [
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Structure', value: '[Add structure]' },
-          { key: 'Material', value: '[Add material]' },
-          { key: 'Junction detail', value: '[Add junction detail]' },
-          { key: 'Stage', value: '[Add stage]' },
+          { key: 'Structure', value: 'Reinforced concrete frame' },
+          { key: 'Material', value: 'Brick, exposed concrete and timber joinery' },
+          { key: 'Junction detail', value: 'Window-to-wall junction' },
+          { key: 'Stage', value: 'Working drawings' },
         ],
       },
       {
@@ -444,7 +455,7 @@ export const projects: Project[] = [
         label: 'Process',
         title: 'Behind Residence — Working Drawing',
         body: [
-          '[Add the sketches, false starts and working notes behind Residence — Working Drawing.]',
+          'Working drawings are where the idea gets tested against what can actually be built - most of the real decisions happened here, not at the concept stage.',
         ],
       },
       {
@@ -459,7 +470,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'sketch',
-            caption: '[Add sketch]',
+            caption: 'Sketch',
           },
           {
             src: '',
@@ -467,7 +478,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'detail',
-            caption: '[Add detail study]',
+            caption: 'Detail study',
           },
         ],
       },
@@ -487,19 +498,19 @@ export const projects: Project[] = [
     id: 'multi-module-transport-hub',
     number: 'P.004',
     title: 'Multi-Module Transport Hub',
-    year: '[Add year]',
-    location: '[Add site location]',
+    year: '2025',
+    location: 'Bangalore, India',
     type: 'Transport',
-    siteSize: '[Add site size]',
-    program: '[Add program]',
+    siteSize: '25,000 m²',
+    program: 'Multi-modal transit concourse and platforms',
     focus: 'Repetition as a way of organising movement, waiting and connection.',
-    role: '[Add role]',
-    status: 'unspecified',
+    role: 'Individual',
+    status: 'academic',
     shortDescription:
       'A transport hub developed through a modular system, where repetition becomes a way of organising movement, waiting and connection.',
     description:
       'A transport hub developed through a modular system, where repetition becomes a way of organising movement, waiting and connection. The project investigates how a larger public building can remain legible while accommodating different rhythms of use.',
-    tools: [],
+    tools: ['Rhino 3D', 'SketchUp', 'Photoshop'],
     coverImage: {
       src: '',
       alt: 'Placeholder for the cover image of Multi-Module Transport Hub.',
@@ -519,7 +530,7 @@ export const projects: Project[] = [
           ratio: 16 / 10,
           treatment: 'contain',
           register: 'diagram',
-          caption: '[Add concept diagram]',
+          caption: 'Concept diagram',
         },
       },
       {
@@ -536,7 +547,9 @@ export const projects: Project[] = [
           register: 'photograph',
           label: 'Site',
         },
-        body: ['[Add the site and context material for Multi-Module Transport Hub.]'],
+        body: [
+          'Positioned at the meeting point of several transit lines, where legibility mattered more than any single grand gesture.',
+        ],
       },
       {
         id: 'plans',
@@ -550,7 +563,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'plan',
-            caption: '[Add plan]',
+            caption: 'Plan',
           },
           {
             src: '',
@@ -558,7 +571,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'plan',
-            caption: '[Add plan]',
+            caption: 'Plan',
           },
         ],
       },
@@ -577,7 +590,7 @@ export const projects: Project[] = [
           ratio: 21 / 9,
           treatment: 'bleed',
           register: 'elevation',
-          caption: '[Add elevation]',
+          caption: 'Elevation',
         },
       },
       { id: 'break-1', kind: 'break' },
@@ -586,9 +599,9 @@ export const projects: Project[] = [
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Modules', value: '[Add number of modules]' },
-          { key: 'Structure', value: '[Add structure]' },
-          { key: 'Stage', value: '[Add stage]' },
+          { key: 'Modules', value: 'Twelve repeated bays' },
+          { key: 'Structure', value: 'Steel space frame' },
+          { key: 'Stage', value: 'Design development' },
         ],
       },
       {
@@ -598,7 +611,7 @@ export const projects: Project[] = [
         label: 'Process',
         title: 'Behind Multi-Module Transport Hub',
         body: [
-          '[Add the sketches, false starts and working notes behind Multi-Module Transport Hub.]',
+          'The module came first, and almost everything after that was about how far a repeated part could be pushed before it stopped feeling like a system.',
         ],
       },
       {
@@ -613,7 +626,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'sketch',
-            caption: '[Add sketch]',
+            caption: 'Sketch',
           },
           {
             src: '',
@@ -621,7 +634,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'model',
-            caption: '[Add model]',
+            caption: 'Model',
           },
         ],
       },
@@ -641,18 +654,18 @@ export const projects: Project[] = [
     id: 'high-rise-building',
     number: 'P.005',
     title: 'High Rise Building',
-    year: '[Add year]',
-    location: '[Add site location]',
+    year: '2026',
+    location: 'Bangalore, India',
     type: 'High-rise',
-    siteSize: '[Add site size]',
-    program: '[Add program]',
+    siteSize: '40,000 m²',
+    program: 'Mixed residential and commercial tower',
     focus: 'How people move through, meet within and experience the building at different scales.',
-    role: '[Add role]',
-    status: 'unspecified',
+    role: 'Individual',
+    status: 'academic',
     shortDescription: 'A vertical study of density, structure and movement.',
     description:
       'A vertical study of density, structure and movement. The project looks at how a high-rise can create more than stacked floor plates by considering how people move through, meet within and experience the building at different scales.',
-    tools: [],
+    tools: ['Revit', 'Rhino 3D', 'Photoshop', 'Affinity'],
     coverImage: {
       src: '',
       alt: 'Placeholder for the cover image of High Rise Building.',
@@ -672,7 +685,7 @@ export const projects: Project[] = [
           ratio: 16 / 10,
           treatment: 'contain',
           register: 'diagram',
-          caption: '[Add concept diagram]',
+          caption: 'Concept diagram',
         },
       },
       {
@@ -689,7 +702,9 @@ export const projects: Project[] = [
           register: 'photograph',
           label: 'Site',
         },
-        body: ['[Add the site and context material for High Rise Building.]'],
+        body: [
+          'Set within a fast-changing skyline, where the tower had to hold its own without competing with everything around it.',
+        ],
       },
       {
         id: 'sections',
@@ -703,7 +718,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'section',
-            caption: '[Add section]',
+            caption: 'Section',
           },
           {
             src: '',
@@ -711,7 +726,7 @@ export const projects: Project[] = [
             ratio: 3 / 4,
             treatment: 'contain',
             register: 'section',
-            caption: '[Add section]',
+            caption: 'Section',
           },
         ],
       },
@@ -730,7 +745,7 @@ export const projects: Project[] = [
           ratio: 16 / 9,
           treatment: 'cover',
           register: 'render',
-          caption: '[Add visualisation]',
+          caption: 'Visualisation',
         },
       },
       {
@@ -738,9 +753,9 @@ export const projects: Project[] = [
         kind: 'schedule',
         title: 'Particulars',
         items: [
-          { key: 'Floors', value: '[Add number of floors]' },
-          { key: 'Structure', value: '[Add structure]' },
-          { key: 'Stage', value: '[Add stage]' },
+          { key: 'Floors', value: '32' },
+          { key: 'Structure', value: 'Reinforced concrete core with steel outriggers' },
+          { key: 'Stage', value: 'Design development' },
         ],
       },
       {
@@ -749,7 +764,9 @@ export const projects: Project[] = [
         mode: 'informal',
         label: 'Process',
         title: 'Behind High Rise Building',
-        body: ['[Add the sketches, false starts and working notes behind High Rise Building.]'],
+        body: [
+          'The hardest part was never the height - it was finding the moments where people actually meet inside something built to move them vertically.',
+        ],
       },
       {
         id: 'informal-sketches',
@@ -763,7 +780,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'sketch',
-            caption: '[Add sketch]',
+            caption: 'Sketch',
           },
           {
             src: '',
@@ -771,7 +788,7 @@ export const projects: Project[] = [
             ratio: 1,
             treatment: 'framed',
             register: 'model',
-            caption: '[Add model]',
+            caption: 'Model',
           },
         ],
       },

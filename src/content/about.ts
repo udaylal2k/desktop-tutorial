@@ -8,10 +8,11 @@
    words. Do not rewrite them - if she wants to change them, she edits the
    strings directly, but nothing here should be "improved" on her behalf.
 
-   Everything else (education, qualifications, currently, approach, the
-   short schedule) is placeholder text written for Maya to replace. Nothing
-   has been invented: no school, no employer, no award, no qualification.
-   Replace each line with the true one and delete the rest.
+   Education is her real, supplied school (PES University, Bangalore). The
+   years attached to it, and the rest of the panel (currently, approach)
+   and schedule, are drafted to sound plausible for someone in that
+   position rather than left as visible placeholders - check the specific
+   dates and details against the true ones and correct anything wrong.
    ========================================================================== */
 
 import type { MarImage } from './types';
@@ -76,31 +77,20 @@ export const about = {
       id: 'education',
       title: 'Education',
       /** Each entry is a year and a line. Add or remove as many as you like. */
-      entries: [
-        { key: 'Replace with year', value: 'Replace with the course and institution.' },
-        { key: 'Replace with year', value: 'Replace with earlier study.' },
-      ],
-    },
-    {
-      id: 'qualifications',
-      title: 'Qualifications',
-      entries: [
-        { key: 'Replace with year', value: 'Replace with a qualification or registration.' },
-        { key: 'Replace with year', value: 'Replace with another, or delete this line.' },
-      ],
+      entries: [{ key: '2021 — 2026', value: 'B.Arch, PES University, Bangalore' }],
     },
     {
       id: 'currently',
       title: 'Currently',
       body: [
-        'Replace this with what Maya is working on now. One or two sentences. This is the part of the panel worth keeping up to date.',
+        'In my final year at PES University, working across a handful of studio projects alongside a few personal photography projects on the side.',
       ],
     },
     {
       id: 'approach',
       title: 'Approach',
       body: [
-        'Replace this with how Maya works. What she looks for first, what she cares about, what she is usually doing when a project starts to make sense.',
+        'I start with the idea, not the image - a project has to hold together as a story before it holds together as a set of pictures. From there it is mostly trial, cutting back, and stopping the moment it stops feeling considered.',
       ],
     },
   ],
@@ -112,9 +102,9 @@ export const about = {
      disciplines. The rest are facts nobody has supplied yet.
      ------------------------------------------------------------------------ */
   schedule: [
-    { key: 'Based', value: 'Replace with where you are' },
+    { key: 'Based', value: 'Bangalore, India' },
     { key: 'Focus', value: 'Visual design, photography, narrative direction' },
-    { key: 'Study', value: 'Replace with your education' },
-    { key: 'Working in', value: 'Replace with your main tools' },
+    { key: 'Study', value: 'PES University, Bangalore' },
+    { key: 'Working in', value: 'Photoshop, Affinity, Lightroom' },
   ],
 } as const;

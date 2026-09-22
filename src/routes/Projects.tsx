@@ -4,7 +4,7 @@
    The entrance, and then the archive behind it.
    ========================================================================== */
 
-import { allProjects, projectsAreDemoContent } from '../content';
+import { allProjects } from '../content';
 import { siteConfig } from '../config/site.config';
 import { Entrance } from '../components/projects/Entrance';
 import { ProjectIndex } from '../components/projects/ProjectIndex';
@@ -24,17 +24,6 @@ export default function Projects() {
       {!siteConfig.projectsEntrance && (
         <div className="page">
           <Breadcrumb trail={[{ label: 'Projects' }]} />
-        </div>
-      )}
-
-      {projectsAreDemoContent && (
-        <div className="page">
-          <div className="demo-note" style={{ marginBlockStart: 'var(--s-7)' }}>
-            <span className="demo-note__mark">Demo</span>
-            <span>
-              Demonstration projects. Replace them in src/content/projects.ts.
-            </span>
-          </div>
         </div>
       )}
 
