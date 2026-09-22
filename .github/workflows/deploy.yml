@@ -22,11 +22,17 @@
 
 name: Deploy to GitHub Pages
 
+# Only main: the github-pages environment only ever accepts a deployment
+# from the repository's default branch, so a run triggered by a push to a
+# claude/** feature branch always reaches the deploy job and fails there.
+# Worse, every deploy shares one concurrency group with cancel-in-progress,
+# so a feature-branch push made shortly after a push to main can cancel
+# that main run before it finishes, leaving nothing actually published.
+# Restricting the trigger to main avoids both.
 on:
   push:
     branches:
       - main
-      - 'claude/**'
   workflow_dispatch:
 
 # The permissions the Pages deployment needs, and nothing else.
