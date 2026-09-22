@@ -138,14 +138,6 @@ export function Home({ openAbout: shouldOpen = false }: { openAbout?: boolean })
               </div>
             </div>
           </Reveal>
-
-          <div className="demo-note home-record__demo">
-            <span className="demo-note__mark">Demo</span>
-            <span>
-              The informal photograph is a placeholder until Maya adds hers. See
-              CONTENT-GUIDE.md.
-            </span>
-          </div>
         </div>
       </section>
 
