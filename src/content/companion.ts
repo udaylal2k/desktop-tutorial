@@ -1,10 +1,9 @@
 /* ==========================================================================
    MAR - COMPANION
    --------------------------------------------------------------------------
-   The small companion that waits at the edge of the page.
-
-   It is off or on in src/config/site.config.ts. Everything about how it
-   behaves is here.
+   The small companion that waits at the edge of the page, asleep until it
+   is clicked (or tapped) awake. Everything about how it looks and moves is
+   configured here.
 
    TO USE PHOTOGRAPHS INSTEAD OF THE DRAWING
    Put three to five pictures in public/content/dog/ and list them below.
@@ -23,11 +22,34 @@ export const companion = {
    *  Pictures with the background already removed work best. */
   photographs: [] as string[],
 
-  /** Follows the cursor along the bottom of the window. Set to false and it
-   *  stays where it is and only reacts to scrolling. */
-  followsCursor: true,
-
-  /** How far along the bottom edge it sits when it has nothing to follow,
-   *  as a fraction of the window width. */
+  /** Where it sits while asleep, as a fraction of the window width. */
   restingPosition: 0.08,
+
+  /** How it moves once it has been clicked awake and is following the
+   *  cursor. Higher stiffness relative to damping gives it more overshoot
+   *  before it settles behind the pointer - a lag with character, rather
+   *  than tracking the cursor exactly. */
+  motion: {
+    stiffness: 130,
+    damping: 12,
+  },
+
+  /** While awake and following, it does not track the cursor forever
+   *  without a break: every so often (a random point in this range, in
+   *  milliseconds) it stops to sit and look around for a while (a random
+   *  duration in this range) before it carries on. */
+  pauseEvery: [2200, 4200] as [number, number],
+  pauseFor: [400, 1100] as [number, number],
+
+  /** There is no cursor on a phone, so a tap sends it wandering between
+   *  nearby points instead of following anything: a new point roughly
+   *  this often (milliseconds), within this fraction of the window width
+   *  of where it rests. */
+  mobileWander: {
+    every: [1400, 2600] as [number, number],
+    range: 0.5,
+  },
+
+  /** How long the wake and settle transitions take, in milliseconds. */
+  wakeDuration: 260,
 } as const;

@@ -11,6 +11,19 @@
   height: 4.5rem;
   z-index: var(--z-companion);
   pointer-events: none;
+  opacity: 1;
+  transition: opacity var(--dur-base) var(--ease-move);
+}
+
+/* Steps aside entirely once the footer comes into view, rather than sit
+   over the last content on the page. */
+.companion[data-hidden='true'] {
+  opacity: 0;
+}
+
+.companion[data-hidden='true'] .companion__figure,
+.companion[data-hidden='true'] .companion__off {
+  pointer-events: none;
 }
 
 .companion__figure {
@@ -21,11 +34,23 @@
   display: grid;
   justify-items: center;
   will-change: transform;
+  pointer-events: auto;
+  cursor: pointer;
+  border: 0;
+  padding: 0;
+  background: none;
+  appearance: none;
+}
+
+.companion__figure:focus-visible {
+  outline: var(--rule-w) solid var(--ink-quiet);
+  outline-offset: 4px;
 }
 
 .companion__body {
   width: 3rem;
   transform-origin: center bottom;
+  transform: scaleX(var(--facing, 1));
   transition: transform var(--dur-base) var(--ease-move);
 }
 
@@ -110,11 +135,37 @@
   }
 }
 
-/* Looking: the ear lifts while the page is moving. */
+/* Looking: the ear lifts while it is paused, looking around. */
 .companion__figure[data-pose='looking'] .companion__ear {
   transform-origin: 38px 14px;
   transform: rotate(-16deg);
   transition: transform var(--dur-base) var(--ease-enter);
+}
+
+/* ------------------------------------------------------------------ PHASES */
+
+/* Waking: a brief stand-up, on the way to following. */
+.companion__figure[data-phase='waking'] .companion__body {
+  animation: companion-wake var(--dur-slow) var(--ease-enter) both;
+}
+
+@keyframes companion-wake {
+  0% {
+    transform: scaleX(var(--facing, 1)) scaleY(0.88) translateY(2px);
+  }
+  60% {
+    transform: scaleX(var(--facing, 1)) scaleY(1.05) translateY(-1px);
+  }
+  100% {
+    transform: scaleX(var(--facing, 1)) scaleY(1) translateY(0);
+  }
+}
+
+/* A quiet hint that the figure is something to click, without shouting
+   about it - the whole point is that it is discovered, not advertised. */
+.companion__figure[data-phase='rest']:hover .companion__body,
+.companion__figure[data-phase='rest']:focus-visible .companion__body {
+  transform: scaleX(var(--facing, 1)) translateY(-1px);
 }
 
 /* ----------------------------------------------------------------- CONTROL */
@@ -171,7 +222,8 @@
 
 @media (prefers-reduced-motion: reduce) {
   .companion__figure[data-pose] .companion__body,
-  .companion__figure[data-pose] .companion__tail {
+  .companion__figure[data-pose] .companion__tail,
+  .companion__figure[data-phase] .companion__body {
     animation: none;
   }
 }
