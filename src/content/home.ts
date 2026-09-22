@@ -29,15 +29,10 @@ export const home = {
     titleLines: ['ART DIRECTOR', '+', 'DESIGNER'],
 
     image: {
-      src: '',
-      alt: 'Replace with a description of the hero photograph of Maya.',
+      src: '/content/portraits/hero.jpg',
+      alt: 'Maya, laughing, holding up a glass Coca-Cola bottle in a warm, eclectically decorated room.',
       ratio: 16 / 10,
       treatment: 'cover',
-      /* 'photograph' rather than 'portrait': this frame is wide and
-         environmental (Maya in a place, not a tight headshot), and the
-         portrait register's head-and-shoulders drawing was built for a
-         tall frame. 'photograph' draws a field/horizon composition that
-         holds its shape at any ratio. */
       register: 'photograph',
       label: 'Hero',
     } satisfies MarImage,
