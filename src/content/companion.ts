@@ -26,13 +26,13 @@ export const companion = {
    *  Pictures with the background already removed work best. */
   assets: {
     /** Resting, asleep at the edge of the window. */
-    idle: [] as string[],
+    idle: ['/content/dog/idle.png'],
     /** The moment it wakes, before it starts following. */
-    wake: [] as string[],
+    wake: ['/content/dog/wake.png'],
     /** Awake: following the cursor, or wandering on a phone. */
-    follow: [] as string[],
+    follow: ['/content/dog/follow.png'],
     /** On the way back down to idle, after the second click. */
-    settle: [] as string[],
+    settle: ['/content/dog/settle.png'],
   },
 
   /** Where it sits while asleep, as a fraction of the window width. */

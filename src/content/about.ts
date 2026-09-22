@@ -31,8 +31,8 @@ export const about = {
      change `src` below from '' to the path, and rewrite `alt`.
      ------------------------------------------------------------------------ */
   portraitInformal: {
-    src: '/content/portraits/hero.jpg',
-    alt: 'Maya, laughing, holding up a glass Coca-Cola bottle in a warm, eclectically decorated room.',
+    src: '/content/portraits/informal.webp',
+    alt: 'Maya taking a mirror selfie on her phone in a café with a red, trinket-covered wall.',
     ratio: 1,
     treatment: 'cover',
     register: 'photograph',
