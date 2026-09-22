@@ -60,108 +60,90 @@ export function Home({ openAbout: shouldOpen = false }: { openAbout?: boolean })
         description={`${site.name}. ${about.headline}`}
       />
 
-      {/* ------------------------------------------------------------- HERO
-          Photo-led. Maya's disciplines sit over the top of the photograph,
-          her supporting statement opposite them, and the dominant title
-          drops from the photograph onto the page below it - the image and
-          the type are composed together, not stacked as separate blocks. */}
-      <section className="hero" aria-labelledby="hero-title">
-        <div className="hero__frame">
-          <div className="hero__image-clip">
-            <Figure
-              image={home.hero.image}
-              priority
-              showCaption={false}
-              bare
-              seed="hero"
-            />
+      {/* ---------------------------------------------------------- OPENING */}
+      <section className="home-opening" aria-labelledby="home-title">
+        <div className="page">
+          <div className="home-opening__grid">
+            <motion.div
+              className="home-opening__text"
+              initial={reduced ? false : { opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+            >
+              <h1 id="home-title" className="home-opening__headline display-1">
+                {about.headline}
+              </h1>
+              <p className="lead home-opening__standfirst">{about.introduction}</p>
 
-            <div className="hero__overlay">
-              <motion.ul
-                className="hero__eyebrow"
-                initial={reduced ? false : { opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-              >
-                {home.hero.disciplines.map((discipline) => (
-                  <li key={discipline}>{discipline}</li>
-                ))}
-              </motion.ul>
+              <div className="home-opening__actions">
+                <button type="button" className="button button--primary" onClick={openAbout}>
+                  About
+                </button>
+                <Link to="/projects" className="button">
+                  Projects
+                </Link>
+              </div>
+            </motion.div>
 
-              <motion.p
-                className="hero__statement"
-                initial={reduced ? false : { opacity: 0, y: -10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-              >
-                {home.hero.statement}
-              </motion.p>
-            </div>
+            <motion.div
+              className="home-opening__portrait"
+              initial={reduced ? false : { opacity: 0, y: 32 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.24 }}
+            >
+              <Figure image={home.hero.image} priority showCaption={false} seed="formal" />
+              <p className="home-opening__portrait-note technical technical--micro">
+                Portrait
+              </p>
+            </motion.div>
+
+            <p className="home-opening__motto technical technical--micro">
+              {site.motto.join(' / ')}
+            </p>
           </div>
-
-          <motion.h1
-            id="hero-title"
-            className="hero__title"
-            initial={reduced ? false : { opacity: 0, y: 28 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.9, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-          >
-            {home.hero.titleLines.map((line, index) => (
-              <span key={index} className="hero__title-line">
-                {line}
-              </span>
-            ))}
-          </motion.h1>
         </div>
       </section>
 
-      {/* ------------------------------------------------------------ ABOUT
-          The editorial "02 (About Us)" room: Maya's own statement,
-          introduction and philosophy, with the informal portrait beside
-          them and a Read more into the full About panel. */}
-      <section className="about-intro room room--ruled" aria-labelledby="about-intro-title">
+      {/* ------------------------------------------------------ THE RECORD */}
+      <section className="home-record room" aria-labelledby="home-record-title">
         <div className="page">
-          <div className="about-intro__marks">
-            <p className="technical technical--micro">{home.intro.index}</p>
-            <p className="technical technical--micro about-intro__label">{home.intro.label}</p>
-            <p className="technical technical--micro">{home.intro.year}</p>
-          </div>
-
           <Reveal>
-            <h2 id="about-intro-title" className="about-intro__headline display-2">
-              {about.headline}
-            </h2>
-          </Reveal>
-
-          <Reveal delay={80}>
-            <div className="about-intro__grid">
-              <div className="about-intro__portrait">
+            <div className="home-record__grid">
+              <div className="home-record__informal">
                 <Figure image={about.portraitInformal} showCaption={false} seed="informal" />
-                <p className="technical technical--micro">Off duty</p>
+                <p className="technical technical--micro">Informal</p>
               </div>
 
-              <div className="about-intro__text">
-                <p className="about-intro__paragraph">{about.introduction}</p>
-              </div>
+              <div className="home-record__facts">
+                <h2 id="home-record-title" className="home-record__title display-3">
+                  The same person, twice.
+                </h2>
+                <p className="home-record__body">{about.philosophy}</p>
 
-              <div className="about-intro__text">
-                <p className="about-intro__paragraph">{about.philosophy}</p>
+                <dl className="spec home-record__spec">
+                  {about.schedule.map((item) => (
+                    <div key={item.key} className="spec__item">
+                      <dt className="spec__key">{item.key}</dt>
+                      <dd className="spec__value">{item.value}</dd>
+                    </div>
+                  ))}
+                </dl>
+
+                <button type="button" className="link-technical" onClick={openAbout}>
+                  Read the full account
+                  <span className="link-technical__arrow" aria-hidden="true">
+                    &#8594;
+                  </span>
+                </button>
               </div>
             </div>
-
-            <button type="button" className="button button--primary about-intro__more" onClick={openAbout}>
-              {about.readMore}
-              <span className="link-technical__arrow" aria-hidden="true">
-                &#8594;
-              </span>
-            </button>
           </Reveal>
 
-          <div className="demo-note about-intro__demo">
+          <div className="demo-note home-record__demo">
             <span className="demo-note__mark">Demo</span>
             <span>
-              Maya's statement above is her own supplied copy. The hero and informal
-              photographs are placeholders until she adds hers. See CONTENT-GUIDE.md.
+              The informal photograph is a placeholder until Maya adds hers. See
+              CONTENT-GUIDE.md.
             </span>
           </div>
         </div>

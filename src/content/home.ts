@@ -1,54 +1,43 @@
 /* ==========================================================================
    MAR - HOME HERO
    --------------------------------------------------------------------------
-   The opening of the site: Maya's own photograph with her own words set
-   directly into it. Every string here except the image is Maya's supplied
-   copy - do not rewrite it. If she wants a different hero line later, she
-   edits the string; nothing here should be "improved" on her behalf.
+   The home page went back to its earlier, simpler opening (headline,
+   portrait, a short standfirst - see routes/Home.tsx) rather than the
+   full-bleed photo hero this file was originally written for. `image` is
+   still the portrait shown there.
 
-   TO REPLACE THE HERO PHOTOGRAPH
-   Put a portrait or environmental photograph of Maya at
-   public/content/portraits/hero.jpg and change `image.src` below to
-   '/content/portraits/hero.jpg'. It should be strong enough to carry the
-   whole opening screen: the title sits over it, large, so choose a picture
-   with room for type rather than one that is already busy edge to edge.
+   `disciplines`, `statement` and `titleLines` are Maya's own supplied
+   words for the photo-led hero treatment and are kept here, unused for
+   now, rather than deleted - nothing currently on the page reads them,
+   but they are real client copy and may be wanted again. Do not rewrite
+   them if they do come back into use.
+
+   TO REPLACE THE PORTRAIT
+   Put a photograph of Maya at public/content/portraits/hero.jpg and
+   change `image.src` below to '/content/portraits/hero.jpg'.
    ========================================================================== */
 
 import type { MarImage } from './types';
 
 export const home = {
   hero: {
-    /** The small eyebrow set over the top of the photograph. */
+    /** Currently unused. See the file note above. */
     disciplines: ['Visual Design', 'Photography', 'Narrative Direction'],
 
-    /** The supporting line set over the photograph, opposite the eyebrow. */
+    /** Currently unused. See the file note above. */
     statement:
       'I turn strong ideas into visual worlds — considered, characterful and never without a point of view.',
 
-    /** The dominant typographic statement. Each string is its own line. */
+    /** Currently unused. See the file note above. */
     titleLines: ['ART DIRECTOR', '+', 'DESIGNER'],
 
     image: {
       src: '/content/portraits/hero.jpg',
       alt: 'Maya, laughing, holding up a glass Coca-Cola bottle in a warm, eclectically decorated room.',
-      ratio: 16 / 10,
+      ratio: 4 / 5,
       treatment: 'cover',
       register: 'photograph',
       label: 'Hero',
     } satisfies MarImage,
-  },
-
-  /* ------------------------------------------------------------------------
-     THE SECOND ROOM
-     Immediately after the hero: the editorial "About Us" structure - a
-     section number, a context label and a year, then Maya's statement,
-     introduction and philosophy (all three live in about.ts, since the
-     About panel repeats them). This object only holds the marks around
-     them.
-     ------------------------------------------------------------------------ */
-  intro: {
-    index: '02',
-    label: '(About Us)',
-    year: '© 2026',
   },
 } as const;
