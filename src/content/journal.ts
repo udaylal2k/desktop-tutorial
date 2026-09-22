@@ -189,21 +189,27 @@ export const journal: JournalEntry[] = [
   },
 ];
 
-/** Printed at the top of each category on the Journal page. */
+/** Printed at the top of each category on the Journal page.
+ *  The Notes description below is Maya's own supplied line - keep it as
+ *  given. Research and Articles are placeholder copy written to the tone
+ *  she asked for (Research more structured, Articles more publication-
+ *  oriented) and can be replaced the same way. */
 export const journalCategories = [
   {
     id: 'research' as const,
     name: 'Research',
-    description: 'Papers, studies and investigations. Longer, and slower to write.',
+    description: 'Structured investigations: visual research, references and the studies behind a piece of work.',
   },
   {
     id: 'articles' as const,
     name: 'Articles',
-    description: 'Writing addressed to a reader outside the discipline.',
+    description: 'Writing made for publication - pieces addressed to a reader outside the studio.',
   },
   {
     id: 'notes' as const,
     name: 'Notes',
-    description: 'Fragments. Ideas that have not finished moving.',
+    /* Maya's own supplied line. Do not rewrite it. */
+    description:
+      'A collection of things still being figured out — observations, references, images and ideas that are not quite finished enough to call conclusions.',
   },
 ];

@@ -21,8 +21,8 @@ will not break any of it.
 ### The five rules
 
 1. **Only ever change the text between the quote marks.** Everything in a
-   content file looks like `title: 'Courtyard Dwelling',`. Change
-   `Courtyard Dwelling`. Leave the `title:`, the quote marks and the comma
+   content file looks like `title: 'Campus Design',`. Change
+   `Campus Design`. Leave the `title:`, the quote marks and the comma
    exactly as they are.
 2. **Keep every comma.** Each line ends with a comma. If you delete one,
    the website will not load. If that happens, put it back.
@@ -43,6 +43,41 @@ npm run dev
 
 It prints a web address. Open it in a browser. Leave it running while you
 work; every time you save a file the page updates itself.
+
+---
+
+## How to install Maya's real fonts
+
+**Files:** `public/fonts/`, `src/styles/fonts.css`, `src/styles/tokens.css`
+
+The two typefaces the website uses right now - Cabinet Grotesk for
+headings, navigation and reading copy, and Newsreader for the occasional
+pull quote - are **stand-ins**, chosen to match the weight and character
+of the brief as closely as possible without inventing a font name that
+was never supplied. They are not the final fonts. Replace them as soon
+as the real ones are available.
+
+1. Get the real font files (`.woff2` is best; ask whoever supplies them
+   for it if they only have `.ttf` or `.otf`). Put them in
+   `public/fonts/`.
+2. Open `src/styles/fonts.css`. Near the top are two `@font-face` blocks
+   for `'Cabinet Grotesk'` (the primary display/sans) and four for
+   `'Newsreader'` (the secondary editorial serif, one per weight and
+   style). Change each `src: url('/fonts/...')` line to point at the new
+   file, and change the `font-family` name to match the real typeface.
+3. Open `src/styles/tokens.css` and find `--font-display`,
+   `--font-editorial` and `--font-serif-accent`. Change the font name in
+   each to match what you set in step 2. `--font-technical` (the small
+   monospace numbers and labels) is not part of this brief and can stay
+   as it is.
+
+Nothing else needs to change. Every component reads the font through
+those three settings rather than naming a typeface itself, so updating
+them updates the whole website at once.
+
+If a real name is supplied but the file itself is not, do not substitute
+a similar-looking system font in its place - leave the current stand-in
+in use, and note in your own records which name is still owed.
 
 ---
 
@@ -88,8 +123,8 @@ You change two things:
 
 ```js
 {
-  src: '/content/projects/courtyard-dwelling/cover.jpg',
-  alt: 'The court seen from the kitchen door, early morning.',
+  src: '/content/projects/campus-design/cover.jpg',
+  alt: 'The shared court seen from the main entrance, early morning.',
   ratio: 3 / 2,
   treatment: 'cover',
   register: 'photograph',
@@ -146,22 +181,26 @@ you put the real picture in. You can fill the site in slowly.
 
 **File:** `src/content/projects.ts`
 
-Open it. You will see four demonstration projects, each starting with
-`{` and ending with `},`. Copy one whole block, paste it at the top of the
-list, and change the values.
+Open it. You will see your five projects, each starting with `{` and
+ending with `},`. Copy one whole block, paste it wherever you want it to
+sit in the list, and change the values.
 
 ```js
 {
-  id: 'courtyard-dwelling',
+  id: 'campus-design',
   number: 'P.001',
-  title: 'Courtyard Dwelling',
-  year: '2024',
-  location: 'Inland site',
-  type: 'Residential',
-  status: 'academic',
-  shortDescription: 'A small house arranged around one open room.',
+  title: 'Campus Design',
+  year: '[Add year]',
+  location: '[Add site location]',
+  type: 'Campus',
+  siteSize: '[Add site size]',
+  program: '[Add program]',
+  focus: 'A short line describing the central idea.',
+  role: '[Add role]',
+  status: 'unspecified',
+  shortDescription: 'One line, printed in the index.',
   description: 'A longer paragraph, printed at the top of the page.',
-  tools: ['Rhino', 'AutoCAD', 'Illustrator'],
+  tools: ['AutoCAD', 'Revit'],
   coverImage: { ... },
   sections: [ ... ],
   archive: ['a-001', 'a-002'],
@@ -169,18 +208,47 @@ list, and change the values.
 },
 ```
 
-| Line | What to write |
-| --- | --- |
-| `id` | The web address. Lower case, hyphens, no spaces. Must be different from every other project. |
-| `number` | Your archive number: `P.001`, `P.002`, and so on. |
-| `title` | The name of the project. |
-| `year` | A year, in quote marks. |
-| `location` | Anything you like. It becomes a filter on the projects page by itself. |
-| `type` | Anything you like: `Residential`, `Public`, `Adaptive reuse`. Also becomes a filter. |
-| `status` | One of exactly these: `completed`, `in-progress`, `proposal`, `academic`, `competition`. |
-| `shortDescription` | One line, printed in the index. |
-| `description` | A short paragraph, printed at the top of the project page. |
-| `tools` | A list in square brackets: `['Rhino', 'Photoshop']`. |
+### How to change a project title
+
+Change the `title` line. Nothing else needs to change - the web address
+(`id`) and the archive number (`number`) can stay as they are, or you can
+change them too as long as `id` stays unique and web-address-safe (lower
+case, hyphens, no spaces).
+
+### The information fields
+
+These print in the panel of facts beside the title, and most of them
+double as filters in the project archive. Leave any of them as the
+bracketed placeholder shown above until you have the real answer - never
+guess at a fact.
+
+| Field | Printed as | What to write |
+| --- | --- | --- |
+| `year` | Year | A year, in quote marks, e.g. `'2025'`. **How to add a year.** |
+| `location` | Site location | City, country, e.g. `'Berlin, Germany'`. Also a filter. **How to add site location.** |
+| `siteSize` | Site size | An area, e.g. `'2,400 m²'`. **How to add site size.** |
+| `program` | Program | What the project contains or was designed to accommodate. **How to add program.** |
+| `focus` | Focus | The central idea the project investigates - one considered line, not a raw fact. Safe to write yourself. **How to add focus.** |
+| `role` | Role | `Individual`, `Collaboration`, `Design`, `Documentation`, or your own. **How to add role.** |
+| `status` | Status | One of exactly: `completed`, `in-progress`, `proposal`, `academic`, `competition`, `unspecified`. Use `unspecified` until you know - it prints as "To be confirmed" rather than a guess. |
+| `type` | (not printed) | Anything you like: `Residential`, `Campus`, `Civic`. Used only to group and filter the archive. |
+| `shortDescription` | (index only) | One line, printed in the project archive. |
+| `description` | (page top) | A short paragraph, printed at the top of the project page. |
+
+### How to select software
+
+**Field:** `tools`, on the project itself.
+
+```js
+tools: ['AutoCAD', 'Revit', 'Rhino 3D'],
+```
+
+The website's software bar only understands six exact names - `'AutoCAD'`,
+`'SketchUp'`, `'Revit'`, `'Rhino 3D'`, `'Photoshop'`, `'Affinity'` - so that
+it can print a proper bar rather than guess at an unknown one. List only
+the ones actually used on that project. Leave the list empty (`tools: []`)
+until you know, rather than listing everything "just in case" - the bar
+then shows `[Add tools]` instead of inventing a workflow.
 
 **To hide a project without deleting it**, add `draft: true,` anywhere
 inside its block. It stays in the file and disappears from the website.
@@ -272,7 +340,20 @@ Each section is one block inside `sections: [ ... ]`.
 
 Every section needs an `id` that is different from the others in the same
 project. To move a section, cut the whole block and paste it somewhere else
-in the list. To remove one, delete the block.
+in the list. To remove one, delete the block. Nothing forces every project
+to use every kind, or to use them in the same order - a project can skip
+straight from an introduction to drawings with nothing in between, and the
+next one can be built completely differently.
+
+**A suggested numbering**, if you want one, is to put it in each section's
+`label`: `01 — Introduction`, `02 — Concept`, `03 — Context`, `04 — Design
+development`, `05 — Drawings`, `06 — Plans`, `07 — Sections`,
+`08 — Elevations`, `09 — Visualisations`, `10 — Process`, `11 — Final
+work`, `12 — Archive`. It is only text in a `label` field - the website
+does not enforce it, so use as many or as few of the twelve as a project
+actually needs, in whatever order tells that project's story, and reorder
+or drop any of them at any time by editing the `label` and moving the
+block.
 
 ### Adding drawings, plans and sections
 
@@ -280,8 +361,8 @@ They are just pictures with a different `register` and `treatment`:
 
 ```js
 {
-  src: '/content/projects/courtyard-dwelling/section-long.jpg',
-  alt: 'Long section cut through the court, looking east.',
+  src: '/content/projects/campus-design/section-long.jpg',
+  alt: 'Long section cut through the shared hall, looking east.',
   ratio: 2 / 1,
   treatment: 'contain',
   register: 'section',
@@ -344,9 +425,18 @@ That is the point of it.
 
 There are three kinds of writing, and they live in one place:
 
-- **`research`**: papers, studies, investigations.
-- **`articles`**: writing for a reader outside the discipline.
-- **`notes`**: fragments, observations, things still moving.
+- **`research`**: papers, studies, investigations. The more structured of
+  the three - state the question early, and be honest about how far it got.
+- **`articles`**: writing made for publication, addressed to a reader
+  outside the studio.
+- **`notes`**: fragments, observations, things still moving. The most
+  personal and the least finished of the three - a note does not have to
+  resolve, or even to be kept once it stops being interesting.
+
+The line under each category's name at the top of the Journal page (in
+`journalCategories`, near the bottom of the same file) can be edited the
+same way - the one for Notes is Maya's own supplied wording, so leave
+that one as given.
 
 Copy a block, paste it at the top, change the values.
 
@@ -448,7 +538,7 @@ The archive is the wider body of material behind the finished work.
   title: 'First plan, discarded',
   kind: 'sketch',
   date: '2024-02-11',
-  project: 'courtyard-dwelling',
+  project: 'campus-design',
   description: 'One or two lines.',
   image: { ... },
   tags: ['plan', 'discarded'],
@@ -479,7 +569,7 @@ Every project, entry, interest and archive item has a `related` list:
 related: [
   { kind: 'interest', id: 'photography' },
   { kind: 'journal', id: 'light-as-a-material' },
-  { kind: 'project', id: 'reading-rooms' },
+  { kind: 'project', id: 'library-that-tells-time' },
 ],
 ```
 
@@ -492,20 +582,44 @@ something, the links to it disappear quietly instead of breaking.
 
 ---
 
+## How to replace the hero image
+
+**Files:** `public/content/portraits/` and `src/content/home.ts`
+
+This is the large photograph behind the opening title on the home page -
+not the small "Off duty" one further down the page, which is covered
+next.
+
+1. Put a portrait or environmental photograph of Maya at
+   `public/content/portraits/hero.jpg`. Choose one with room for large
+   type over the top of it rather than one that is already busy edge to
+   edge - the title sits directly on it.
+2. Open `src/content/home.ts`.
+3. Change `image.src: ''` to `image.src: '/content/portraits/hero.jpg'`.
+4. Rewrite the `alt` line under it.
+
+`disciplines`, `statement` and `titleLines` in that same file are Maya's
+own supplied words. Leave them exactly as given unless she asks for a
+change herself.
+
+---
+
 ## How to change your portrait
 
 **Files:** `public/content/portraits/` and `src/content/about.ts`
 
-1. Put `formal.jpg` (tall, 4 by 5) and `informal.jpg` (square) in
-   `public/content/portraits/`.
-2. Open `src/content/about.ts`.
-3. Change `src: ''` to `src: '/content/portraits/formal.jpg'`.
-4. Rewrite the `alt` line under it.
-5. Do the same for `portraitInformal`.
+This is the small, square, informal photograph ("Off duty") beside the
+About text further down the home page.
 
-While you are in that file, replace `headline`, `standfirst`, the five
-sections of the About panel, and the short `schedule` beside the portraits.
-Every line in there is placeholder text written for you to overwrite.
+1. Put `informal.jpg` (square) in `public/content/portraits/`.
+2. Open `src/content/about.ts`.
+3. Change `src: ''` to `src: '/content/portraits/informal.jpg'`.
+4. Rewrite the `alt` line under it.
+
+While you are in that file, replace the five sections of the About panel
+and the short `schedule` beside the portrait. `headline`, `introduction`
+and `philosophy` are Maya's own supplied words - leave those as given.
+Everything else in there is placeholder text written for you to overwrite.
 
 Delete any panel section you do not want. The panel adjusts.
 
@@ -514,6 +628,10 @@ Delete any panel section you do not want. The panel adjusts.
 ## How to change the entrance picture
 
 **Files:** `public/content/hero/` and `src/content/entrance.ts`
+
+This is the different, architectural cover at the entrance to the
+**Projects** section (the one the day passes over as you scroll) - not
+either of the two photographs above, which belong to the home page.
 
 1. Put a wide photograph or render at
    `public/content/hero/entrance.jpg`. Something with open sky in the upper
@@ -557,31 +675,55 @@ in the same file. To drop `location` or `availability`, set them to `''`.
 
 **Files:** `src/config/site.config.ts` and `src/content/companion.ts`
 
-**To switch it off entirely**, open `src/config/site.config.ts` and change:
+Maya's own dog, resting quietly at the edge of the window. It does
+nothing until it is clicked (or, on a phone, tapped): a click wakes it,
+and it follows along at a distance - not attached to the cursor, but
+trailing it with a bit of a lag - until a second click settles it back
+down to rest.
+
+### How to enable/disable the dog
+
+Open `src/config/site.config.ts` and change:
 
 ```js
 dogCompanion: true,
 ```
 
-to `false`. It leaves the whole website.
+to `false`. It leaves the whole website. Visitors can also switch it off
+for themselves with the small control beside it, and the website
+remembers their choice for their next visit.
 
-**To use photographs instead of the drawn figure**, put three to five
-pictures in `public/content/dog/` and list them in
-`src/content/companion.ts`:
+### How to add dog assets
+
+Once real photographs of the dog exist, put them in `public/content/dog/`
+and list them in `src/content/companion.ts`, inside `assets`:
 
 ```js
-photographs: ['/content/dog/01.png', '/content/dog/02.png'],
+assets: {
+  idle: ['/content/dog/resting-01.png'],
+  wake: ['/content/dog/alert-01.png'],
+  follow: ['/content/dog/walking-01.png', '/content/dog/walking-02.png'],
+  settle: ['/content/dog/sitting-01.png'],
+},
 ```
 
-Pictures with the background already removed (a `.png` with transparency)
-work best.
+There is one list per state, so the picture can change with what the dog
+is doing. Every list is optional - leave any of them empty (`[]`) and
+that state borrows a photograph from `idle` instead, and if `idle` is
+empty too, the drawn placeholder figure is used throughout. List more
+than one picture in a list and the website cycles between them as a
+visitor moves from page to page. Pictures with the background already
+removed (a `.png` with transparency) work best.
 
-Other settings in that file: `name`, `followsCursor` (set to `false` and it
-stays put), and `restingPosition` (where it waits, as a fraction across the
-window).
-
-Visitors can also switch it off for themselves with the small control
-beside it, and the website remembers their choice.
+Other settings in that file: `name` (used in the on-screen "switch off"
+control), `restingPosition` (where it waits, as a fraction across the
+window), and, further down, the numbers that shape how it moves once
+awake - `motion` (how much it lags and overshoots as it follows),
+`pauseEvery`/`pauseFor` (how often, and for how long, it stops to sit and
+look around), and `mobileWander` (how far and how often it wanders on a
+phone, where there is no cursor for it to follow). Each one is commented
+in the file; the numbers already in place are a reasonable starting
+point.
 
 ---
 

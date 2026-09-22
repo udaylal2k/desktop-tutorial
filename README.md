@@ -69,7 +69,7 @@ The workflow runs the typecheck and the lint before it builds, so a change
 that breaks the site is caught before it is published rather than after.
 
 **Why there is a `404.html`.** GitHub Pages cannot rewrite unknown paths to
-`index.html`, so a visitor opening `/projects/courtyard-dwelling` directly
+`index.html`, so a visitor opening `/projects/campus-design` directly
 would get a dead end. The build writes a `404.html` that hands the requested
 address to the app through the query string; a short script in `index.html`
 unpacks it and restores the real address before React starts. Deep links,
@@ -184,10 +184,16 @@ entrance to Projects, where a day passes over the work. It is scoped to
 
 ### Typography
 
-Three voices, self hosted, no third party request at runtime:
+Four voices, self hosted, no third party request at runtime:
 
-- **Display**: Syne, 700 and 800. Large, architectural, slightly playful.
-- **Editorial**: Schibsted Grotesk. Drawn for newspaper reading.
+- **Display** and **Editorial**: Cabinet Grotesk, one variable family
+  (weight axis 100-900) carrying both the hero/heading voice and the
+  reading/navigation voice. This is a placeholder standing in for the
+  client's own supplied typeface - see CONTENT-GUIDE.md, "How to install
+  Maya's real fonts".
+- **Serif accent**: Newsreader. Used sparingly - pull quotes, reflective
+  writing - never as the everyday reading face. Also a placeholder,
+  pending the client's second supplied typeface.
 - **Technical**: IBM Plex Mono. Project numbers, dates, codes, metadata.
 
 Technical type is always tracked out and set in capitals. Editorial type
@@ -224,8 +230,9 @@ resize, and no pin spacing to go wrong. It also saves a dependency the rest
 of the site would not use.
 
 No continuous value is ever held in React state. Scroll progress, the sun's
-position, the companion's position and its presence are all motion values,
-so moving the cursor or the page does not re-render the tree.
+position and the companion's position are all motion values, written to
+directly from a `requestAnimationFrame` loop while it is awake, so moving
+the cursor or the page does not re-render the tree.
 
 `window.addEventListener('scroll')` is not used anywhere. Scroll linked work
 goes through `useScroll`; reveals go through `IntersectionObserver`.

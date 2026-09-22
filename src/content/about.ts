@@ -21,26 +21,15 @@ export const about = {
   name: 'Maya',
 
   /* ------------------------------------------------------------------------
-     THE TWO PORTRAITS
-     The home page shows Maya twice: once as she presents herself (the hero,
-     full-bleed), once as she actually is (a smaller, informal frame beside
-     the About text). Replace both files and keep the proportions.
+     THE INFORMAL PORTRAIT
+     The home page shows Maya as she actually is, in a small square frame
+     beside the About text ("Off duty"). The other photograph - the large
+     one behind the hero title - lives separately, in src/content/home.ts,
+     since it carries the opening of the site rather than the About room.
 
-     Put the photographs at:
-       public/content/portraits/formal.jpg     (tall, roughly 4 wide by 5 tall)
-       public/content/portraits/informal.jpg   (square)
-
-     Then change `src` below from '' to the path, and rewrite `alt`.
+     Put the photograph at public/content/portraits/informal.jpg, then
+     change `src` below from '' to the path, and rewrite `alt`.
      ------------------------------------------------------------------------ */
-  portraitFormal: {
-    src: '',
-    alt: "Replace with a description of Maya's hero portrait.",
-    ratio: 4 / 5,
-    treatment: 'cover',
-    register: 'portrait',
-    label: 'Portrait',
-  } satisfies MarImage,
-
   portraitInformal: {
     src: '',
     alt: "Replace with a description of Maya's informal photograph.",
