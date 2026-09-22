@@ -12,6 +12,7 @@
    ========================================================================== */
 
 import { siteConfig } from '../../config/site.config';
+import { assetPath } from '../../lib/assetPath';
 import './logo.css';
 
 type LogoTone =
@@ -46,7 +47,7 @@ export function MarLogo({
   if (siteConfig.suppliedLogo) {
     return (
       <img
-        src={siteConfig.suppliedLogo}
+        src={assetPath(siteConfig.suppliedLogo)}
         alt={title || ''}
         className={['mar-logo', 'mar-logo--supplied', className].filter(Boolean).join(' ')}
         style={size ? { height: size } : undefined}

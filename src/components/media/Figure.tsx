@@ -16,6 +16,7 @@
 import { useState } from 'react';
 import type { MarImage } from '../../content/types';
 import { Plate } from '../placeholders/Plate';
+import { assetPath } from '../../lib/assetPath';
 import './figure.css';
 
 interface FigureProps {
@@ -65,7 +66,7 @@ export function Figure({
         ) : (
           <img
             className="figure__image"
-            src={image.src}
+            src={assetPath(image.src)}
             alt={image.alt}
             loading={priority ? 'eager' : 'lazy'}
             decoding={priority ? 'sync' : 'async'}

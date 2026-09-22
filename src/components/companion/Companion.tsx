@@ -31,6 +31,7 @@ import { useEffect, useRef, useState } from 'react';
 import { motion, useMotionValue } from 'motion/react';
 import { companion } from '../../content/companion';
 import { usePrefersReducedMotion, useIsTouch } from '../../lib/hooks';
+import { assetPath } from '../../lib/assetPath';
 import './companion.css';
 
 const STORAGE_KEY = 'mar.companion';
@@ -322,7 +323,7 @@ export function Companion() {
           style={{ '--facing': facing } as React.CSSProperties}
         >
           {photo ? (
-            <img className="companion__photo" src={photo} alt="" loading="lazy" />
+            <img className="companion__photo" src={assetPath(photo)} alt="" loading="lazy" />
           ) : (
             <CompanionDrawing />
           )}
