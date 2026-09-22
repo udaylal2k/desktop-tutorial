@@ -78,27 +78,25 @@
 
   /* ----------------------------------------------------------------------
      2. TYPOGRAPHY
-     Four voices. Display speaks, editorial reads, the serif accent turns a
-     phrase, technical records.
+     One typeface, everywhere - the wordmark, the hero, every heading, the
+     reading copy, the navigation and the small technical labels. Poppins,
+     at the weight that fits each role. Hierarchy comes from size, weight,
+     spacing and colour rather than from switching families.
 
-     PLACEHOLDER NOTICE: --font-display and --font-editorial both point at
-     Cabinet Grotesk, a stand-in for Maya's own typeface until its name or
-     files are supplied. See src/styles/fonts.css for the full explanation.
-     Nothing outside this file names a font directly, so replacing the real
-     family later is a two-line edit: swap the @font-face src and swap the
-     name here. --font-serif-accent (Newsreader) is a genuine fourth voice
-     from the brief, not a placeholder - it stays even once the real sans
-     arrives, unless Maya asks otherwise.
+     Nothing outside this file names a font directly - every component
+     reads one of these four tokens - so changing the family again (for
+     example once Maya supplies her own) is a two-line edit: swap the
+     @font-face src in fonts.css and swap the name in the four lines below.
      ---------------------------------------------------------------------- */
-  --font-display: 'Cabinet Grotesk', system-ui, sans-serif;
-  --font-editorial: 'Cabinet Grotesk', system-ui, -apple-system, sans-serif;
-  --font-serif-accent: 'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-technical: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+  --font-display: 'Poppins', system-ui, sans-serif;
+  --font-editorial: 'Poppins', system-ui, -apple-system, sans-serif;
+  --font-serif-accent: 'Poppins', system-ui, sans-serif;
+  --font-technical: 'Poppins', system-ui, sans-serif;
 
-  /* The display voice runs heavy: Cabinet Grotesk's weight axis reaches
-     Black, and the brief calls for type with real confidence and presence,
-     not merely bold. --weight-hero is reserved for the single largest
-     typographic statement on the site (the home hero title). */
+  /* The display voice runs heavy: Poppins reaches Black, and the brief
+     calls for type with real confidence and presence, not merely bold.
+     --weight-hero is reserved for the single largest typographic
+     statement on the site (the home hero title). */
   --weight-hero: 900;
   --weight-display: 800;
   --weight-editorial: 400;
