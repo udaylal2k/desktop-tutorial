@@ -110,10 +110,10 @@ export function Companion() {
     return () => observer.disconnect();
   }, []);
 
-  /* Change photograph on each new page, if there are photographs. */
+  /* Change photograph on each new page, if there are enough to cycle. */
   useEffect(() => {
-    if (companion.photographs.length < 2) return;
-    setPhotoIndex((index) => (index + 1) % companion.photographs.length);
+    if (companion.assets.idle.length < 2) return;
+    setPhotoIndex((index) => index + 1);
   }, []);
 
   /* The pointer is only worth listening to while something is awake to
@@ -130,7 +130,7 @@ export function Companion() {
   /* On a phone there is no cursor, so being awake means wandering between
      nearby points instead of following one. */
   useEffect(() => {
-    if (!touch || phase !== 'following') return;
+    if (!touch || reduced || phase !== 'following') return;
     let timer = 0;
     const pick = () => {
       const width = window.innerWidth;
@@ -141,7 +141,7 @@ export function Companion() {
     };
     pick();
     return () => window.clearTimeout(timer);
-  }, [touch, phase]);
+  }, [touch, reduced, phase]);
 
   /* The follow-and-settle loop. Runs only while there is somewhere to go:
      awake and following, or on the way back down to rest. Everything it
@@ -236,11 +236,18 @@ export function Companion() {
     };
   }, [enabled, reduced, phase, touch, x]);
 
-  /* A click (or tap) wakes it, or sends it back to rest. Ignored under
-     reduced motion: the companion then stays put, a still drawing rather
-     than an interactive toy, and only the off switch still does anything. */
+  /* A click (or tap) wakes it, or sends it back to rest. Under reduced
+     motion there is no wake stand-up and no cursor-chasing loop - it never
+     leaves the resting spot - but a click still does something: a simple,
+     immediate switch to an "awake" acknowledgement (ears up) and back,
+     rather than the interaction doing nothing at all. */
   const activate = () => {
-    if (!enabled || reduced) return;
+    if (!enabled) return;
+
+    if (reduced) {
+      setPhase((current) => (current === 'rest' ? 'following' : 'rest'));
+      return;
+    }
 
     if (phase === 'rest') {
       pointerXRef.current = posRef.current;
@@ -285,7 +292,14 @@ export function Companion() {
     );
   }
 
-  const photo = companion.photographs[photoIndex];
+  const byPhase: Record<Phase, readonly string[]> = {
+    rest: companion.assets.idle,
+    waking: companion.assets.wake,
+    following: companion.assets.follow,
+    settling: companion.assets.settle,
+  };
+  const photos = byPhase[phase].length > 0 ? byPhase[phase] : companion.assets.idle;
+  const photo = photos.length > 0 ? photos[photoIndex % photos.length] : undefined;
   const awake = phase === 'following' || phase === 'waking';
   const actionLabel = awake ? `Settle ${companion.name.toLowerCase()}` : `Wake ${companion.name.toLowerCase()}`;
 
@@ -294,7 +308,7 @@ export function Companion() {
       <motion.button
         type="button"
         className="companion__figure"
-        data-phase={reduced ? 'rest' : phase}
+        data-phase={phase}
         data-pose={reduced ? 'sitting' : pose}
         onClick={activate}
         tabIndex={nearFooter ? -1 : 0}

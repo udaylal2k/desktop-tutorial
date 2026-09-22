@@ -226,6 +226,19 @@
   .companion__figure[data-phase] .companion__body {
     animation: none;
   }
+
+  /* No stand-up, no following - but a click still does something: a
+     simple, brief acknowledgement in place, rather than nothing at all. */
+  .companion__figure[data-phase='following'] .companion__ear {
+    transform: rotate(-16deg);
+    transition: transform 200ms ease;
+  }
+
+  .companion__figure[data-phase='following'] .companion__tail {
+    transform-origin: 8px 18px;
+    transform: rotate(-4deg);
+    transition: transform 200ms ease;
+  }
 }
 
 /* When the window is short there is no spare strip to stand in. */

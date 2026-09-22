@@ -17,10 +17,23 @@ export const companion = {
    *  readers. Replace with the name, if there is one. */
   name: 'Companion',
 
-  /** Photographs, if you have them. For example:
-   *    ['/content/dog/01.png', '/content/dog/02.png', '/content/dog/03.png']
+  /** Photographs, if you have them, one list per state so a photograph can
+   *  change with what the companion is doing. Each list is optional: leave
+   *  it empty and that state falls back to `idle`, and if `idle` is empty
+   *  too the drawn placeholder is used throughout. For example:
+   *    idle:   ['/content/dog/resting-01.png', '/content/dog/resting-02.png']
+   *    follow: ['/content/dog/alert-01.png']
    *  Pictures with the background already removed work best. */
-  photographs: [] as string[],
+  assets: {
+    /** Resting, asleep at the edge of the window. */
+    idle: [] as string[],
+    /** The moment it wakes, before it starts following. */
+    wake: [] as string[],
+    /** Awake: following the cursor, or wandering on a phone. */
+    follow: [] as string[],
+    /** On the way back down to idle, after the second click. */
+    settle: [] as string[],
+  },
 
   /** Where it sits while asleep, as a fraction of the window width. */
   restingPosition: 0.08,
